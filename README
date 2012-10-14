@@ -1,0 +1,13 @@
+LoopINLoopOUT
+-------------------------------------------
+Sample, Loop, and Stem repository
+
+- Dependencies: 
+https://github.com/benalavi/waveform
+This gem is used to generate waveform from wav to png
+	- Depends on ruby-audio gem
+	- Depends on oily_png
+	- Depends on chunky_png
+On OSX or linux you need to have: 
+mac - brew install libsndfile
+linux - apt-get install libsndfile1-dev
