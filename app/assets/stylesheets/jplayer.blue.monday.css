@@ -30,29 +30,10 @@ div.jp-video {
 	background-color:#eee;
 }
 div.jp-audio {
-	width:420px;
-	background: url("I_Believe.png") 0 0 no-repeat;
-}
-div.jp-video-270p {
-	width:480px;
-}
-div.jp-video-360p {
-	width:640px;
-}
-div.jp-video-full {
-	/* Rules for IE6 (full-screen) */
-	width:480px;
-	height:270px;
-	/* Rules for IE7 (full-screen) - Otherwise the relative container causes other page items that are not position:static (default) to appear over the video/gui. */
-	position:static !important; position:relative
+	width:600px;
 }
 
-/* The z-index rule is defined in this manner to enable Popcorn plugins that add overlays to video area. EG. Subtitles. */
-div.jp-video-full div div {
-	z-index:1000;
-}
-
-div.jp-video-full div.jp-jplayer {
+div.jp-jplayer {
 	top: 0;
 	left: 0;
 	position: fixed !important; position: relative; /* Rules for IE6 (full-screen) */
@@ -78,13 +59,16 @@ div.jp-interface {
 	position: relative;
 	background-color:#eee;
 	width:100%;
+	background: url("/assets/believe.png") 0 0 no-repeat; /*Put waveform here */
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {
-	height:80px;
+	height:100px;
+	width: 600px;
 }
 div.jp-audio div.jp-type-playlist div.jp-interface {
 	height:80px;
+	width: 600px;
 }
 
 div.jp-video div.jp-interface {
@@ -109,27 +93,40 @@ div.jp-interface ul.jp-controls {
 	overflow:hidden;
 }
 
+ul.jp-controls {
+	list-style-type:none;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+}
+
 div.jp-audio ul.jp-controls {
-	width: 380px;
-	padding:20px 20px 0 20px;
+	width: 600px;
+	/*padding:20px 20px 0 20px;*/
+}
+ul.jp-controls {
+	width: 800px;
+	/*padding:20px 20px 0 20px;*/
 }
 
-div.jp-video div.jp-type-single ul.jp-controls {
-	width: 78px;
-	margin-left: 200px;
-}
-
-div.jp-video div.jp-type-playlist ul.jp-controls {
-	width: 134px;
-	margin-left: 172px;
-}
 div.jp-video ul.jp-controls,
 div.jp-interface ul.jp-controls li {
 	display:inline;
 	float: left;
 }
 
+ul.jp-controls li {
+	display:inline;
+	float: left;
+}
+
 div.jp-interface ul.jp-controls a {
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+
+ul.jp-controls a {
 	display:block;
 	overflow:hidden;
 	text-indent:-9999px;
@@ -193,12 +190,12 @@ div.jp-progress {
 }
 div.jp-audio div.jp-progress {
 	position: absolute;
-	top:32px;
+	top:0px;
 	height:15px;
 }
 div.jp-audio div.jp-type-single div.jp-progress {
-	left:110px;
-	width:186px;
+	left:0px;
+	width:600px;
 }
 div.jp-audio div.jp-type-playlist div.jp-progress {
 	left:166px;
@@ -208,17 +205,17 @@ div.jp-video div.jp-progress {
 	top:0px;
 	left:0px;
 	width:100%;
-	height:10px;
+	height:100px;
 }
 div.jp-seek-bar {
 	background: url("jplayer.blue.monday.jpg") 0 -202px repeat-x;
-	width:0px;
+	width:50px;
 	height:100%;
 	cursor: pointer;
 }
 div.jp-play-bar {
 	background: url("jplayer.blue.monday.jpg") 0 -218px repeat-x ;
-	width:0px;
+	width:50px;
 	height:100%;
 }
 
@@ -237,7 +234,7 @@ a.jp-unmute,
 a.jp-volume-max {
 	width:18px;
 	height:15px;
-	margin-top:12px;
+	margin-top:10px;
 }
 
 div.jp-audio div.jp-type-single a.jp-mute,
@@ -300,8 +297,8 @@ div.jp-volume-bar {
 	cursor: pointer;
 }
 div.jp-audio div.jp-volume-bar {
-	top:37px;
-	left:330px;
+	top:235px;
+	left:340px;
 }
 div.jp-video div.jp-volume-bar {
 	top:17px;
@@ -322,8 +319,8 @@ div.jp-audio div.jp-time-holder {
 	top:50px;
 }
 div.jp-audio div.jp-type-single div.jp-time-holder {
-	left:110px;
-	width:186px;
+	left:0px;
+	width:600px;
 }
 div.jp-audio div.jp-type-playlist div.jp-time-holder {
 	left:166px;
