@@ -16,12 +16,15 @@ ActiveRecord::Schema.define(:version => 20121008184431) do
   create_table "audio_files", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.binary   "audio"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
     t.integer  "length"
     t.integer  "bpm"
     t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

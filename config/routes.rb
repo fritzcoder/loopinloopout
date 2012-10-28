@@ -1,5 +1,6 @@
 Loopinloopout::Application.routes.draw do
   get "you/index"
+  resources :audio_files
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

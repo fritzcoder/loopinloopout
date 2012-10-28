@@ -1,0 +1,30 @@
+<%= form_for @audio, :html => { :multipart => true }  do |audio_form| %>
+  <% if @audio.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@audio.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @audio.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= audio_form.label :name %><br />
+    <%= audio_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= audio_form.label :description %><br />
+    <%= audio_form.text_field :description %>
+  </div>
+  
+  <div class="field">
+    <%= audio_form.label :audio %><br />
+    <%= audio_form.file_field :audio, :accept => 'audio/mpeg'%>
+  </div>
+	
+  <div class="actions">
+    <%= audio_form.submit %>
+  </div>
+<% end %>

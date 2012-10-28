@@ -3,17 +3,14 @@
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			mp3: "http://127.0.0.1:3000<%= @audio.audio.url %>"
           });
         },
-        swfPath: "/js",
-        supplied: "m4a, oga"
+        supplied: "mp3"
       });
     });
 </script>
-<h1>You#index</h1>
-<p>Find me in app/views/you/index.html.erb</p>
+<%= @audio.audio.url %>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
   <div id="jp_container_1" class="jp-audio">
     <div class="jp-type-single">
