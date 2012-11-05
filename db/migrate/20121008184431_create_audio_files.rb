@@ -4,6 +4,7 @@ class CreateAudioFiles < ActiveRecord::Migration
       t.string      :name
       t.text        :description
       t.attachment  :audio
+      t.attachment  :wave
       t.integer     :length
       t.integer     :bpm
       t.string      :type

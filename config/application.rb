@@ -45,6 +45,10 @@ module Loopinloopout
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
+    #every model object must have a whitelist
     config.active_record.whitelist_attributes = true
+    
+    #load lib
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end

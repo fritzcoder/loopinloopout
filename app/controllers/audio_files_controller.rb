@@ -22,6 +22,10 @@ class AudioFilesController < ApplicationController
     
     respond_to do |format|
       if @audio.save
+        Runner.generate_waveform(@audio)
+        #@audio.wave = File.open("/Users/Fritz/Documents/Projects/loopinloopout/test.png");
+        #@audio.save
+        
         format.html  { redirect_to(@audio,
                         :notice => 'Post was successfully created.') }
         format.json  { render :json => @audio,

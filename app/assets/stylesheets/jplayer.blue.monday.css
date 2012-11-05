@@ -59,7 +59,7 @@ div.jp-interface {
 	position: relative;
 	background-color:#eee;
 	width:100%;
-	background: url("/assets/believe.png") 0 0 no-repeat; /*Put waveform here */
+	/*background: url("/assets/believe.png") 0 0 no-repeat; Put waveform here */
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {
