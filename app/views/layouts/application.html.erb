@@ -1,14 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>LoopINLoopOUT</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+			<div class="span3">
+				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
+			    	<li><a href="/banks" style="color: #000"><i class="icon-volume-up"></i> Sounds</a></li>
+			        <li><a href="#" style="color: #000"><i class="icon-repeat"></i> Loops</a></li>
+			        <li><a href="#" style="color: #000"><i class="icon-play-circle"></i> Samples</a></li>
+			        <li><a href="#" style="color: #000"><i class="icon-headphones"></i> Projects</a></li>
+			    </ul>
+			</div>
+            <div class="span9" style="background-color: #838B8B; margin-left:10px;">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
 </html>

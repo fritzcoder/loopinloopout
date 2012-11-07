@@ -1,0 +1,2 @@
+class SoundBank < Bank
+end

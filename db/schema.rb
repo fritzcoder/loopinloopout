@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008184431) do
+ActiveRecord::Schema.define(:version => 20121107161700) do
 
   create_table "audio_files", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,45 @@ ActiveRecord::Schema.define(:version => 20121008184431) do
     t.string   "type"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "bank_files", :force => true do |t|
+    t.integer  "sound_file_id"
+    t.integer  "bank_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "banks", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.string   "access"
+    t.boolean  "collaboration"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "sound_files", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "wave_file_name"
+    t.string   "wave_content_type"
+    t.integer  "wave_file_size"
+    t.datetime "wave_updated_at"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
+    t.integer  "length"
+    t.integer  "bpm"
+    t.string   "type"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
 end

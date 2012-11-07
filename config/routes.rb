@@ -1,4 +1,8 @@
 Loopinloopout::Application.routes.draw do
+  resources :banks
+
+  resources :sound_files
+
   get "you/index"
   resources :audio_files
 

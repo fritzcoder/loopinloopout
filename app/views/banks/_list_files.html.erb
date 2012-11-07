@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% @bank_files.each do |file| %>
+  <tr>
+    <td><%= file.name %></td>
+    <td><%= file.description %></td>
+<% end %>
+</table>

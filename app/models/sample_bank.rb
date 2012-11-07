@@ -1,0 +1,2 @@
+class SampleBank < Bank
+end

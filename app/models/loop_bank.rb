@@ -1,0 +1,2 @@
+class LoopBank < Bank
+end

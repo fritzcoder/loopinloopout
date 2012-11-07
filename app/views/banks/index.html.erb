@@ -1,0 +1,40 @@
+<h4>Sounds</h4>
+<div class="row">
+<div class="span2 explorer">
+	Bank <%= link_to '+', new_bank_path %>
+	<ul>
+		<% @banks.each do |bank| %>
+		<li>
+			<%= bank.name %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<div class="span1">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Access</th>
+    <th>Collaboration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @banks.each do |bank| %>
+  <tr>
+    <td><%= bank.name %></td>
+    <td><%= bank.description %></td>
+    <td><%= bank.type %></td>
+    <td><%= bank.access %></td>
+    <td><%= bank.collaboration %></td>
+    <td><%= link_to 'Edit', edit_bank_path(bank) %></td>
+<% end %>
+</table>
+</div>
+</div>
+<br />
+
+
