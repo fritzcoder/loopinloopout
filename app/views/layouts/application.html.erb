@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body>
+  <body style="background-color: #000">
     <header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
@@ -30,6 +30,12 @@
 			        <li><a href="#" style="color: #000"><i class="icon-play-circle"></i> Samples</a></li>
 			        <li><a href="#" style="color: #000"><i class="icon-headphones"></i> Projects</a></li>
 			    </ul>
+				<div class="well">
+				Information:
+				<p>
+					This button.. Blah blah
+				</p>
+				</div>
 			</div>
             <div class="span9" style="background-color: #838B8B; margin-left:10px;">
               <%= render 'layouts/messages' %>

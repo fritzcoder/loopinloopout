@@ -7,13 +7,28 @@
 */
 
 .content {
-  background-color: #eee;
+  background-color: #666;
+  border-color: white;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
+.span9{
+-webkit-border-radius: 12px 12px 12px 12px;
+ -moz-border-radius: 12px 12px 12px 12px;
+ border-radius: 12px 12px 12px 12px;
+ -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+ -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+ box-shadow: 0 1px 2px rgba(0,0,0,.15);
+ border-color: white;
+}
+.page
+{
+	padding: 10px;
+}
+

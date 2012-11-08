@@ -11,7 +11,24 @@ class SoundFile < ActiveRecord::Base
   before_post_process :skip_for_audio
 
   def skip_for_audio
-    ! %w(audio/mpeg application/mpeg).include?(audio_content_type)
+    ! %w(audio/mpeg application/mpeg).include?(file_content_type)
+  end
+  
+  def self.inherited(child)
+  		child.instance_eval do
+  			def model_name
+  				SoundFile.model_name
+  			end
+  		end
+  		super
+  end
+  
+  def came_from
+  	  self.name
+  end
+  
+  def file_type
+    file_file_name.split(".")[1]
   end
   
 end

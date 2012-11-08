@@ -1,0 +1,3 @@
+class Sound < SoundFile
+  
+end
