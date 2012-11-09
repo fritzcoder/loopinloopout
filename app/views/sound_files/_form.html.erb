@@ -19,6 +19,12 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+  Bank:<br />
+  <%= select("bank", "id", 
+      Bank.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'}) %>
+  </div>
+  <div class="field">
     <%= f.label :file %><br />
     <%= f.file_field :file%>
   </div>

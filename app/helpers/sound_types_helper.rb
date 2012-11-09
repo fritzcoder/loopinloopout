@@ -1,0 +1,2 @@
+module SoundTypesHelper
+end

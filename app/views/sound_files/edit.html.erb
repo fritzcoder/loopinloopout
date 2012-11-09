@@ -1,6 +1,57 @@
-<h1>Editing sound_file</h1>
-
-<%= render 'form' %>
+<div class="page">
+<h4>Sound Attributes</h4>
+<%= form_for(@sound_file) do |f| %>
+  <% if @sound_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this sound_file from being saved:</h2>
+      <ul>
+      <% @sound_file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="field span3">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field span3">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+</div>
+ <div class="row">
+  <div class="span2">
+  Bank:<br />
+  <%= select("bank", "id", 
+      Bank.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'},{:multiple => true } ) %>
+  </div>
+  <div class="span2 offset1">
+  Software:<br />
+  <%= select("software", "id", 
+      Software.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'},{:multiple => true } ) %>
+  </div>
+  <div class="span2">
+  type:<br />
+  <%= select("type", "id", 
+      Software.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'},{:multiple => true } ) %>
+  </div>
+  <div class="span2">
+  Mode:<br />
+  <%= select("mode", "id", 
+      Mode.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'},{:multiple => true } ) %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @sound_file %> |
 <%= link_to 'Back', sound_files_path %>
+</div>

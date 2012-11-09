@@ -1,0 +1,23 @@
+<h1>Listing sound_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sound_types.each do |sound_type| %>
+  <tr>
+    <td><%= sound_type.name %></td>
+    <td><%= link_to 'Show', sound_type %></td>
+    <td><%= link_to 'Edit', edit_sound_type_path(sound_type) %></td>
+    <td><%= link_to 'Destroy', sound_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sound type', new_sound_type_path %>

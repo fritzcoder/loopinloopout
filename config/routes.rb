@@ -1,4 +1,10 @@
 Loopinloopout::Application.routes.draw do
+  resources :modes
+
+  resources :sound_types
+
+  resources :softwares
+
   resources :banks
 
   resources :sound_files

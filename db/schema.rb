@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107161700) do
+ActiveRecord::Schema.define(:version => 20121109154111) do
 
   create_table "audio_files", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,40 @@ ActiveRecord::Schema.define(:version => 20121107161700) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "modes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "softwares", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sound_file_modes", :force => true do |t|
+    t.integer  "sound_file_id"
+    t.integer  "mode_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "sound_file_softwares", :force => true do |t|
+    t.text     "notes"
+    t.integer  "sound_file_id"
+    t.integer  "software_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "sound_file_types", :force => true do |t|
+    t.integer  "sound_type_id"
+    t.integer  "sound_file_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "sound_files", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -68,6 +102,13 @@ ActiveRecord::Schema.define(:version => 20121107161700) do
     t.string   "type"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "sound_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "sound_type_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

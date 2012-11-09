@@ -1,6 +1,7 @@
 class Bank < ActiveRecord::Base
   attr_accessible :access, :collaboration, :description, :name, :type
   has_many :bank_files
+  has_many :sound_files, :through => :bank_files
   
   def self.inherited(child)
   		child.instance_eval do

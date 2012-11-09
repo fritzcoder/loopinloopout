@@ -10,6 +10,7 @@
   <thead>
   <tr>
 	<th></th>
+	<th></th>
     <th>Name</th>
     <th>Rating</th>
     <th>Type</th>
@@ -23,6 +24,7 @@
 <% @sound_files.each do |sound_file| %>
   <tr>
 	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
+	<td><i class="icon-play"></i></td>
     <td><%= sound_file.name %></td>
 	<td>
 		<i class="icon-star"></i>
