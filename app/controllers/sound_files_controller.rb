@@ -44,7 +44,7 @@ class SoundFilesController < ApplicationController
 
     respond_to do |format|
       if @sound_file.save
-        format.html { redirect_to @sound_file, notice: 'Sound file was successfully created.' }
+        format.html { redirect_to edit_sound_file_path(@sound_file), notice: 'Sound file was successfully created.' }
         format.json { render json: @sound_file, status: :created, location: @sound_file }
       else
         format.html { render action: "new" }

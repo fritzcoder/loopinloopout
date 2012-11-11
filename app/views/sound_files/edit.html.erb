@@ -12,44 +12,58 @@
     </div>
   <% end %>
 <div class="row">
-  <div class="field span3">
-    <%= f.label :name %><br />
+  <div class="span3">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field span3">
-    <%= f.label :description %><br />
+  <div class="span3">
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
 </div>
  <div class="row">
-  <div class="span2">
+  <div class="span3">
   Bank:<br />
   <%= select("bank", "id", 
       Bank.all.collect {|t| [ t.name, t.id ] }, 
           {:prompt => 'None'},{:multiple => true } ) %>
   </div>
-  <div class="span2 offset1">
+  <div class="span3">
   Software:<br />
   <%= select("software", "id", 
       Software.all.collect {|t| [ t.name, t.id ] }, 
           {:prompt => 'None'},{:multiple => true } ) %>
   </div>
-  <div class="span2">
-  type:<br />
+  <div class="span3">
+  Type:<br />
   <%= select("type", "id", 
       Software.all.collect {|t| [ t.name, t.id ] }, 
           {:prompt => 'None'},{:multiple => true } ) %>
   </div>
-  <div class="span2">
-  Mode:<br />
-  <%= select("mode", "id", 
+</div>
+<div class="row">
+	<div class="span3">
+	  Sub Type:<br />
+	  <%= select("type", "id", 
+	      Software.all.collect {|t| [ t.name, t.id ] }, 
+	          {:prompt => 'None'},{:multiple => true } ) %>
+	</div>
+  	<div class="span3">
+  		Mode:<br />
+  	<%= select("mode", "id", 
       Mode.all.collect {|t| [ t.name, t.id ] }, 
           {:prompt => 'None'},{:multiple => true } ) %>
-  </div>
+  	</div>
+	<div class="span3">
+		<div>
+		    <%= f.label :preview %><br />
+		    <%= f.file_field :preview %>
+		</div>
+	</div>
 </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>
 
 <%= link_to 'Show', @sound_file %> |
