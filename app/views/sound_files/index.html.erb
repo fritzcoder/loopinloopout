@@ -1,3 +1,20 @@
+<script type="text/javascript">
+function playFile(url)
+{
+	//$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer( "destroy" );
+	$("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+		  alert(url);
+          $(this).jPlayer("setMedia", {
+            mp3: "http://127.0.0.1:3000/" + url
+          }).jPlayer("play");
+        },
+		supplied: "mp3"
+     });	 
+	//});
+}
+</script>
 <div class="page">
 <ul class="nav nav-tabs">
 	<li class="active">
@@ -25,7 +42,11 @@
 <% @sound_files.each do |sound_file| %>
   <tr>
 	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
-	<td><i class="icon-play"></i></td>
+	<% if sound_file.preview? %>
+	<td><a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a></td>
+	<% else %>
+	<td><i class=" icon-upload"></i></td>
+	<% end %>
     <td><%= sound_file.name %></td>
 	<td>
 		<i class="icon-star"></i>
