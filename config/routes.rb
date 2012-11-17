@@ -2,10 +2,13 @@ Loopinloopout::Application.routes.draw do
   resources :modes
 
   resources :sound_types
+  
+  get 'banks/update_subtypes', :as => 'update_subtypes'
 
   resources :softwares
 
-  resources :banks
+  resources :banks 
+  match 'banks/search' => 'banks#search'
 
   resources :sound_files
 

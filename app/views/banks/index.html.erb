@@ -1,40 +1,143 @@
-<h4>Sounds</h4>
+<%= form_tag('search') %>
+<div class="page">
+<ul class="nav nav-tabs">
+	<li>
+	    <a href="/sound_files">All</a>
+	</li>
+	<li class="active">
+		<a href="/banks">Banks</a>
+	</li>
+</ul>
+<%= submit_tag "Show" %>
 <div class="row">
-<div class="span2 explorer">
-	Bank <%= link_to '+', new_bank_path %>
-	<ul>
-		<% @banks.each do |bank| %>
-		<li>
-			<%= bank.name %>
-		</li>
-		<% end %>
-	</ul>
+	<div class="span12">
+	  <div style="float:left;">
+	  Bank:<%= link_to '+', new_bank_path %><br />
+	  <%= select("bank", "id", 
+	      Bank.all.collect {|t| [ t.name, t.id ] }, 
+	          {:prompt => 'None'},{:multiple => true,:class=>"list", :size => 8 }) %>
+	  </div>
+	  <div style="float:left;">
+	  Software:<br />
+	  <%= select("software", "id", 
+	      Software.all.collect {|t| [ t.name, t.id ] }, 
+	          {:prompt => 'None'},{:multiple => true, :class=>"list", :size => 8} ) %>
+	  </div>
+	  <div style="float:left;">
+	  Type:<br />
+	  <%= select("type", "id", 
+	      SoundType.all.collect {|t| [ t.name, t.id ] }, 
+	          {:prompt => 'None'},{:multiple => true,:class=>"list", :size => 8 } ) %>
+	  </div>
+	  <div style="float:left;">
+	  Sub Type:<br />
+	  <%= select("type", "id", 
+	      [["None", 0]], 
+	       {},{:multiple => true,:class=>"list", :size => 8, :id => "sub_type" } ) %>
+	</div>
+  	<div style="float:left;">
+  		Mode:<br />
+  	<%= select("mode", "id", 
+      Mode.all.collect {|t| [ t.name, t.id ] }, 
+          {:prompt => 'None'},{:multiple => true, :class=>"list", :size => 8  } ) %>
+  	</div>
+	</div>
 </div>
-<div class="span1">
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th>Access</th>
-    <th>Collaboration</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+	<div class="span9">
+		<div style="height:250px;overflow : auto; width:100%">
+		<table class="table table-condensed table-hover table-striped">
+		  <thead>
+		  <tr>
+			<th></th>
+			<th></th>
+		    <th>Name</th>
+		    <th>Rating</th>
+		    <th>Type</th>
+		    <th>Author</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		  </tr>
+		  </thead>
 
-<% @banks.each do |bank| %>
-  <tr>
-    <td><%= bank.name %></td>
-    <td><%= bank.description %></td>
-    <td><%= bank.type %></td>
-    <td><%= bank.access %></td>
-    <td><%= bank.collaboration %></td>
-    <td><%= link_to 'Edit', edit_bank_path(bank) %></td>
-<% end %>
-</table>
+		<% @sound_files.each do |sound_file| %>
+		  <tr>
+			<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
+			<% if sound_file.preview? %>
+			<td>
+				<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
+				<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
+			</td>
+			<% else %>
+			<td><i class=" icon-upload"></i></td>
+			<% end %>
+		    <td><%= sound_file.name %></td>
+			<td>
+				<i class="icon-star"></i>
+				<i class="icon-star"></i>
+				<i class="icon-star"></i>
+				<i class="icon-star"></i>
+				<i class="icon-star"></i>
+			</td>
+			<td><%= sound_file.file_type %></td>
+			<td>User</td>
+		    <td><%= link_to '', sound_file, :class => 'icon-eye-open' %></td>
+		    <td><%= link_to '', edit_sound_file_path(sound_file), :class => 'icon-edit' %></td>
+		    <td><%= link_to '', sound_file, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
+		  </tr>
+		<% end %>
+		</table>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+	<div style="padding:10px;">
+		<%= render 'layouts/small_player' %>
+	</div>
+	</div>
 </div>
 </div>
-<br />
+</form>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#type_id').change(function() {
+      $.ajax({
+        url: "<%= update_subtypes_path %>",
+        data: {
+          type_id : $('#type_id').val()
+        },
+        dataType: "script"
+      });
+    });
+});
+
+$(".icon-stop").hide();
+function playFile(url)
+{
+	$(".icon-stop").show();
+	$(".icon-play").hide();
+	//$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer( "destroy" );
+	$("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+		  alert(url);
+          $(this).jPlayer("setMedia", {
+            mp3: "http://127.0.0.1:3000/" + url
+          }).jPlayer("play");
+        },
+		supplied: "mp3"
+     });	 
+	//});
+}
+function stopFile()
+{
+	$("#jquery_jplayer_1").jPlayer( "stop" );
+	$(".icon-stop").hide();
+	$(".icon-play").show();
+}
+</script>
 
 

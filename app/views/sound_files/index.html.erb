@@ -1,26 +1,9 @@
-<script type="text/javascript">
-function playFile(url)
-{
-	//$(document).ready(function(){
-	$("#jquery_jplayer_1").jPlayer( "destroy" );
-	$("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-		  alert(url);
-          $(this).jPlayer("setMedia", {
-            mp3: "http://127.0.0.1:3000/" + url
-          }).jPlayer("play");
-        },
-		supplied: "mp3"
-     });	 
-	//});
-}
-</script>
 <div class="page">
 <ul class="nav nav-tabs">
 	<li class="active">
-	    <a href="#">All</a>
+	    <a href="/sound_files">All</a>
 	</li>
-	<li><a href="#">Banks</a></li>
+	<li><a href="/banks">Banks</a></li>
 </ul>
 <%= link_to 'New Sound', new_sound_file_path, :class => ['btn', 'btn-mini'] %>
 <div style="height:250px;overflow : auto;">
@@ -43,7 +26,10 @@ function playFile(url)
   <tr>
 	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
 	<% if sound_file.preview? %>
-	<td><a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a></td>
+	<td>
+		<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
+		<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
+	</td>
 	<% else %>
 	<td><i class=" icon-upload"></i></td>
 	<% end %>
@@ -69,6 +55,31 @@ function playFile(url)
 	<%= render 'layouts/small_player' %>
 </div>
 </div>
-
+<script type="text/javascript">
+$(".icon-stop").hide();
+function playFile(url)
+{
+	$(".icon-stop").show();
+	$(".icon-play").hide();
+	//$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer( "destroy" );
+	$("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+		  alert(url);
+          $(this).jPlayer("setMedia", {
+            mp3: "http://127.0.0.1:3000/" + url
+          }).jPlayer("play");
+        },
+		supplied: "mp3"
+     });	 
+	//});
+}
+function stopFile()
+{
+	$("#jquery_jplayer_1").jPlayer( "stop" );
+	$(".icon-stop").hide();
+	$(".icon-play").show();
+}
+</script>
 
 

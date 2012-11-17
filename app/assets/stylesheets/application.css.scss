@@ -5,7 +5,9 @@
  *= require_self
  *= require_tree . 
 */
-
+.list{
+	width: 150px;
+}
 .content {
   background-color: #666;
   border-color: white;

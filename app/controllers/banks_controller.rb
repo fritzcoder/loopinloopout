@@ -3,13 +3,34 @@ class BanksController < ApplicationController
   # GET /sound_banks.json
   def index
     @banks = Bank.all
+    @sound_files = SoundFile.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @banks }
     end
   end
+  
+  def search
+    @banks = Bank.all
+    @sound_files = SoundFile.all
 
+    respond_to do |format|
+      format.html { render "index.html.erb" }
+      format.json { render json: @banks }
+    end
+  end
+  
+  def update_subtypes
+    types = SoundType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
+    @t = types.map{|a| [a.name, a.id]}.insert(0, "None")
+    
+    #respond_to do |format|
+    #  format.json { render json: @t }
+    #end
+    
+  end
+  
   # GET /banks/1
   # GET /banks/1.json
   def show
