@@ -1,12 +1,44 @@
-<table>
+<div style="height:250px;overflow : auto; width:98%">
+<table class="table table-condensed table-hover table-striped">
+  <thead>
   <tr>
+	<th></th>
+	<th></th>
     <th>Name</th>
-    <th>Description</th>
+    <th>Rating</th>
+    <th>Type</th>
+    <th>Author</th>
+	<th></th>
+	<th></th>
+	<th></th>
   </tr>
+  </thead>
 
-<% @bank_files.each do |file| %>
+<% sound_files.each do |sound_file| %>
   <tr>
-    <td><%= file.name %></td>
-    <td><%= file.description %></td>
+	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
+	<% if sound_file.preview? %>
+	<td>
+		<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
+		<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
+	</td>
+	<% else %>
+	<td><i class=" icon-upload"></i></td>
+	<% end %>
+    <td><%= sound_file.name %></td>
+	<td>
+		<i class="icon-star"></i>
+		<i class="icon-star"></i>
+		<i class="icon-star"></i>
+		<i class="icon-star"></i>
+		<i class="icon-star"></i>
+	</td>
+	<td><%= sound_file.file_type %></td>
+	<td>User</td>
+    <td><%= link_to '', sound_file, :class => 'icon-eye-open' %></td>
+    <td><%= link_to '', edit_sound_file_path(sound_file), :class => 'icon-edit' %></td>
+    <td><%= link_to '', sound_file, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
+  </tr>
 <% end %>
 </table>
+</div>

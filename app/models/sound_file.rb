@@ -36,6 +36,6 @@ class SoundFile < ActiveRecord::Base
   
   def file_type
     file_file_name.split(".")[1]
-  end
-  
+  end 
+
 end

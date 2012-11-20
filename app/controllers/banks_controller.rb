@@ -24,11 +24,13 @@ class BanksController < ApplicationController
   def update_subtypes
     types = SoundType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
     @t = types.map{|a| [a.name, a.id]}.insert(0, "None")
-    
-    #respond_to do |format|
-    #  format.json { render json: @t }
-    #end
-    
+  end
+  
+  def update_files
+    files = SoundFileType.find(:all, :conditions => {:sound_type_id => params[:type_id]})
+    #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})
+    @sound_files = SoundFile.find(1,2)
+    #@sound_files = files.map {|f| f.sound_file }.insert()
   end
   
   # GET /banks/1

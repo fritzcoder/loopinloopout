@@ -1,4 +1,7 @@
 <%= form_tag('search') %>
+<div>
+<a href="#" id="test">Test</a>
+</div>
 <div class="page">
 <ul class="nav nav-tabs">
 	<li>
@@ -8,7 +11,10 @@
 		<a href="/banks">Banks</a>
 	</li>
 </ul>
-<%= submit_tag "Show" %>
+
+<div>
+	<%= render 'layouts/small_player' %>
+</div>
 <div class="row">
 	<div class="span12">
 	  <div style="float:left;">
@@ -44,59 +50,10 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span9">
-		<div style="height:250px;overflow : auto; width:100%">
-		<table class="table table-condensed table-hover table-striped">
-		  <thead>
-		  <tr>
-			<th></th>
-			<th></th>
-		    <th>Name</th>
-		    <th>Rating</th>
-		    <th>Type</th>
-		    <th>Author</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		  </tr>
-		  </thead>
-
-		<% @sound_files.each do |sound_file| %>
-		  <tr>
-			<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
-			<% if sound_file.preview? %>
-			<td>
-				<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
-				<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
-			</td>
-			<% else %>
-			<td><i class=" icon-upload"></i></td>
-			<% end %>
-		    <td><%= sound_file.name %></td>
-			<td>
-				<i class="icon-star"></i>
-				<i class="icon-star"></i>
-				<i class="icon-star"></i>
-				<i class="icon-star"></i>
-				<i class="icon-star"></i>
-			</td>
-			<td><%= sound_file.file_type %></td>
-			<td>User</td>
-		    <td><%= link_to '', sound_file, :class => 'icon-eye-open' %></td>
-		    <td><%= link_to '', edit_sound_file_path(sound_file), :class => 'icon-edit' %></td>
-		    <td><%= link_to '', sound_file, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
-		  </tr>
-		<% end %>
-		</table>
+	<div class="span10">
+		<div id="file_list">
+		<%= render :partial => "list_files", :locals => { :sound_files => @sound_files } %>
 		</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="span12">
-	<div style="padding:10px;">
-		<%= render 'layouts/small_player' %>
-	</div>
 	</div>
 </div>
 </div>
@@ -106,6 +63,24 @@ $(document).ready(function() {
     $('#type_id').change(function() {
       $.ajax({
         url: "<%= update_subtypes_path %>",
+        data: {
+          type_id : $('#type_id').val()
+        },
+        dataType: "script"
+      });
+
+	  $.ajax({
+        url: "<%= update_files_path %>",
+        data: {
+          type_id : $('#type_id').val()
+        },
+        dataType: "script"
+      });
+    });
+
+   	$('#test').click(function() {
+      $.ajax({
+        url: "<%= update_files_path %>",
         data: {
           type_id : $('#type_id').val()
         },

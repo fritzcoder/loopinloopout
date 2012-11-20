@@ -37,21 +37,21 @@
   <div class="span3">
   Type:<br />
   <%= select("type", "id", 
-      Software.all.collect {|t| [ t.name, t.id ] }, 
-          {:prompt => 'None'},{:multiple => true } ) %>
+      SoundType.where("sound_type_id is null").collect {|t| [t.name, t.id] }, 
+          {:prompt => 'None', :selected => @sound_file_types},{:multiple => true } ) %>
   </div>
 </div>
 <div class="row">
 	<div class="span3">
 	  Sub Type:<br />
 	  <%= select("type", "id", 
-	      Software.all.collect {|t| [ t.name, t.id ] }, 
-	          {:prompt => 'None'},{:multiple => true } ) %>
+	       [["None", 0]], {},
+	          {:multiple => true, :id => "sub_type"} ) %>
 	</div>
   	<div class="span3">
   		Mode:<br />
   	<%= select("mode", "id", 
-      Mode.all.collect {|t| [ t.name, t.id ] }, 
+      Mode.all.collect { |t| if t.sound_type_id != nil then [ t.name, t.id ] end }, 
           {:prompt => 'None'},{:multiple => true } ) %>
   	</div>
 	<div class="span3">
@@ -69,3 +69,17 @@
 <%= link_to 'Show', @sound_file %> |
 <%= link_to 'Back', sound_files_path %>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#type_id').change(function() {
+      $.ajax({
+        url: "<%= update_subtypes_path %>",
+        data: {
+          type_id : $('#type_id').val()
+        },
+        dataType: "script"
+      });
+    });
+});
+</script>
+

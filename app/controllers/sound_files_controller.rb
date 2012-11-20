@@ -35,6 +35,8 @@ class SoundFilesController < ApplicationController
   # GET /sound_files/1/edit
   def edit
     @sound_file = SoundFile.find(params[:id])
+    #@sound_file_types = SoundTypes.find(:all, :conditions => {:sound_type_id => nil})
+    @sound_file_types = @sound_file.sound_file_types.map {|i| i.id }
   end
 
   # POST /sound_files
@@ -57,9 +59,10 @@ class SoundFilesController < ApplicationController
   # PUT /sound_files/1.json
   def update
     @sound_file = SoundFile.find(params[:id])
-
     respond_to do |format|
       if @sound_file.update_attributes(params[:sound_file])
+        SoundFileType.save_file_types(@sound_file.id, params[:type])
+        #SoundFileType.save_file_types(@sound_file.id, params[:sub_type])
         format.html { redirect_to @sound_file, notice: 'Sound file was successfully updated.' }
         format.json { head :no_content }
       else

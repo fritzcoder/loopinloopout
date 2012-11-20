@@ -4,6 +4,7 @@ Loopinloopout::Application.routes.draw do
   resources :sound_types
   
   get 'banks/update_subtypes', :as => 'update_subtypes'
+  get 'banks/update_files', :as => 'update_files'
 
   resources :softwares
 
