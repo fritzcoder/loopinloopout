@@ -26,33 +26,33 @@
   Bank:<br />
   <%= select("bank", "id", 
       Bank.all.collect {|t| [ t.name, t.id ] }, 
-          {:prompt => 'None'},{:multiple => true } ) %>
+          {:selected => @banks},{:multiple => true } ) %>
   </div>
   <div class="span3">
   Software:<br />
   <%= select("software", "id", 
       Software.all.collect {|t| [ t.name, t.id ] }, 
-          {:prompt => 'None'},{:multiple => true } ) %>
+          {:selected => @softwares},{:multiple => true } ) %>
   </div>
   <div class="span3">
   Type:<br />
   <%= select("type", "id", 
       SoundType.where("sound_type_id is null").collect {|t| [t.name, t.id] }, 
-          {:prompt => 'None', :selected => @sound_file_types},{:multiple => true } ) %>
+          {:selected => @sound_file_types}, { :multiple => true } ) %>
   </div>
 </div>
 <div class="row">
 	<div class="span3">
 	  Sub Type:<br />
 	  <%= select("type", "id", 
-	       [["None", 0]], {},
+	       [["None", 0]], { :selected => @sound_file_types },
 	          {:multiple => true, :id => "sub_type"} ) %>
 	</div>
   	<div class="span3">
   		Mode:<br />
   	<%= select("mode", "id", 
-      Mode.all.collect { |t| if t.sound_type_id != nil then [ t.name, t.id ] end }, 
-          {:prompt => 'None'},{:multiple => true } ) %>
+      Mode.all.collect { |t| [t.name, t.id ] }, 
+          {:selected => @modes},{:multiple => true } ) %>
   	</div>
 	<div class="span3">
 		<div>
@@ -75,10 +75,19 @@ $(document).ready(function() {
       $.ajax({
         url: "<%= update_subtypes_path %>",
         data: {
-          type_id : $('#type_id').val()
+          type_id : $('#type_id').val(),
+		  file_id : '<%= @sound_file.id %>'
         },
         dataType: "script"
       });
+    });
+	$.ajax({
+        url: "<%= update_subtypes_path %>",
+        data: {
+          type_id : $('#type_id').val(),
+		  file_id : '<%= @sound_file.id %>'
+        },
+        dataType: "script"
     });
 });
 </script>

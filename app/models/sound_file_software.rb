@@ -9,7 +9,7 @@ class SoundFileSoftware < ActiveRecord::Base
   def self.save_software_types(sound_file_id, software_ids)
     software_ids.each do |id|
       software = SoundFileSoftware.new
-      software.sound_type_id = id;
+      software.software_id = id;
       software.sound_file_id = sound_file_id;
       software.save
     end

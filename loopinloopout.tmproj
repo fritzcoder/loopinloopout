@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/sound_files/edit.html.erb</string>
+	<string>app/views/banks/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -29,6 +29,8 @@
 			<string>config.ru</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>db</string>
 			<key>regexFolderFilter</key>
@@ -213,33 +215,19 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/controllers/audio_files_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>39</integer>
-				<key>line</key>
-				<integer>24</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>10</integer>
-		</dict>
 		<key>app/controllers/banks_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>79</integer>
 				<key>line</key>
-				<integer>34</integer>
+				<integer>27</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>64</integer>
+			<integer>9</integer>
 		</dict>
 		<key>app/controllers/modes_controller.rb</key>
 		<dict>
@@ -260,14 +248,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>37</integer>
 				<key>line</key>
-				<integer>63</integer>
+				<integer>75</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>43</integer>
+			<integer>55</integer>
 		</dict>
 		<key>app/controllers/sound_types_controller.rb</key>
 		<dict>
@@ -281,7 +269,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>17</integer>
+			<integer>35</integer>
 		</dict>
 		<key>app/controllers/you_controller.rb</key>
 		<dict>
@@ -297,14 +285,28 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/models/bank_file.rb</key>
+		<key>app/models/audio_file.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>5</integer>
 				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/models/bank_file.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
 				<integer>15</integer>
+				<key>line</key>
+				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -351,7 +353,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>app/models/sound_file_mode.rb</key>
 		<dict>
@@ -388,9 +390,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>23</integer>
 				<key>line</key>
-				<integer>13</integer>
+				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -402,9 +404,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>12</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/models/sound_type.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>54</integer>
+				<key>line</key>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -530,30 +546,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>20</integer>
+				<integer>11</integer>
 				<key>line</key>
-				<integer>40</integer>
+				<integer>44</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>16</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>6</integer>
-				<key>line</key>
-				<integer>40</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>20</integer>
-				<key>line</key>
-				<integer>40</integer>
-			</dict>
+			<integer>15</integer>
 		</dict>
 		<key>app/views/banks/new.html.erb</key>
 		<dict>
@@ -744,14 +744,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>48</integer>
+				<integer>20</integer>
 				<key>line</key>
-				<integer>48</integer>
+				<integer>44</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 		<key>app/views/sound_files/index.html.erb</key>
 		<dict>
@@ -851,6 +851,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>db/migrate/20121107161700_create_bank_files.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>db/migrate/20121109132702_create_sound_types.rb</key>
 		<dict>
 			<key>caret</key>
@@ -896,9 +910,9 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/controllers/audio_files_controller.rb</string>
-		<string>app/views/audio_files/show.html.erb</string>
 		<string>app/controllers/sound_files_controller.rb</string>
+		<string>db/migrate/20121107161700_create_bank_files.rb</string>
+		<string>app/models/sound_type.rb</string>
 		<string>app/views/banks/edit.html.erb</string>
 		<string>app/views/softwares/new.html.erb</string>
 		<string>app/controllers/banks_controller.rb</string>
@@ -911,6 +925,7 @@
 		<string>db/migrate/20121109132702_create_sound_types.rb</string>
 		<string>app/views/softwares/index.html.erb</string>
 		<string>app/views/sound_files/edit.html.erb</string>
+		<string>app/models/audio_file.rb</string>
 		<string>app/views/softwares/_form.html.erb</string>
 		<string>app/models/sound_file.rb</string>
 		<string>app/views/sound_files/_form.html.erb</string>
@@ -942,6 +957,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{288, 6}, {978, 772}}</string>
+	<string>{{288, 80}, {978, 698}}</string>
 </dict>
 </plist>

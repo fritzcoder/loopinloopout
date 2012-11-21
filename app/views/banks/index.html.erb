@@ -1,7 +1,4 @@
 <%= form_tag('search') %>
-<div>
-<a href="#" id="test">Test</a>
-</div>
 <div class="page">
 <ul class="nav nav-tabs">
 	<li>
@@ -21,31 +18,31 @@
 	  Bank:<%= link_to '+', new_bank_path %><br />
 	  <%= select("bank", "id", 
 	      Bank.all.collect {|t| [ t.name, t.id ] }, 
-	          {:prompt => 'None'},{:multiple => true,:class=>"list", :size => 8 }) %>
+	          {},{:multiple => true,:class=>"list", :size => 8 }) %>
 	  </div>
 	  <div style="float:left;">
 	  Software:<br />
 	  <%= select("software", "id", 
 	      Software.all.collect {|t| [ t.name, t.id ] }, 
-	          {:prompt => 'None'},{:multiple => true, :class=>"list", :size => 8} ) %>
+	          {},{:multiple => true, :class=>"list", :size => 8} ) %>
 	  </div>
 	  <div style="float:left;">
 	  Type:<br />
 	  <%= select("type", "id", 
-	      SoundType.all.collect {|t| [ t.name, t.id ] }, 
-	          {:prompt => 'None'},{:multiple => true,:class=>"list", :size => 8 } ) %>
+	      SoundType.where("sound_type_id is null").collect {|t| [t.name, t.id] }, 
+	          {},{:multiple => true,:class=>"list", :size => 8 } ) %>
 	  </div>
 	  <div style="float:left;">
 	  Sub Type:<br />
 	  <%= select("type", "id", 
 	      [["None", 0]], 
-	       {},{:multiple => true,:class=>"list", :size => 8, :id => "sub_type" } ) %>
+	       {},{:multiple => true, :class=>"list", :size => 8, :id => "sub_type" } ) %>
 	</div>
   	<div style="float:left;">
   		Mode:<br />
   	<%= select("mode", "id", 
       Mode.all.collect {|t| [ t.name, t.id ] }, 
-          {:prompt => 'None'},{:multiple => true, :class=>"list", :size => 8  } ) %>
+          {},{:multiple => true, :class=>"list", :size => 8  } ) %>
   	</div>
 	</div>
 </div>
@@ -64,22 +61,13 @@ $(document).ready(function() {
       $.ajax({
         url: "<%= update_subtypes_path %>",
         data: {
-          type_id : $('#type_id').val()
+          type_id : $('#type_id').val(),
+		  file_id : "0"
         },
         dataType: "script"
       });
 
 	  $.ajax({
-        url: "<%= update_files_path %>",
-        data: {
-          type_id : $('#type_id').val()
-        },
-        dataType: "script"
-      });
-    });
-
-   	$('#test').click(function() {
-      $.ajax({
         url: "<%= update_files_path %>",
         data: {
           type_id : $('#type_id').val()

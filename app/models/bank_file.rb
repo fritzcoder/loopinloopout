@@ -8,8 +8,8 @@ class BankFile < ActiveRecord::Base
   #pass the sound_file_id and an array of type ids
   def self.save_bank_types(sound_file_id, bank_ids)
     bank_ids.each do |id|
-      bank = SoundFileMode.new
-      bank.mode_id = id;
+      bank = BankFile.new
+      bank.bank_id = id;
       bank.sound_file_id = sound_file_id;
       bank.save
     end

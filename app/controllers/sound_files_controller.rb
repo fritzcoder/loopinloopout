@@ -36,7 +36,10 @@ class SoundFilesController < ApplicationController
   def edit
     @sound_file = SoundFile.find(params[:id])
     #@sound_file_types = SoundTypes.find(:all, :conditions => {:sound_type_id => nil})
-    @sound_file_types = @sound_file.sound_file_types.map {|i| i.id }
+    @sound_file_types = @sound_file.sound_file_types.map {|i| i.sound_type_id }
+    @banks = @sound_file.bank_files.map {|i| i.bank_id }
+    @softwares = @sound_file.sound_file_softwares.map {|i| i.software_id }
+    @modes = @sound_file.sound_file_modes.map {|i| i.mode_id }
   end
 
   # POST /sound_files
@@ -59,9 +62,18 @@ class SoundFilesController < ApplicationController
   # PUT /sound_files/1.json
   def update
     @sound_file = SoundFile.find(params[:id])
+
     respond_to do |format|
       if @sound_file.update_attributes(params[:sound_file])
-        SoundFileType.save_file_types(@sound_file.id, params[:type])
+        @sound_file.sound_file_types.each { |i| i.destroy }
+        #logger.debug "------------#{params[:type]}----------"
+        @sound_file.sound_file_modes.each {|i| i.destroy }
+        @sound_file.bank_files.each {|i| i.destroy }
+        @sound_file.sound_file_softwares.each { |i| i.destroy }
+        SoundFileSoftware.save_software_types(@sound_file.id, params[:software][:id])
+        BankFile.save_bank_types(@sound_file.id, params[:bank][:id])
+        SoundFileType.save_file_types(@sound_file.id, params[:type][:id])
+        SoundFileMode.save_mode_types(@sound_file.id, params[:type][:id])
         #SoundFileType.save_file_types(@sound_file.id, params[:sub_type])
         format.html { redirect_to @sound_file, notice: 'Sound file was successfully updated.' }
         format.json { head :no_content }
