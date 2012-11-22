@@ -7,10 +7,7 @@ Loopinloopout::Application.routes.draw do
   get 'banks/update_files', :as => 'update_files'
 
   resources :softwares
-
   resources :banks 
-  match 'banks/search' => 'banks#search'
-
   resources :sound_files
 
   get "you/index"

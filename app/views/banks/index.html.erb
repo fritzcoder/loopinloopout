@@ -1,4 +1,3 @@
-<%= form_tag('search') %>
 <div class="page">
 <ul class="nav nav-tabs">
 	<li>
@@ -54,9 +53,38 @@
 	</div>
 </div>
 </div>
-</form>
 <script type="text/javascript">
 $(document).ready(function() {
+	function files()
+	{
+		$.ajax({
+	        url: "<%= update_files_path %>",
+	        data: {
+			  bank_id : $('#bank_id').val(),
+			  software_id : $('#software_id').val(),
+			  mode_id : $('#mode_id').val(),
+	          type_id : $('#type_id').val()
+	        },
+	        dataType: "script"
+	      });
+	}
+	
+	$('#bank_id').change(function() {
+		files();
+	});
+	
+	$('#software_id').change(function() {
+		files();
+	});
+	
+	$('#sub_type').change(function() {
+		files();
+	});
+	
+	$('#mode_id').change(function() {
+		files();
+	});
+	
     $('#type_id').change(function() {
       $.ajax({
         url: "<%= update_subtypes_path %>",
@@ -67,13 +95,7 @@ $(document).ready(function() {
         dataType: "script"
       });
 
-	  $.ajax({
-        url: "<%= update_files_path %>",
-        data: {
-          type_id : $('#type_id').val()
-        },
-        dataType: "script"
-      });
+	  files();
     });
 });
 

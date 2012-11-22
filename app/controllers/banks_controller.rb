@@ -3,7 +3,7 @@ class BanksController < ApplicationController
   # GET /sound_banks.json
   def index
     @banks = Bank.all
-    @sound_files = SoundFile.all
+    @sound_files = []
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,28 +11,23 @@ class BanksController < ApplicationController
     end
   end
   
-  def search
-    @banks = Bank.all
-    @sound_files = SoundFile.all
-
-    respond_to do |format|
-      format.html { render "index.html.erb" }
-      format.json { render json: @banks }
-    end
-  end
-  
   def update_subtypes
     types = SoundType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
     @t = types.map{|a| [a.name, a.id]}.insert(0, "None")
-    @sound_file = SoundFile.find(params[:file_id])
-    @sound_file_types = @sound_file.sound_file_types.map {|i| i.sound_type_id }
+    
+    if(params[:file_id] != "0" and  params[:file_id] != nil)
+      @sound_file = SoundFile.find(params[:file_id])
+      @sound_file_types = @sound_file.sound_file_types.map {|i| i.sound_type_id }
+    end
   end
   
   def update_files
     files = SoundFileType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
+    bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:bank_id] })
     #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})
-    @sound_files = SoundFile.find(1,2)
-    #@sound_files = files.map {|f| f.sound_file }.insert()
+    #@sound_files = SoundFile.find(1,2);
+    @sound_files = files.map {|f| f.sound_file }
+    @sound_files = @sound_files + bank_files.map { |f| f.sound_file }
   end
   
   # GET /banks/1

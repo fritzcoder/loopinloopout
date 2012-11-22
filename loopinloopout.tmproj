@@ -220,14 +220,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>79</integer>
+				<integer>87</integer>
 				<key>line</key>
-				<integer>27</integer>
+				<integer>34</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>12</integer>
 		</dict>
 		<key>app/controllers/modes_controller.rb</key>
 		<dict>
@@ -255,7 +255,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>55</integer>
+			<integer>49</integer>
 		</dict>
 		<key>app/controllers/sound_types_controller.rb</key>
 		<dict>
@@ -293,6 +293,20 @@
 				<integer>5</integer>
 				<key>line</key>
 				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/models/bank.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>48</integer>
+				<key>line</key>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -546,14 +560,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>44</integer>
+				<integer>74</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>15</integer>
+			<integer>45</integer>
 		</dict>
 		<key>app/views/banks/new.html.erb</key>
 		<dict>
@@ -602,9 +616,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
 				<integer>3</integer>
+				<key>line</key>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -751,7 +765,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>16</integer>
+			<integer>58</integer>
 		</dict>
 		<key>app/views/sound_files/index.html.erb</key>
 		<dict>
@@ -918,6 +932,7 @@
 		<string>app/controllers/banks_controller.rb</string>
 		<string>app/views/banks/_list_files.html.erb</string>
 		<string>app/models/sound_file_type.rb</string>
+		<string>app/models/bank.rb</string>
 		<string>app/views/banks/update_subtypes.js.coffee</string>
 		<string>app/views/banks/show.html.erb</string>
 		<string>app/controllers/modes_controller.rb</string>
