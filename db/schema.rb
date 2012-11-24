@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20121109154111) do
   create_table "banks", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "type"
     t.string   "access"
     t.boolean  "collaboration"
     t.datetime "created_at",    :null => false

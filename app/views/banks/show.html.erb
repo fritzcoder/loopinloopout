@@ -1,29 +1,62 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @bank.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @bank.description %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @bank.type %>
-</p>
-
-<p>
-  <b>Access:</b>
-  <%= @bank.access %>
-</p>
-
-<p>
-  <b>Collaboration:</b>
-  <%= @bank.collaboration %>
-</p>
-
+<div class="page">
+<div>
+  <h4>username/<%= @bank.name %></h4>
+</div>
+<a href="#" id="edit">Edit</a>
+<div id="description">
+   	<p><%= @bank.description %></p>
+</div>
+<div id="edit_bank" style="display:none;">
+	<div><%= text_area(:bank, :description, :cols => 60, :rows => 2) %></div>
+	Access:
+	<div><%= radio_button(:bank, :access, "public") %> <%= label_tag("bank_access_public","public")%></div>
+	<div><%= radio_button(:bank, :access, "private") %> <%= label_tag("bank_access_private","private")%></div>
+	<a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a>
+</div>
+<%= link_to 'New Sound', new_sound_file_path(:bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+<div id="file_list">
+<%= render :partial => "list_files", :locals => { :sound_files => @sound_files } %>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#edit').click(function() {
+	  	$('#description').hide();
+		$('#edit').hide();
+		$('#edit_bank').show();
+	});
+	
+	$('#cancel').click(function() {
+	  	$('#description').show();
+		$('#edit_bank').hide();
+		$('#edit').show();
+	});
+	
+	$('#save').click(function() {
+		//alert("save");
+		$.ajax({
+			type: 'POST',
+			url: '<%= bank_path %>',
+	        data: {
+			  _method : 'PUT',
+			  'bank[description]': $('#bank_description').val()
+			  //software_id : $('#software_id').val(),
+			  //mode_id : $('#mode_id').val(),
+	          //type_id : $('#type_id').val()
+	        },
+			success: function(data) {
+			    //$('.result').html(data);
+			    alert('Saved');
+				$('#description').show();
+				$('#description>p').html($('#bank_description').val());
+				$('#edit_bank').hide();
+				$('#edit').show();
+			},
+	        dataType: 'json'
+			
+	      });
+	});
+});
+</script>
 
 

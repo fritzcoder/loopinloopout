@@ -1,2 +1,0 @@
-class SoundBank < Bank
-end

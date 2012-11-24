@@ -25,6 +25,7 @@ class SoundFilesController < ApplicationController
   # GET /sound_files/new.json
   def new
     @sound_file = SoundFile.new
+    @bank_id = params[:bank_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,9 +47,14 @@ class SoundFilesController < ApplicationController
   # POST /sound_files.json
   def create
     @sound_file = SoundFile.new(params[:sound_file])
+    bank_id = params[:bank_id]
 
     respond_to do |format|
       if @sound_file.save
+        bank_file = BankFile.new
+        bank_file.bank_id = bank_id
+        bank_file.sound_file_id = @sound_file.id
+        bank_file.save
         format.html { redirect_to edit_sound_file_path(@sound_file), notice: 'Sound file was successfully created.' }
         format.json { render json: @sound_file, status: :created, location: @sound_file }
       else

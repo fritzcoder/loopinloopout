@@ -3,7 +3,6 @@ class CreateBanks < ActiveRecord::Migration
     create_table :banks do |t|
       t.string :name
       t.text :description
-      t.string :type
       t.string :access
       t.boolean :collaboration
 

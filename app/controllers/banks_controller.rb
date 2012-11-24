@@ -28,18 +28,23 @@ class BanksController < ApplicationController
     #@sound_files = SoundFile.find(1,2);
     @sound_files = files.map {|f| f.sound_file }
     @sound_files = @sound_files + bank_files.map { |f| f.sound_file }
+    @sound_files.uniq!
   end
   
   # GET /banks/1
   # GET /banks/1.json
   def show
     @bank = Bank.find(params[:id])
+    bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:id] })
+    @sound_files = bank_files.map { |f| f.sound_file }
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bank }
     end
   end
+  
+  
 
   # GET /sound_banks/new
   # GET /sound_banks/new.json
