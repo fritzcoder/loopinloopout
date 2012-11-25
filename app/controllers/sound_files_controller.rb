@@ -36,6 +36,8 @@ class SoundFilesController < ApplicationController
   # GET /sound_files/1/edit
   def edit
     @sound_file = SoundFile.find(params[:id])
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
+    @bank_select = LuserBank.find(:all, :conditions => {:luser_id => @user.id}).map { |b| b.bank }
     #@sound_file_types = SoundTypes.find(:all, :conditions => {:sound_type_id => nil})
     @sound_file_types = @sound_file.sound_file_types.map {|i| i.sound_type_id }
     @banks = @sound_file.bank_files.map {|i| i.bank_id }

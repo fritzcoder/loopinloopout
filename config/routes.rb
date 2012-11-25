@@ -1,17 +1,33 @@
 Loopinloopout::Application.routes.draw do
-  resources :modes
+  
+  match ":username/banks/browse" => "banks#browse"
+  
+  scope ":username" do
+    resources :banks do 
+      resources :sound_files
+    end
+  end
+  
+  resources :lusers 
+  #resources :banks
+  #resources :sound_files
+  
+  devise_for :users
 
+  resources :modes
   resources :sound_types
   
   get 'banks/update_subtypes', :as => 'update_subtypes'
   get 'banks/update_files', :as => 'update_files'
+  get 'banks/update_subtypes', :as => 'update_subtypes'
+  #get 'banks/browse', :as => 'browse'
 
   resources :softwares
-  resources :banks 
-  resources :sound_files
 
   get "you/index"
   resources :audio_files
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

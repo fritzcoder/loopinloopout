@@ -1,0 +1,23 @@
+<h1>Listing lusers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lusers.each do |luser| %>
+  <tr>
+    <td><%= luser.name %></td>
+    <td><%= link_to 'Show', luser %></td>
+    <td><%= link_to 'Edit', edit_luser_path(luser) %></td>
+    <td><%= link_to 'Destroy', luser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Luser', new_luser_path %>

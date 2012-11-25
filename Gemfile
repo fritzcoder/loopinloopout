@@ -20,6 +20,7 @@ end
 gem 'jquery-rails'
 gem "paperclip", "~> 3.0"
 gem 'bootstrap-sass'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -2,7 +2,24 @@ class BanksController < ApplicationController
   # GET /sound_banks
   # GET /sound_banks.json
   def index
-    @banks = Bank.all
+    luser = Luser.find(:first, :conditions => {:name => params[:username]})
+    luser_banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id})
+    @user = "ontehfritz"
+    @banks = luser_banks.map { |l| l.bank }
+    @sound_files = []
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @banks }
+    end
+  end
+  
+  def browse
+    luser = Luser.find(:first, :conditions => {:name => params[:username]})
+    @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
+    @user = "ontehfritz"
+    
+    #@banks = Bank.all
     @sound_files = []
 
     respond_to do |format|
@@ -24,6 +41,7 @@ class BanksController < ApplicationController
   def update_files
     files = SoundFileType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:bank_id] })
+    @user = "ontehfritz"
     #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})
     #@sound_files = SoundFile.find(1,2);
     @sound_files = files.map {|f| f.sound_file }
@@ -37,6 +55,7 @@ class BanksController < ApplicationController
     @bank = Bank.find(params[:id])
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:id] })
     @sound_files = bank_files.map { |f| f.sound_file }
+    @user = params[:username]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,6 +69,7 @@ class BanksController < ApplicationController
   # GET /sound_banks/new.json
   def new
     @bank = Bank.new
+    @user = "ontehfritz"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -66,9 +86,14 @@ class BanksController < ApplicationController
   # POST /sound_banks.json
   def create
     @bank = Bank.new(params[:bank])
+    luser = Luser.find(:first, :conditions =>{ :name => params[:username]})
 
     respond_to do |format|
       if @bank.save
+        luser_bank = LuserBank.new
+        luser_bank.bank_id = @bank.id
+        luser_bank.luser_id = luser.id
+        luser_bank.save
         format.html { redirect_to @bank, notice: 'Sound bank was successfully created.' }
         format.json { render json: @bank, status: :created, location: @bank }
       else

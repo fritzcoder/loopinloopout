@@ -1,2 +1,0 @@
-class SampleBank < Bank
-end

@@ -1,4 +1,15 @@
 <div class="page">
+<ul class="nav nav-tabs">
+	<li class="active">
+	    <a href="/banks">All</a>
+	</li>
+	<li>
+		<a href="/banks/browse">Browse</a>
+	</li>
+	<li>
+		<a href="/banks/new">New Bank</a>
+	</li>
+</ul>
 <div>
   <h4>username/<%= @bank.name %></h4>
 </div>
@@ -15,7 +26,7 @@
 </div>
 <%= link_to 'New Sound', new_sound_file_path(:bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
 <div id="file_list">
-<%= render :partial => "list_files", :locals => { :sound_files => @sound_files } %>
+<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user } %>
 </div>
 </div>
 <script type="text/javascript">

@@ -25,7 +25,7 @@
   <div class="span3">
   Bank:<br />
   <%= select("bank", "id", 
-      Bank.all.collect {|t| [ t.name, t.id ] }, 
+      @bank_select.collect {|t| [ t.name, t.id ] }, 
           {:selected => @banks},{:multiple => true } ) %>
   </div>
   <div class="span3">

@@ -1,11 +1,16 @@
-
 <div class="page">
-	<%= link_to("add", new_bank_path )%>
+	<%= render :partial => "navigation", :locals => { :user => @user } %>
+	
 	<% @banks.each do |bank| %>
-		<h4><%= link_to("username/" + bank.name, bank) %></h4>
+		<h4><%= link_to(bank.luser_banks[0].luser.name + "/" + bank.name, bank_path(@user, bank)) %></h4>
 		<div>
 			<p><%= bank.description %></p>
 		</div>
 		<div><i>Last updated: <%= time_ago_in_words(bank.updated_at.to_s, true) %></i></div>
 	<% end %>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#tab_bank").addClass('active');
+});
+</script>

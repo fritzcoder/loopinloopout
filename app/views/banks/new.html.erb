@@ -1,7 +1,9 @@
 <div class="page">
-<h4>New sound_bank</h4>
-
+<%= render :partial => "navigation", :locals => { :user => @user } %>
 <%= render 'form' %>
-
-<%= link_to 'Back', banks_path %>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#tab_new").addClass('active');
+});
+</script>
