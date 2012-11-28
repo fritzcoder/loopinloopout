@@ -1,4 +1,5 @@
 class LusersController < ApplicationController
+  skip_before_filter :check_if_username, :only => [:new, :create]
   # GET /lusers
   # GET /lusers.json
   def index
@@ -41,6 +42,7 @@ class LusersController < ApplicationController
   # POST /lusers.json
   def create
     @luser = Luser.new(params[:luser])
+    @luser.user_id = current_user.id
 
     respond_to do |format|
       if @luser.save

@@ -1,4 +1,5 @@
 class SoundFilesController < ApplicationController
+before_filter :authenticate_user!
   # GET /sound_files
   # GET /sound_files.json
   def index
@@ -25,7 +26,7 @@ class SoundFilesController < ApplicationController
   # GET /sound_files/new.json
   def new
     @sound_file = SoundFile.new
-    @bank_id = params[:bank_id]
+    @bank = Bank.find(params[:bank_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,7 @@ class SoundFilesController < ApplicationController
   # GET /sound_files/1/edit
   def edit
     @sound_file = SoundFile.find(params[:id])
+    @bank = Bank.find(params[:bank_id])
     @user = Luser.find(:first, :conditions => {:name => params[:username]})
     @bank_select = LuserBank.find(:all, :conditions => {:luser_id => @user.id}).map { |b| b.bank }
     #@sound_file_types = SoundTypes.find(:all, :conditions => {:sound_type_id => nil})
@@ -50,6 +52,7 @@ class SoundFilesController < ApplicationController
   def create
     @sound_file = SoundFile.new(params[:sound_file])
     bank_id = params[:bank_id]
+    @bank = Bank.find(params[:bank_id])
 
     respond_to do |format|
       if @sound_file.save
@@ -57,7 +60,7 @@ class SoundFilesController < ApplicationController
         bank_file.bank_id = bank_id
         bank_file.sound_file_id = @sound_file.id
         bank_file.save
-        format.html { redirect_to edit_sound_file_path(@sound_file), notice: 'Sound file was successfully created.' }
+        format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), notice: 'Sound file was successfully created.' }
         format.json { render json: @sound_file, status: :created, location: @sound_file }
       else
         format.html { render action: "new" }
@@ -70,6 +73,8 @@ class SoundFilesController < ApplicationController
   # PUT /sound_files/1.json
   def update
     @sound_file = SoundFile.find(params[:id])
+    @bank = Bank.find(params[:bank_id])
+    @user = params[:username]
 
     respond_to do |format|
       if @sound_file.update_attributes(params[:sound_file])
@@ -83,7 +88,7 @@ class SoundFilesController < ApplicationController
         SoundFileType.save_file_types(@sound_file.id, params[:type][:id])
         SoundFileMode.save_mode_types(@sound_file.id, params[:type][:id])
         #SoundFileType.save_file_types(@sound_file.id, params[:sub_type])
-        format.html { redirect_to @sound_file, notice: 'Sound file was successfully updated.' }
+        format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), notice: 'Sound file was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

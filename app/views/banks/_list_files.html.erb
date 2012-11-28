@@ -35,9 +35,9 @@
 	</td>
 	<td><%= sound_file.file_type %></td>
 	<td>User</td>
-    <td><%= link_to '', sound_file, :class => 'icon-eye-open' %></td>
-    <td><%= link_to '', edit_bank_sound_file_path(user, sound_file.bank_files[0].bank,sound_file), :class => 'icon-edit' %></td>
-    <td><%= link_to '', sound_file, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
+    <td><%= link_to '', bank_sound_file_path(user, bank, sound_file), :class => 'icon-eye-open' %></td>
+    <td><%= link_to '', edit_bank_sound_file_path(user, bank, sound_file), :class => 'icon-edit' %></td>
+    <td><%= link_to '', bank_sound_file_path(user, bank, sound_file), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
   </tr>
 <% end %>
 </table>

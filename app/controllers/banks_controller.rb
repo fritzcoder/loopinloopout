@@ -1,11 +1,12 @@
 class BanksController < ApplicationController
+  before_filter :authenticate_user!
   # GET /sound_banks
   # GET /sound_banks.json
   def index
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
-    luser_banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id})
-    @user = "ontehfritz"
-    @banks = luser_banks.map { |l| l.bank }
+    @luser_banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id})
+    @user = params[:username];
+    @banks = @luser_banks.map { |l| l.bank }
     @sound_files = []
 
     respond_to do |format|
@@ -17,7 +18,7 @@ class BanksController < ApplicationController
   def browse
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
-    @user = "ontehfritz"
+    @user = params[:username];
     
     #@banks = Bank.all
     @sound_files = []
@@ -41,6 +42,7 @@ class BanksController < ApplicationController
   def update_files
     files = SoundFileType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:bank_id] })
+    @bank = Bank.find(params[:bank_id])
     @user = "ontehfritz"
     #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})
     #@sound_files = SoundFile.find(1,2);
@@ -94,7 +96,7 @@ class BanksController < ApplicationController
         luser_bank.bank_id = @bank.id
         luser_bank.luser_id = luser.id
         luser_bank.save
-        format.html { redirect_to @bank, notice: 'Sound bank was successfully created.' }
+        format.html { redirect_to bank_url(luser.name, @bank), notice: 'Sound bank was successfully created.' }
         format.json { render json: @bank, status: :created, location: @bank }
       else
         format.html { render action: "new" }

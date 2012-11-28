@@ -1,11 +1,13 @@
 <ul class="nav nav-tabs">
 	<li id="tab_bank">
-	    <a href="/<%= user %>/banks">All</a>
+	    <a href="/<%= current_user.luser.name %>/banks">All</a>
 	</li>
 	<li id="tab_browse">
-		<a href="/<%= user %>/banks/browse">Browse</a>
+		<a href="/<%= current_user.luser.name %>/banks/browse">Browse</a>
 	</li>
+	<% if @user == current_user.luser.name %> 
 	<li id="tab_new">
-		<a href="/<%= user %>/banks/new">New Bank</a>
+		<a href="/<%= current_user.luser.name %>/banks/new">New Bank</a>
 	</li>
+	<% end %>
 </ul>

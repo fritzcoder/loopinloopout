@@ -5,6 +5,7 @@ class CreateBanks < ActiveRecord::Migration
       t.text :description
       t.string :access
       t.boolean :collaboration
+      t.string :created_by
 
       t.timestamps
     end

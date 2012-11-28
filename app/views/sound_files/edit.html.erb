@@ -1,6 +1,6 @@
 <div class="page">
 <h4>Sound Attributes</h4>
-<%= form_for(@sound_file) do |f| %>
+<%= form_for([@bank, @sound_file], :url => bank_sound_file_path(@user, @bank, @sound_file)) do |f| %>
   <% if @sound_file.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this sound_file from being saved:</h2>
@@ -65,9 +65,6 @@
 	<%= f.submit %>
 </div>
 <% end %>
-
-<%= link_to 'Show', @sound_file %> |
-<%= link_to 'Back', sound_files_path %>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {

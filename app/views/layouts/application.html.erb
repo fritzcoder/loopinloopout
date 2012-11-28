@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : "lilo" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "LoopinLoopout" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -23,17 +23,13 @@
         <div class="content">
            <div class="row">
 			<div class="span2">
+				<% if user_signed_in? and current_user.luser != nil %>
 				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
-			    	<li><a href="/banks" style="color: #000"><i class="icon-briefcase"></i> Banks</a></li>
+			    	<li><a href="/<%= current_user.luser.name %>/banks" style="color: #000"><i class="icon-briefcase"></i> Banks</a></li>
 			        <li><a href="#" style="color: #000"><i class="icon-headphones"></i> Projects</a></li>
 					<li><a href="#" style="color: #000"><i class="icon-fire"></i> Activity</a></li>
 			    </ul>
-				<div class="well">
-				Information:
-				<p>
-					This button.. Blah blah
-				</p>
-				</div>
+				<% end %>
 			</div>
             <div class="span10" style="background-color: #838B8B; margin-left:10px;">
               <%= render 'layouts/messages' %>
@@ -47,7 +43,6 @@
  	  <!--! end of .container -->
     </div> <!--! end of #main -->
 	<div class="container" style="background-color:#666;padding:2px;margin-top:15px;">
-      lilo
     </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 Loopinloopout::Application.routes.draw do
   
   match ":username/banks/browse" => "banks#browse"
+  #match ":username" => "you/index"
   
   scope ":username" do
     resources :banks do 

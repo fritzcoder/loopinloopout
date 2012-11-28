@@ -1,4 +1,4 @@
-<%= form_for(@sound_file) do |f| %>
+<%= form_for([@bank,@sound_file]) do |f| %>
   <% if @sound_file.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this sound_file from being saved:</h2>
@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  <%= hidden_field_tag "bank_id", @bank_id %>
+  <%= hidden_field_tag "bank_id", @bank.id %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>

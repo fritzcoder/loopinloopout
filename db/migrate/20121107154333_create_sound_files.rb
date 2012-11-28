@@ -9,6 +9,7 @@ class CreateSoundFiles < ActiveRecord::Migration
       t.integer     :length
       t.integer     :bpm
       t.string      :type
+      t.string      :created_by
 
       t.timestamps
     end

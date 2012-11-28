@@ -1,15 +1,5 @@
 <div class="page">
-<ul class="nav nav-tabs">
-	<li class="active">
-	    <a href="/banks">All</a>
-	</li>
-	<li>
-		<a href="/banks/browse">Browse</a>
-	</li>
-	<li>
-		<a href="/banks/new">New Bank</a>
-	</li>
-</ul>
+<%= render :partial => "navigation", :locals => { :user => @user } %>
 <div>
   <h4>username/<%= @bank.name %></h4>
 </div>
@@ -24,9 +14,9 @@
 	<div><%= radio_button(:bank, :access, "private") %> <%= label_tag("bank_access_private","private")%></div>
 	<a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a>
 </div>
-<%= link_to 'New Sound', new_sound_file_path(:bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user, :bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
 <div id="file_list">
-<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user } %>
+<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank  } %>
 </div>
 </div>
 <script type="text/javascript">

@@ -1,5 +1,5 @@
 $('#file_list').empty()
-$('<%= escape_javascript(render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user}) %>')
+$('<%= escape_javascript(render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank}) %>')
   .appendTo('#file_list')
   .hide()
   .fadeIn()
