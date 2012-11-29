@@ -23,11 +23,19 @@
         <div class="content">
            <div class="row">
 			<div class="span2">
+				<%= yield(:profile) %>
 				<% if user_signed_in? and current_user.luser != nil %>
 				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
-			    	<li><a href="/<%= current_user.luser.name %>/banks" style="color: #000"><i class="icon-briefcase"></i> Banks</a></li>
-			        <li><a href="#" style="color: #000"><i class="icon-headphones"></i> Projects</a></li>
-					<li><a href="#" style="color: #000"><i class="icon-fire"></i> Activity</a></li>
+			    	<li>
+						<a href="#" style="color: #000">
+							<i class="icon-headphones"></i> Projects
+						</a>
+					</li>
+			        <li>
+						<a href="/<%= current_user.luser.name %>/banks" style="color: #000">
+							<i class="icon-briefcase"></i> Banks
+						</a>
+					</li>
 			    </ul>
 				<% end %>
 			</div>

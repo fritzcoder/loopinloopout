@@ -1,6 +1,9 @@
 Loopinloopout::Application.routes.draw do
   
   match ":username/banks/browse" => "banks#browse"
+  
+  match ":username" => "home#index"
+  
   #match ":username" => "you/index"
   
   scope ":username" do
@@ -24,8 +27,6 @@ Loopinloopout::Application.routes.draw do
   #get 'banks/browse', :as => 'browse'
 
   resources :softwares
-
-  get "you/index"
   resources :audio_files
   
   
@@ -79,7 +80,7 @@ Loopinloopout::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'you#index'
+   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

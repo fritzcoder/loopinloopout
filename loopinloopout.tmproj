@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/application_controller.rb</string>
+	<string>app/views/home/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -185,6 +185,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/assets/javascripts/home.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/assets/javascripts/jquery.jplayer.min.js</key>
 		<dict>
 			<key>caret</key>
@@ -199,7 +213,7 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/assets/javascripts/you.js.coffee</key>
+		<key>app/assets/javascripts/softwares.js.coffee</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -227,6 +241,34 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/assets/stylesheets/home.css.scss</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/assets/stylesheets/jplayer.blue.monday.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>283</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>263</integer>
+		</dict>
 		<key>app/controllers/application_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -249,6 +291,20 @@
 				<integer>14</integer>
 				<key>line</key>
 				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/controllers/home_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>29</integer>
+				<key>line</key>
+				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -338,20 +394,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>35</integer>
-		</dict>
-		<key>app/controllers/you_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>4</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>app/models/audio_file.rb</key>
 		<dict>
@@ -672,28 +714,60 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>12</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>12</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/browse.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>40</integer>
+				<integer>27</integer>
 				<key>line</key>
-				<integer>70</integer>
+				<integer>10</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/edit.html.erb</key>
 		<dict>
@@ -714,14 +788,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>11</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>9</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/index.html.erb.bak</key>
 		<dict>
@@ -835,6 +925,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/views/home/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>22</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/views/layouts/_menu.html.erb</key>
 		<dict>
 			<key>caret</key>
@@ -898,14 +1002,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>56</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>31</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/lusers/_form.html.erb</key>
 		<dict>
@@ -1091,20 +1195,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/you/index.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>config/database.yml</key>
 		<dict>
 			<key>caret</key>
@@ -1124,14 +1214,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>20</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>82</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>49</integer>
 		</dict>
 		<key>db/migrate/20121008184431_create_audio_files.rb</key>
 		<dict>
@@ -1345,6 +1435,34 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>test/functional/home_controller_test.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>test/unit/mode_test.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
@@ -1357,7 +1475,7 @@
 		<string>app/models/bank_file.rb</string>
 		<string>app/models/bank.rb</string>
 		<string>app/views/banks/index.html.erb</string>
-		<string>app/views/you/index.html.erb</string>
+		<string>app/views/home/index.html.erb</string>
 		<string>app/views/layouts/application.html.erb</string>
 		<string>app/views/devise/sessions/new.html.erb</string>
 		<string>app/views/devise/registrations/new.html.erb</string>
@@ -1366,7 +1484,13 @@
 		<string>app/views/lusers/edit.html.erb</string>
 		<string>app/controllers/registration_controller.rb</string>
 		<string>app/views/devise/registrations/edit.html.erb</string>
-		<string>app/controllers/you_controller.rb</string>
+		<string>app/controllers/home_controller.rb</string>
+		<string>app/assets/stylesheets/home.css.scss</string>
+		<string>app/assets/stylesheets/jplayer.blue.monday.css</string>
+		<string>app/assets/javascripts/home.js.coffee</string>
+		<string>app/assets/javascripts/softwares.js.coffee</string>
+		<string>test/functional/home_controller_test.rb</string>
+		<string>test/unit/mode_test.rb</string>
 		<string>app/views/banks/edit.html.erb</string>
 		<string>app/views/banks/_navigation.html.erb</string>
 		<string>app/views/layouts/_menu.html.erb</string>
@@ -1408,6 +1532,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{265, -52}, {1015, 778}}</string>
+	<string>{{265, 0}, {1015, 778}}</string>
 </dict>
 </plist>
