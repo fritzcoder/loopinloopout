@@ -1,5 +1,5 @@
 class BanksController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   # GET /sound_banks
   # GET /sound_banks.json
   def index

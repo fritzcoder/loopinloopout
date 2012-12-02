@@ -60,6 +60,10 @@ before_filter :authenticate_user!
         bank_file.bank_id = bank_id
         bank_file.sound_file_id = @sound_file.id
         bank_file.save
+        
+        if @sound_file.audio != nil
+          Runner.generate_waveform(@sound_file)
+        end
         format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), notice: 'Sound file was successfully created.' }
         format.json { render json: @sound_file, status: :created, location: @sound_file }
       else

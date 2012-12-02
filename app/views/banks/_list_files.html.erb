@@ -22,6 +22,11 @@
 		<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
 		<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
 	</td>
+	<% elsif sound_file.audio != nil %>
+	<td>
+		<a href="#" onclick="playFile('<%= sound_file.file.url%>');"><i  class="icon-play"></i></a>
+		<a href="#" onclick="stopFile('<%= sound_file.file.url%>');"><i  class="icon-stop"></i></a>
+	</td>
 	<% else %>
 	<td><i class=" icon-upload"></i></td>
 	<% end %>

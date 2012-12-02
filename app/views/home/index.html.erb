@@ -1,57 +1,45 @@
-<% content_for :profile do %>
-  <div>
-  	<img src="http://127.0.0.1:3000/assets/profile_default.png" />
-  </div>
-  <h4><%= @user %></h4>
-  <br />
-<% end %>
-<% content_for :title do %>
-<%= @user %>
-<% end %>
 <div class="page">
-	<ul class="nav nav-tabs">
-		<li id="tab_bank" class="active">
-		    <a href="/<%= @user %>"><i class="icon-info-sign"></i> Info</a>
-		</li>
-		<li id="tab_browse">
-			<a href="/<%= @user %>/banks/browse"><i class="icon-fire"></i> Activity</a>
-		</li>
-	</ul>
-	
-	<h3><a href="">Projects:</a> 0 <a href="">Banks:</a> 0 Followers: 0 Following: 0</h3> 
+	<div >
+		<h4>0 Projects, 0 Banks, 0 Lusers</h3> 
+		<form class="form-search">
+			  <input type="text" class="input-medium search-query">
+			  <button type="submit" class="btn">Search</button>
+		</form>
+	</div>
 	<div>
-	<div style="float:left;width:250px;">
-		About:
-		<ul>
-			<li>
-				Location:<br />
-				Netherlands, Rotterdam
-			</li>
-			<li>
-				Blurb:<br />
-				Als senior developer werk je op ons hoofdkantoor in Rotterdam, waar je in een dynamisch team van 5 zeer ervaren 
-				senior ontwikkelaars plaatsneemt. VONQ bestaat als organisatie in geheel uit circa 30 medewerkers. 
-			</li>
-		</ul>
+		<b>LILO</b> <i>/'lüp, in, lüp, au̇t /</i>
+		<p>
+			LILO is the best way to collaborate with Musicians, Producers, and Sample junkies.
+			Create and share sound banks, host a remix challenge, need help finishing a track, or simply want to show your work. 
+		</p>
 	</div>
-	<div style="float:left;width:250px;">
-		Gear and Wares:
-		<ul>
-			<li>Mac Book Pro</li>
-			<li>Nord Lead</li>
-			<li>Ableton</li>
-		</ul>
-		<a href="">See Battle Station</a>
-	</div>
-	<div style="float:left;width:250px;">
-		Followers:
+	<div class="intro">
+		<div style="float:left;width:300px;">
 		<div>
-			
+		<h3>Projects</h3>
 		</div>
-		Following:
+		<p>
+			Projects allow you to find people to collaborate with, ask people to remix your tracks, host remix challenges
+		</p>
+		</div>
+		
+		<div style="float:left;width:300px;">
 		<div>
-			
+		<h3>Banks</h3>
 		</div>
-	</div>
+		<p>
+			Banks can be created that allow you to upload and share loops, samples, and sounds created in your soft synths, DAW, and 
+			various music software.
+		</p>
+		</div>
+		
+		<div style="float:left;width:300px;">
+		<div>
+		<h3>Lusers</h3>
+		</div>
+		<p>
+			When you sign up you be come LILO user (Luser) for short, don't worry here it is cool to be Luser.
+		</p>
+		</div>
 	</div>
 </div>

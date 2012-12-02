@@ -1,3 +1,0 @@
-class Sound < SoundFile
-  
-end

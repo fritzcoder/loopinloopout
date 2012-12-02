@@ -1,10 +1,7 @@
 Loopinloopout::Application.routes.draw do
+  devise_for :users
   
   match ":username/banks/browse" => "banks#browse"
-  
-  match ":username" => "home#index"
-  
-  #match ":username" => "you/index"
   
   scope ":username" do
     resources :banks do 
@@ -13,10 +10,7 @@ Loopinloopout::Application.routes.draw do
   end
   
   resources :lusers 
-  #resources :banks
-  #resources :sound_files
   
-  devise_for :users
 
   resources :modes
   resources :sound_types
@@ -29,7 +23,7 @@ Loopinloopout::Application.routes.draw do
   resources :softwares
   resources :audio_files
   
-  
+  match ":username" => "home#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

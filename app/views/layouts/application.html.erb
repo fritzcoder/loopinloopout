@@ -13,7 +13,7 @@
   <body style="background-color: #000">
     <header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
-        <div class="container" style="background-color:#666;padding:2px;">
+        <div class="container" style="background-color:#666;padding:2px;width: 900px;">
           <%= render 'layouts/navigation' %>
         </div>
       </nav>
@@ -22,9 +22,10 @@
       <div class="container">
         <div class="content">
            <div class="row">
+			<% if @user != nil %>
 			<div class="span2">
 				<%= yield(:profile) %>
-				<% if user_signed_in? and current_user.luser != nil %>
+				
 				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
 			    	<li>
 						<a href="#" style="color: #000">
@@ -32,25 +33,41 @@
 						</a>
 					</li>
 			        <li>
-						<a href="/<%= current_user.luser.name %>/banks" style="color: #000">
+						<a href="/<%= @user %>/banks" style="color: #000">
 							<i class="icon-briefcase"></i> Banks
 						</a>
 					</li>
 			    </ul>
-				<% end %>
+				
 			</div>
-            <div class="span10" style="background-color: #838B8B; margin-left:10px;">
+			<% end %>
+			<% if @user != nil %>
+			<div class="span10" style="background-color: #838B8B; margin-left:10px;">
+			<% else%>
+            <div class="span12" style="background-color: #838B8B; margin-left:10px;">
+			<% end %>
               <%= render 'layouts/messages' %>
               <%= yield %>
             </div>
           </div>
           <footer>
+			
           </footer>
         </div>
       </div>
  	  <!--! end of .container -->
     </div> <!--! end of #main -->
-	<div class="container" style="background-color:#666;padding:2px;margin-top:15px;">
+	<div class="container" style="background-color:#666;padding:20px;margin-top:15px;">
+		<div class="row">
+			<div class="span6">
+				<ul class="nav nav-list">
+				  <li class="nav-header">LILO</li>
+				  <li><a href="#">About</a></li>
+				  <li><a href="#">FAQ</a></li>
+				  
+				</ul>
+			</div>
+		</div>
     </div>
   </body>
 </html>

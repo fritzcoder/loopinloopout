@@ -46,7 +46,8 @@ class LusersController < ApplicationController
 
     respond_to do |format|
       if @luser.save
-        format.html { redirect_to @luser, notice: 'Luser was successfully created.' }
+        name = @luser.name
+        format.html { redirect_to '/' + name, notice: 'Luser was successfully created.' }
         format.json { render json: @luser, status: :created, location: @luser }
       else
         format.html { render action: "new" }

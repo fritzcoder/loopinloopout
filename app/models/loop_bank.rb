@@ -1,2 +1,0 @@
-class LoopBank < Bank
-end

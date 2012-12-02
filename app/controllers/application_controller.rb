@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
    #redirect_to '/' + current_user.luser.name + '/banks'
-   banks_path(current_user.luser.name)
+    if current_user.luser != nil 
+      banks_path(current_user.luser.name)
+    else
+      new_luser_url
+    end
   end
   
   
