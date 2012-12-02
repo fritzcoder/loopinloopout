@@ -92,7 +92,13 @@ before_filter :authenticate_user!
         SoundFileType.save_file_types(@sound_file.id, params[:type][:id])
         SoundFileMode.save_mode_types(@sound_file.id, params[:type][:id])
         #SoundFileType.save_file_types(@sound_file.id, params[:sub_type])
-        format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), notice: 'Sound file was successfully updated.' }
+        
+        if @sound_file.preview != nil
+          Runner.generate_waveform(@sound_file)
+        end
+        
+        format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), 
+          notice: 'Sound file was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
