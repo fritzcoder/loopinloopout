@@ -1,3 +1,12 @@
+<% content_for :profile do %>
+  <div>
+  	<a href="/<%= @user %>">
+		<img src="http://127.0.0.1:3000/assets/profile_default.png" />
+	</a>
+  </div>
+  <h4><%= @user %></h4>
+  <br />
+<% end %>
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 <div>
@@ -103,31 +112,6 @@ $(document).ready(function() {
 	  files();
     });
 });
-
-$(".icon-stop").hide();
-function playFile(url)
-{
-	$(".icon-stop").show();
-	$(".icon-play").hide();
-	//$(document).ready(function(){
-	$("#jquery_jplayer_1").jPlayer( "destroy" );
-	$("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-		  alert(url);
-          $(this).jPlayer("setMedia", {
-            mp3: "http://127.0.0.1:3000/" + url
-          }).jPlayer("play");
-        },
-		supplied: "mp3"
-     });	 
-	//});
-}
-function stopFile()
-{
-	$("#jquery_jplayer_1").jPlayer( "stop" );
-	$(".icon-stop").hide();
-	$(".icon-play").show();
-}
 </script>
 
 

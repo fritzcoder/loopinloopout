@@ -1,19 +1,3 @@
-/*
- * Skin for jPlayer Plugin (jQuery JavaScript Library)
- * http://www.happyworm.com/jquery/jplayer
- *
- * Skin Name: Blue Monday
- *
- * Copyright (c) 2010-2012 Happyworm Ltd
- * Dual licensed under the MIT and GPL licenses.
- *  - http://www.opensource.org/licenses/mit-license.php
- *  - http://www.gnu.org/copyleft/gpl.html
- *
- * Author: Silvia Benvenuti
- * Skin Version: 4.1 (jPlayer 2.2.0)
- * Date: 11th September 2012
- */
-
 div.jp-audio{
 
 	/* Edit the font-size to counteract inherited font sizing.
@@ -29,7 +13,7 @@ div.jp-audio{
 	background-color:#eee;
 }
 div.jp-audio {
-	width: 760px;
+	width: 740px;
 }
 
 div.jp-jplayer {
@@ -48,11 +32,11 @@ div.jp-interface {
 
 div.jp-audio div.jp-type-single div.jp-interface {
 	height:50px;
-	width: 760px;
+	width: 740px;
 }
 div.jp-audio div.jp-type-playlist div.jp-interface {
 	height:80px;
-	width: 760px;
+	width: 740px;
 }
 
 
@@ -60,7 +44,7 @@ div.jp-audio div.jp-type-playlist div.jp-interface {
 
 div.jp-controls-holder {
 	clear: both;
-	width:760px;
+	width:740px;
 	margin:0 auto;
 	position: relative;
 	overflow:hidden;
@@ -83,11 +67,11 @@ ul.jp-controls {
 
 div.jp-audio ul.jp-controls {
 	height: 20px;
-	width: 760px;
+	width: 740px;
 	/*padding:20px 20px 0 20px;*/
 }
 ul.jp-controls {
-	width: 760px;
+	width: 740px;
 	/*padding:20px 20px 0 20px;*/
 }
 
@@ -176,7 +160,7 @@ div.jp-audio div.jp-progress {
 }
 div.jp-audio div.jp-type-single div.jp-progress {
 	left:0px;
-	width:760px;
+	width:740px;
 }
 div.jp-audio div.jp-type-playlist div.jp-progress {
 	left:166px;
@@ -275,7 +259,7 @@ div.jp-audio div.jp-time-holder {
 }
 div.jp-audio div.jp-type-single div.jp-time-holder {
 	left:0px;
-	width:760px;
+	width:740px;
 }
 div.jp-audio div.jp-type-playlist div.jp-time-holder {
 	left:166px;
@@ -304,6 +288,7 @@ div.jp-duration {
 
 div.jp-title {
 	font-weight:bold;
+	font-size:8px;
 	text-align:center;
 }
 

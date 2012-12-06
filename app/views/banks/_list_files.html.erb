@@ -19,14 +19,11 @@
 	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url%>"><i class="icon-download"></i></a></td>
 	<% if sound_file.preview? %>
 	<td>
-		<a href="#" onclick="playFile('<%= sound_file.preview.url%>');"><i  class="icon-play"></i></a>
-		<a href="#" onclick="stopFile('<%= sound_file.preview.url%>');"><i  class="icon-stop"></i></a>
+		<a href="#" onclick="playFile('<%= sound_file.preview.url%>', '<%= sound_file.wave.url %>','<%= sound_file.name %>');"><i  class="icon-play"></i></a>
 	</td>
 	<% elsif sound_file.audio != nil %>
 	<td>
-		<a href="#" onclick="playFile('<%= sound_file.file.url%>');"><i  class="icon-play"></i></a>
-		<a href="#" onclick="stopFile('<%= sound_file.file.url%>');"><i  class="icon-stop"></i></a>
-	</td>
+		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= sound_file.wave.url %>', '<%= sound_file.name %>');"><i  class="icon-play"></i></a>
 	<% else %>
 	<td><i class=" icon-upload"></i></td>
 	<% end %>

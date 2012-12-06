@@ -3,17 +3,57 @@
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-            mp3: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a"
+            mp3: ""
           });
         },
         supplied: "mp3"
       });
     });
+
+	function play()
+	{
+		$("#jquery_jplayer_1").jPlayer("play");
+	}
+	
+	function stop()
+	{
+		$("#jquery_jplayer_1").jPlayer("stop");
+	}
+	
+	function pause()
+	{
+		$("#jquery_jplayer_1").jPlayer("pause");
+	}
+	
+	function playFile(url, wave, title)
+	{
+		$("#title").html(title)
+		$("#wave").attr('style', "background:url('http://127.0.0.1:3000" + wave + "') 0 0 no-repeat;")
+		$("#jquery_jplayer_1").jPlayer( "stop" );
+		$("#jquery_jplayer_1").jPlayer( "destroy" );
+		$("#jquery_jplayer_1").jPlayer({
+	        ready: function () {
+			  //alert(url);
+	          $(this).jPlayer("setMedia", {
+	            mp3: "http://127.0.0.1:3000/" + url
+	          }).jPlayer("play");
+	        },
+			supplied: "mp3"
+	     });	 
+		//});
+	}
 </script>
+<div class="player" style="width:760;">
+<div class="controls" style="width: 15px; height: 62px; float: left; text-align: center; vertical-align: middle; border: 1px solid black; background-color: #fff;">
+	<a href="#" onclick="play();"><i class="icon-play"></i></a>
+	<a href="#" onclick="stop();"><i class="icon-stop"></i></a>
+	<a href="#" onclick="pause();"><i class="icon-pause"></i></a>		
+</div>
+<div style="width: 720px; float: left;">
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
   <div id="jp_container_1" class="jp-audio">
     <div class="jp-type-single">
-      <div class="jp-gui jp-interface" style="background:url('http://127.0.0.1:3000/system/audio_files/waves/000/000/022/original/test.png') 0 0 no-repeat;background-color:#000;">  	
+      <div class="jp-gui jp-interface" id="wave">  	
         <div class="jp-progress" style="opacity: 0.8;">
           <div class="jp-seek-bar">
             <div class="jp-play-bar"></div>
@@ -29,6 +69,8 @@
         </div>
       </div>
       <div class="jp-title">
+	    <div id="title">
+		</div>
 		<!--<div class="jp-volume-bar">
           <div class="jp-volume-bar-value"></div>
         </div>-->
@@ -38,7 +80,10 @@
 	          <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
 	          <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
 	          <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-	          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li> -->
-	     </ul>
+	          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li> 
+	     </ul>-->
       </div>
     </div>
+</div>
+<br style="clear: left;" />
+</div>
