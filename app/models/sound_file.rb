@@ -12,7 +12,7 @@ class SoundFile < ActiveRecord::Base
   has_many    :sound_types, :through => :sound_file_types
   
   has_attached_file :file
-  has_attached_file :wave
+  has_attached_file :wave , :styles => { :medium => "800x50!", :thumb => "300x19!" }
   has_attached_file :preview
   
   before_post_process :skip_for_audio

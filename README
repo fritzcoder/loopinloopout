@@ -1,8 +1,6 @@
 LoopINLoopOUT
 -------------------------------------------
-Sample, Loop, and Stem repository. The application is all about remixing, creating and sharing. 
-The audio player will be similar to sound cloud, as a really like to build on that idea, and the commenting
-is very ideal for commenting on audio.
+Sample, Loop, and Stem repository. The application is all about remixing, collaborating, creating, and sharing. 
  
 
 - Dependencies: 
@@ -14,5 +12,4 @@ This gem is used to generate waveform from wav to png
 On OSX or linux you need to have: 
 mac: brew install libsndfile
 	 brew install ffmpeg
-
-linux - apt-get install libsndfile1-dev
+	 brew install imagemagick

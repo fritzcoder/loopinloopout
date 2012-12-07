@@ -1,7 +1,7 @@
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 <div>
-  <h4>username/<%= @bank.name %></h4>
+  <h4><%= @user %>/<%= @bank.name %></h4>
 </div>
 <a href="#" id="edit">Edit</a>
 <div id="description">
@@ -14,9 +14,11 @@
 	<div><%= radio_button(:bank, :access, "private") %> <%= label_tag("bank_access_private","private")%></div>
 	<a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a>
 </div>
+<%= render 'layouts/mini_player' %>
 <%= link_to 'New Sound', new_bank_sound_file_path(:username => @user, :bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
 <div id="file_list">
-<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank  } %>
+<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank, 
+	:player_size => "mini"  } %>
 </div>
 </div>
 <script type="text/javascript">
