@@ -12,10 +12,17 @@
 	Access:
 	<div><%= radio_button(:bank, :access, "public") %> <%= label_tag("bank_access_public","public")%></div>
 	<div><%= radio_button(:bank, :access, "private") %> <%= label_tag("bank_access_private","private")%></div>
-	<a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a>
+	<div><a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a></div>
 </div>
-<%= render 'layouts/mini_player' %>
-<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user, :bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+<div style="width:760px;">
+	<div style="float:left;">
+	<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user, :bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+	</div>
+	<div style="float:right;">
+	<%= render 'layouts/mini_player' %>
+	</div>
+	<br style="clear: both;" />
+</div>
 <div id="file_list">
 <%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank, 
 	:player_size => "mini"  } %>
