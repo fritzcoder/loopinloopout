@@ -1,7 +1,17 @@
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
-<div>
-  <h4><%= @user %>/<%= @bank.name %></h4>
+<div style="width:760px;">
+  <div style="float:left;"><h4><%= @user %>/<%= @bank.name %></h4></div>
+  <div style="float:right;">
+	<% if @bank_bookmark != nil %>
+	<a href="#" id="bookmarked"><i class="icon-bookmark icon-white"></i></a>
+	<a href="#" id="bookmark" style="display:none"><i class="icon-bookmark"></i></a>
+	<% else %>
+	<a href="#" id="bookmark"><i class="icon-bookmark"></i></a>
+	<a href="#" id="bookmarked" style="display:none"><i class="icon-bookmark icon-white"></i></a>
+	<% end %>
+  </div>
+  <br style="clear: both;" />
 </div>
 <a href="#" id="edit">Edit</a>
 <div id="description">
@@ -64,6 +74,40 @@ $(document).ready(function() {
 			},
 	        dataType: 'json'
 			
+	      });
+	});
+	
+	$('#bookmark').click(function() {
+		$.ajax({
+			type: 'POST',
+			url: '<%= bank_bookmarks_path %>',
+	        data: {
+			  _method : 'POST',
+			  bank_id : '<%= @bank.id %>',
+			  username : '<%= current_user.luser.name %>'
+	        },
+			success: function(data) {
+				$('#bookmarked').show('slow');
+				$('#bookmark').hide();
+			},
+	        dataType: 'json'
+	      });
+	});
+	
+	$('#bookmarked').click(function() {
+		$.ajax({
+			type: 'POST',
+			url: '<%= bank_bookmarks_path %>',
+	        data: {
+			  _method : 'POST',
+			  bank_id : '<%= @bank.id %>',
+			  username : '<%= current_user.luser.name %>'
+	        },
+			success: function(data) {
+				$('#bookmarked').hide();
+				$('#bookmark').show('slow');
+			},
+	        dataType: 'json'
 	      });
 	});
 });

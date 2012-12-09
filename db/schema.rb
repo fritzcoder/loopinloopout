@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125130243) do
+ActiveRecord::Schema.define(:version => 20121208140145) do
 
   create_table "audio_files", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20121125130243) do
     t.string   "type"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "bank_bookmarks", :force => true do |t|
+    t.integer  "luser_id"
+    t.integer  "bank_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "bank_files", :force => true do |t|

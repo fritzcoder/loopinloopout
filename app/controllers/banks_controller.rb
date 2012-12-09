@@ -58,6 +58,7 @@ class BanksController < ApplicationController
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:id] })
     @sound_files = bank_files.map { |f| f.sound_file }
     @user = params[:username]
+    @bank_bookmark = BankBookmark.find(:first, :conditions => {:bank_id => @bank.id, :luser_id => current_user.luser.id})
 
     respond_to do |format|
       format.html # show.html.erb
