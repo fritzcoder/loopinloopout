@@ -1,0 +1,35 @@
+<% content_for :profile do %>
+  <div>
+  	<a href="/<%= @user %>">
+		<img src="http://127.0.0.1:3000/assets/profile_default.png" />
+	</a>
+  </div>
+  <h4><%= @user %></h4>
+  <br />
+<% end %>
+<% content_for :title do %>
+<%= @user %>
+<% end %>
+<div class="page">
+	<%= render :partial => "navigation", :locals => { :user => @user } %>
+<div>
+	<div style="float:left;width:300px;">
+	<% @bank_bookmarks.each do |bank| %>
+		<h4><%= link_to(bank.created_by + "/" + bank.name, bank_path(bank.created_by , bank)) %></h4>
+		<div>
+			<p><%= bank.description %></p>
+		</div>
+		<div><i>Last updated: <%= time_ago_in_words(bank.updated_at.to_s, true) %></i></div>
+	<% end %>
+	</div>
+	<div style="float:left;width:400px;">
+		<%= render 'layouts/mini_player' %>
+		<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_bookmarks, :user => @user, :player_size => "mini" } %>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#tab_favorites").addClass('active');
+});
+</script>

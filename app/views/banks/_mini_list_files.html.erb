@@ -2,10 +2,8 @@
 <table class="table table-condensed table-hover">
   <thead>
   <tr>
-	<th><a href="http://127.0.0.1:3000"><i class="icon-download"></i></a></th>
 	<th></th>
     <th>Name</th>
-    <th>Rating</th>
     <th>Type</th>
     <th>Author</th>
 	<th></th>
@@ -24,7 +22,6 @@
   %>
   
   <tr>
-	<td><a href="http://127.0.0.1:3000<%= sound_file.file.url %>"><i class="icon-download"></i></a></td>
 	<% if sound_file.preview? %>
 	<td>
 		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');"><i  class="icon-play"></i></a>
@@ -36,15 +33,8 @@
 	<td><i class=" icon-upload"></i></td>
 	<% end %>
     <td><%= sound_file.name %></td>
-	<td>
-		<i class="icon-star"></i>
-		<i class="icon-star"></i>
-		<i class="icon-star"></i>
-		<i class="icon-star"></i>
-		<i class="icon-star"></i>
-	</td>
 	<td><%= sound_file.file_type %></td>
-	<td>User</td>
+	<td><%= sound_file.created_by %></td>
 	<td>
 		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
 		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" style="display:none;">
@@ -62,9 +52,6 @@
 		</a>
 		<% end %>
 	</td>
-    <td><%= link_to '', bank_sound_file_path(user, bank, sound_file), :class => 'icon-eye-open' %></td>
-    <td><%= link_to '', edit_bank_sound_file_path(user, bank, sound_file), :class => 'icon-edit' %></td>
-    <td><%= link_to '', bank_sound_file_path(user, bank, sound_file), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %></td>
   </tr>
 <% end %>
 </table>

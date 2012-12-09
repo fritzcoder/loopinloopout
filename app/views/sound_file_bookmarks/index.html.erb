@@ -1,0 +1,21 @@
+<h1>Listing sound_file_bookmarks</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sound_file_bookmarks.each do |sound_file_bookmark| %>
+  <tr>
+    <td><%= link_to 'Show', sound_file_bookmark %></td>
+    <td><%= link_to 'Edit', edit_sound_file_bookmark_path(sound_file_bookmark) %></td>
+    <td><%= link_to 'Destroy', sound_file_bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sound file bookmark', new_sound_file_bookmark_path %>

@@ -1,0 +1,2 @@
+module BankBookmarksHelper
+end

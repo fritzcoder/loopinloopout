@@ -15,6 +15,15 @@ class BanksController < ApplicationController
     end
   end
   
+  def bookmarked
+    luser = Luser.find(:first, :conditions => {:name => params[:username]})
+    bookmarked = BankBookmark.find(:all, :conditions => {:luser_id => luser.id })
+    sound_bookmarked = SoundFileBookmark.find(:all, :conditions => {:luser_id => luser.id})
+    @sound_bookmarks = sound_bookmarked.map { |s| s.sound_file }
+    @bank_bookmarks = bookmarked.map { |b| b.bank }
+    @user = params[:username]
+  end
+  
   def browse
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
@@ -90,6 +99,7 @@ class BanksController < ApplicationController
   def create
     @bank = Bank.new(params[:bank])
     luser = Luser.find(:first, :conditions =>{ :name => params[:username]})
+    @bank.created_by = luser.name
 
     respond_to do |format|
       if @bank.save
