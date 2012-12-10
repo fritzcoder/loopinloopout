@@ -13,7 +13,7 @@
 <div class="page">
 	<%= render :partial => "navigation", :locals => { :user => @user } %>
 <div>
-	<div style="float:left;width:300px;">
+	<div style="float:left;width:420px;">
 	<% @bank_bookmarks.each do |bank| %>
 		<h4><%= link_to(bank.created_by + "/" + bank.name, bank_path(bank.created_by , bank)) %></h4>
 		<div>
@@ -22,7 +22,8 @@
 		<div><i>Last updated: <%= time_ago_in_words(bank.updated_at.to_s, true) %></i></div>
 	<% end %>
 	</div>
-	<div style="float:left;width:400px;">
+	<div  style="float:left;width:320px;border: 1px solid black;padding: 5px;">
+		<h4>Sounds</h4>
 		<%= render 'layouts/mini_player' %>
 		<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_bookmarks, :user => @user, :player_size => "mini" } %>
 	</div>
