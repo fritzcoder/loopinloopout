@@ -1,0 +1,2 @@
+class Challenge < Project
+end

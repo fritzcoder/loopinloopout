@@ -1,11 +1,6 @@
 <% content_for :profile do %>
-  <div>
-  	<a href="/<%= @user %>">
-		<img src="http://127.0.0.1:3000/assets/profile_default.png" />
-	</a>
-  </div>
-  <h4><%= @user %></h4>
-  <br />
+<%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
 <% end %>
 <% content_for :title do %>
 <%= @user %>
@@ -14,11 +9,33 @@
 	<%= render :partial => "navigation", :locals => { :user => @user } %>
 	
 	<% @luser_banks.each do |lbank| %>
-		<h4><%= link_to(lbank.luser.name + "/" + lbank.bank.name, bank_path(@user, lbank.bank)) %></h4>
 		<div>
+			<div>
+				<div style="float:left;">
+				<h4><%= link_to(lbank.luser.name + "/" + lbank.bank.name, bank_path(@user, lbank.bank)) %></h4>
+				</div>
+				<div style="float:right;">
+					0 <i class="icon-bookmark"></i>
+				</div>
+				<br style="clear:both;"/>
+			</div>
 			<p><%= lbank.bank.description %></p>
+			<div><i>Last updated: <%= time_ago_in_words(lbank.bank.updated_at.to_s, true) %></i></div>
+			<div>
+			 <% if lbank.bank.access == "public"%>
+			 <span class="label label-success">Public</span>
+			 <% elsif lbank.bank.access == "private"%>
+			  <span class="label label-important">Private</span>
+			 <% else %>
+			  <span class="label label-success">Public</span>
+			 <% end %>
+			 
+			 <% if lbank.bank.collaboration %>
+				<span class="label label-success">Public</span>
+			 <% end %>
+			
+			</div>
 		</div>
-		<div><i>Last updated: <%= time_ago_in_words(lbank.bank.updated_at.to_s, true) %></i></div>
 	<% end %>
 </div>
 <script type="text/javascript">

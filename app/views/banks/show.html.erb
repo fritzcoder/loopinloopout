@@ -1,17 +1,12 @@
 <% content_for :profile do %>
-  <div>
-  	<a href="/<%= @user %>">
-		<img src="http://127.0.0.1:3000/assets/profile_default.png" />
-	</a>
-  </div>
-  <h4><%= @user %></h4>
-  <br />
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
 <% end %>
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 <div style="width:760px;">
-  <div style="float:left;"><h4><%= @user %>/<%= @bank.name %></h4></div>
+  <div style="float:left;"><h3 style="margin:0px;"><%= @user %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3></div>
   <div style="float:right;">
+	<i class="icon-hdd"></i>
 	<% if @bank_bookmark != nil %>
 	<a href="#" id="bookmarked"><i class="icon-bookmark icon-white"></i></a>
 	<a href="#" id="bookmark" style="display:none"><i class="icon-bookmark"></i></a>
@@ -22,7 +17,6 @@
   </div>
   <br style="clear: both;" />
 </div>
-<a href="#" id="edit">Edit</a>
 <div id="description">
    	<p><%= @bank.description %></p>
 </div>
@@ -40,7 +34,7 @@
 	<div style="float:right;">
 	<%= render 'layouts/mini_player' %>
 	</div>
-	<br style="clear: both;" />
+	<div style="clear: both;"></div>
 </div>
 <div id="file_list">
 <%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank, 

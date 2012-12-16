@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+	<li id="tab_project">
+	    <a href="/<%= @user %>/projects">All</a>
+	</li>
+	<li id="tab_collabs">
+		<a href="/<%= @user %>/projects?type=collabs">Collabs</a>
+	</li>
+	<li id="tab_browse">
+		<a href="/<%= @user %>/projects?type=remix">Remix-able</a>
+	</li>
+	<li id="tab_favorites">
+		<a href="/<%= @user %>/projects?type=challenges">Challenges</a>
+	</li>
+	<% if user_signed_in? %>
+	<% if @user == current_user.luser.name %> 
+	<li id="tab_new">
+		<a href="/<%= current_user.luser.name %>/projects/new">New Project</a>
+	</li>
+	<% end %>
+	<% end%>
+</ul>

@@ -1,13 +1,12 @@
 Loopinloopout::Application.routes.draw do
   resources :sound_file_bookmarks
-
-  #resources :bank_bookmarks
   devise_for :users
   
   match ":username/banks/browse" => "banks#browse"
   match ":username/banks/bookmarked" => "banks#bookmarked"
   
   scope ":username" do
+    resources :projects
     resources :bank_bookmarks 
     resources :banks do
       resources :sound_files

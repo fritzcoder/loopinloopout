@@ -1,0 +1,60 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
+<% end %>
+<div class="page">
+	
+<div>
+<h1> 
+    <%= @project.name %> 
+	<span class="label label-info"><%= @project.type %></span>
+	<% if @project.access == "public" %>
+	<span class="label label-success"><%= @project.access %></span>
+	<% else %>
+	<span class="label label-important"><%= @project.access %></span>
+	<% end %>
+</h1>
+<ul class="nav nav-tabs">
+	<li id="tab_project" class="active">
+	    <a href="">Project</a>
+	</li>
+	<li id="tab_collabs">
+		<a href="">Discussion</a>
+	</li>
+</ul>
+<p><%= @project.description %></p>
+</div>
+<div>
+	<%= render 'layouts/small_player' %>
+</div>
+<br />
+<div style="width:760px;">
+	Songs in this collaboration: <a href="" style="float:right;"><i class="icon-upload"></i></a>
+	<div style="border: 1px solid black;padding: 5px;">
+		<h3>No Songs uploaded</h3> 
+	</div>
+</div>
+<br />
+<div style="width:760px;">
+<div style="width:760px;">
+	<div style="float:left;width:350px;">
+		Sounds and Loops:
+		<a href="" style="float:right;"><i class="icon-upload"></i></a>
+		<a href="" style="float:right;"><i class="icon-briefcase"></i></a>
+		<div style="border: 1px solid black;padding:5px;">
+			<h4>Select from banks or upload sounds and loops</h4>
+		</div>
+	</div>
+	<div style="float:left;width:350px;margin-left:10px;">
+		stems:
+		<a href="" style="float:right;"><i class="icon-upload"></i></a>
+		<div style="border: 1px solid black;padding:5px;">
+			<h4>Upload song stems</h4>
+		</div>
+	</div>
+
+	<br style="clear:both;" />
+</div>
+</div>
+
+</div>
