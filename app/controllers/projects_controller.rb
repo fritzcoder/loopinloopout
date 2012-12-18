@@ -1,19 +1,20 @@
 class ProjectsController < ApplicationController
   def upload_file
     @sound_file = SoundFile.new(params[:sound_file])
-    project_id = params[:project_id]
+    @project = Project.find(params[:id])
+    @user = params[:username]
     
     respond_to do |format|
       if @sound_file.save
           project_file = ProjectFile.new
           project_file.sound_file_id = @sound_file.id
-          project_file.project_id = project_id
+          project_file.project_id = @project.id
           project_file.save
-          #format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully created.' }
-          format.json { render json: @project, status: :created}
+          format.html { redirect_to project_url(@user, @project), notice: 'Sound was successfully added.' }
+          format.json { render json: @sound_file, status: :created}
       else
-          #format.html { render action: "new" }
-          format.json { render json: @project.errors, status: :unprocessable_entity }
+          format.html { render action: "new" }
+          format.json { render json: @sound_file.errors, status: :unprocessable_entity }
       end
     end  
   end
@@ -21,7 +22,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    luser = Luser.find(:first, :conditions => {:name => params[:username]})
+    @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id})
+    @projects = @luser_projects.map { |l| l.project }
     @user = params[:username]
 
     respond_to do |format|
@@ -34,6 +37,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    s_files = ProjectFile.find(:all, :conditions => { :project_id => params[:id] })
+    all_sound_files = s_files.map { |f| f.sound_file }
+    @sound_files = all_sound_files.reject { |f| f.type != 'SoundFile' }
+    @stem_files = all_sound_files.reject { |f| f.type != 'Stem' }
+    @song_files = all_sound_files.reject { |f| f.type != 'Song' }
+    @sound_file = SoundFile.new
     @user = params[:username]
     respond_to do |format|
       format.html # show.html.erb
@@ -64,9 +73,14 @@ class ProjectsController < ApplicationController
     @project.type = params[:type][:id]
     @project.access = "Private"
     @user = params[:username]
+    luser = Luser.find(:first, :conditions =>{ :name => params[:username]})
 
     respond_to do |format|
       if @project.save
+        luser_project = LuserProject.new 
+        luser_project.project_id = @project.id
+        luser_project.luser_id = luser.id
+        
         format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created}
       else

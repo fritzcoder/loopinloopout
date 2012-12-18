@@ -6,7 +6,11 @@ Loopinloopout::Application.routes.draw do
   match ":username/banks/bookmarked" => "banks#bookmarked"
   
   scope ":username" do
-    resources :projects
+    resources :projects do 
+      member do 
+        post 'upload_file'
+      end
+    end
     resources :bank_bookmarks 
     resources :banks do
       resources :sound_files
@@ -23,7 +27,6 @@ Loopinloopout::Application.routes.draw do
   #get 'banks/browse', :as => 'browse'
 
   resources :softwares
-  resources :audio_files
   
   match ":username" => "home#show"
 

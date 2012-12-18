@@ -1,6 +1,6 @@
 
 class SoundFile < ActiveRecord::Base
-  attr_accessible :name, :description, :length, :file, :preview, :bpm
+  attr_accessible :name, :description, :length, :file, :preview, :bpm, :type
   attr_readonly :wave, :type
   has_many    :bank_files
   has_many    :banks, :through => :bank_files

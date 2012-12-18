@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210161029) do
+ActiveRecord::Schema.define(:version => 20121218211641) do
 
   create_table "audio_files", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20121210161029) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "luser_projects", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "luser_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "lusers", :force => true do |t|
     t.string   "name"
     t.string   "profile_file_name"
@@ -77,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20121210161029) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "project_files", :force => true do |t|
+    t.integer  "sound_file_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "projects", :force => true do |t|
