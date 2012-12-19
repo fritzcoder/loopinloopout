@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   before_filter :check_if_username
   
   def after_sign_in_path_for(resource)
-   #redirect_to '/' + current_user.luser.name + '/banks'
+   #redirect_to '/' + current_user.luser.name + 
     if current_user.luser != nil 
-      banks_path(current_user.luser.name)
+      "/" + current_user.luser.name
     else
       new_luser_url
     end

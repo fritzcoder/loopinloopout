@@ -15,11 +15,11 @@ class SoundFile < ActiveRecord::Base
   has_attached_file :wave , :styles => { :medium => "800x50!", :thumb => "300x19!" }
   has_attached_file :preview
   
-  before_post_process :skip_for_audio
+  #before_post_process :skip_for_audio
 
-  def skip_for_audio
-    ! %w(audio/mpeg application/mpeg).include?(file_content_type)
-  end
+  #def skip_for_audio
+  #  ! %w(audio/mpeg application/mpeg).include?(file_content_type)
+  #end
   
   def self.inherited(child)
   		child.instance_eval do

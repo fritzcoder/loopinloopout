@@ -5,10 +5,10 @@
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 
-<% @projects.each do |project| %>
+<% @luser_projects.each do |lproject| %>
 <div>
-	<h4><%= link_to("/" + project.name, project_path(@user, project)) %></h4>
-	<%= project.description %>
+	<h4><%= link_to(lproject.luser.name + "/" + lproject.project.name, project_path(@user, lproject.project)) %></h4>
+	<%= lproject.project.description %>
 </div>
 <% end %>
 <script type="text/javascript">

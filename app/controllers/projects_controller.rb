@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
     
     respond_to do |format|
       if @sound_file.save
+        #should be background process
+         if @sound_file.audio != nil
+              Runner.generate_waveform(@sound_file)
+         end
           project_file = ProjectFile.new
           project_file.sound_file_id = @sound_file.id
           project_file.project_id = @project.id
@@ -23,7 +27,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
-    @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id})
+    @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id })
     @projects = @luser_projects.map { |l| l.project }
     @user = params[:username]
 
@@ -44,6 +48,7 @@ class ProjectsController < ApplicationController
     @song_files = all_sound_files.reject { |f| f.type != 'Song' }
     @sound_file = SoundFile.new
     @user = params[:username]
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
@@ -73,13 +78,14 @@ class ProjectsController < ApplicationController
     @project.type = params[:type][:id]
     @project.access = "Private"
     @user = params[:username]
-    luser = Luser.find(:first, :conditions =>{ :name => params[:username]})
+    luser = current_user.luser
 
     respond_to do |format|
       if @project.save
         luser_project = LuserProject.new 
         luser_project.project_id = @project.id
         luser_project.luser_id = luser.id
+        luser_project.save
         
         format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created}

@@ -4,6 +4,8 @@ class CreateLuserProjects < ActiveRecord::Migration
       t.references :project
       t.references :luser
       
+      t.string :role
+      
       t.timestamps
     end
   end
