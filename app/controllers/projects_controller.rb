@@ -46,8 +46,10 @@ class ProjectsController < ApplicationController
     @sound_files = all_sound_files.reject { |f| f.type != 'SoundFile' }
     @stem_files = all_sound_files.reject { |f| f.type != 'Stem' }
     @song_files = all_sound_files.reject { |f| f.type != 'Song' }
+    @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
     @sound_file = SoundFile.new
     @user = params[:username]
+    @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
     
     respond_to do |format|
       format.html # show.html.erb
@@ -79,6 +81,7 @@ class ProjectsController < ApplicationController
     @project.access = "Private"
     @user = params[:username]
     luser = current_user.luser
+    @project.created_by = luser.name
 
     respond_to do |format|
       if @project.save

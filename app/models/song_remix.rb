@@ -1,0 +1,3 @@
+class SongRemix < SoundFile
+  
+end

@@ -12,7 +12,7 @@
 		<%if @song_files.empty? %>
 		<h3>No Songs uploaded</h3> 
 		<% else %>
-		<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @song_files, 
+		<%= render :partial => "mixdown", :locals => { :sound_files => @song_files, 
 			:user => @user, :player_size => "small"} %>
 		<% end %>
 	</div>

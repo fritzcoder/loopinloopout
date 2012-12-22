@@ -1,0 +1,2 @@
+class RemixChallenge < Project
+end

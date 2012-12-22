@@ -9,6 +9,14 @@
 <div>
 	<h4><%= link_to(lproject.luser.name + "/" + lproject.project.name, project_path(@user, lproject.project)) %></h4>
 	<%= lproject.project.description %>
+	<div>
+		<span class="label label-info"><%= lproject.project.type %></span>
+		<% if lproject.project.access == "public" %>
+		<span class="label label-success"><%= lproject.project.access %></span>
+		<% else %>
+		<span class="label label-important"><%= lproject.project.access %></span>
+		<% end %>
+	</div>
 </div>
 <% end %>
 <script type="text/javascript">

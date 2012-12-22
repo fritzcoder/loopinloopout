@@ -10,7 +10,8 @@
     </div>
   <% end %>
   <div class="field">
-  	<%= select("type","id", [["Personal", "Project"],["Collaboration", "Collaboration"], ["Remixable","Remix"], ["Challenge", "Challenge"]], 
+  	<%= select("type","id", [["Personal", "Project"],["Collaboration", "Collaboration"], ["Remix","Remix"], 
+				["Remix Challenge", "RemixChallenge"], ["Challenge", "Challenge"]], 
 	          {:prompt => "Project Type"}, {:class=>"list"}) %>
   </div>
 

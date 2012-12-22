@@ -6,6 +6,7 @@ class CreateSoundFiles < ActiveRecord::Migration
       t.attachment  :file
       t.attachment  :wave
       t.attachment  :preview
+      t.attachement :thumbnail
       t.integer     :length
       t.integer     :bpm
       t.string      :type

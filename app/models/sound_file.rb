@@ -14,6 +14,7 @@ class SoundFile < ActiveRecord::Base
   has_attached_file :file
   has_attached_file :wave , :styles => { :medium => "800x50!", :thumb => "300x19!" }
   has_attached_file :preview
+  has_attached_file :thumbnail , :styles => { :medium => "800x50!", :thumb => "300x19!" }
   
   #before_post_process :skip_for_audio
 

@@ -4,6 +4,10 @@ class CreateProjects < ActiveRecord::Migration
       t.string   :name
       t.string   :type
       t.text     :description
+      t.text     :rules
+      t.boolean  :leader_board
+      t.boolean  :scoring
+      t.boolean  :voting
       t.string   :access
       t.string   :created_by
       t.datetime :start
