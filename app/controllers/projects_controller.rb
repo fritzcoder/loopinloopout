@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
     @sound_file = SoundFile.new(params[:sound_file])
     @project = Project.find(params[:id])
     @user = params[:username]
+    @sound_file.created_by = current_user.luser.name
     
     respond_to do |format|
       if @sound_file.save

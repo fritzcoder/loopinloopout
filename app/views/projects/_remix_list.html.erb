@@ -1,0 +1,84 @@
+<div style="height:250px;overflow : auto; width:98%">
+
+
+<% sound_files.each_with_index do |sound_file, index| %>
+  <% 
+		wave_url = case player_size
+			when "small" then sound_file.wave.url(:medium)
+			when "mini" then sound_file.wave.url(:thumb)
+			else sound_file.wave.url
+		end
+  %>
+  <div style="border: 1px solid black;float:left;width:300px;height:50px;margin:5px;padding:5px;">
+	
+	<div style="float:left;">
+		<img src="http://127.0.0.1:3000/assets/CD-grey-icon.png" />
+	</div>
+	<div style="float:left;margin-left:5px;width:200px;">	
+		<div style="float:left;"> 
+			<h5 style="margin:0px;"><%= sound_file.name %></h5>
+			<h5 style="margin:0px;"><small><%= sound_file.created_by %></small></h5>
+			<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');">
+				<i  class="icon-play"></i>
+			</a>
+		</div>
+		<div style="float:right;">
+			<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
+				<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" style="display:none;">
+					<i class="icon-bookmark"></i>
+				</a>
+				<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark">
+					<i class="icon-bookmark icon-white"></i>
+				</a>
+			<% else %>
+				<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark">
+					<i class="icon-bookmark"></i>
+				</a>
+				<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark" style="display:none;">
+					<i class="icon-bookmark icon-white"></i>
+				</a>
+			<% end %>	
+			<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
+		</div>
+	</div>
+	</div>
+	<% if (index+1) % 2 == 0 %>
+	<br style="clear:both;"/>
+	<% end %>
+<% end %>
+</div>
+<script type="text/javascript">
+	function bookmark(sound_file_id) {
+		$.ajax({
+			type: 'POST',
+			url: '<%= sound_file_bookmarks_path %>',
+	        data: {
+			  _method : 'POST',
+			  sound_file_id : sound_file_id,
+			  username : '<%= current_user.luser.name %>'
+	        },
+			success: function(data) {
+				$('#sf_' + sound_file_id ).hide();
+				$('#sfb_' + sound_file_id).show('slow');
+			},
+	        dataType: 'json'
+	      });
+	}
+	
+ 	function bookmarked(sound_file_id) {
+		$.ajax({
+			type: 'POST',
+			url: '<%= sound_file_bookmarks_path %>',
+	        data: {
+				_method : 'POST',
+		    	sound_file_id : sound_file_id,
+				username : '<%= current_user.luser.name %>'
+	        },
+			success: function(data) {
+				$('#sf_' + sound_file_id ).show('slow');
+				$('#sfb_' + sound_file_id).hide();
+			},
+	        dataType: 'json'
+	      });
+	};
+</script>
