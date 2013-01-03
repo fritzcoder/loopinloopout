@@ -1,4 +1,15 @@
 class ProjectsController < ApplicationController
+  
+  def prizes
+    @project = Project.find(params[:id])
+    @user = params[:username]
+  end
+  
+  def rules
+    @project = Project.find(params[:id])
+    @user = params[:username]
+  end
+  
   def upload_file
     @sound_file = SoundFile.new(params[:sound_file])
     @project = Project.find(params[:id])
@@ -71,6 +82,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @user = params[:username]
     @project = Project.find(params[:id])
   end
 
@@ -108,7 +120,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

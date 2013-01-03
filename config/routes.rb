@@ -9,6 +9,8 @@ Loopinloopout::Application.routes.draw do
     resources :projects do 
       member do 
         post 'upload_file'
+        get 'rules'
+        get 'prizes'
       end
     end
     resources :bank_bookmarks 

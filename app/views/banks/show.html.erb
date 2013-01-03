@@ -4,7 +4,9 @@
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 <div style="width:760px;">
-  <div style="float:left;"><h3 style="margin:0px;"><%= @user %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3></div>
+  <div style="float:left;">
+	<h3 style="margin:0px;"><%= @user %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3>
+  </div>
   <div style="float:right;">
 	<i class="icon-hdd"></i>
 	<% if @bank_bookmark != nil %>
@@ -23,8 +25,7 @@
 <div id="edit_bank" style="display:none;">
 	<div><%= text_area(:bank, :description, :cols => 60, :rows => 2) %></div>
 	Access:
-	<div><%= radio_button(:bank, :access, "public") %> <%= label_tag("bank_access_public","public")%></div>
-	<div><%= radio_button(:bank, :access, "private") %> <%= label_tag("bank_access_private","private")%></div>
+	<div><%= select :bank, :access, ['Public', 'Private'] %></div>
 	<div><a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a></div>
 </div>
 <div style="width:760px;">

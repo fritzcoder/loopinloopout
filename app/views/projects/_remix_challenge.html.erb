@@ -1,0 +1,107 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
+<% end %>
+
+<% content_for :stuff do %>
+  Remixed by:
+  <div>
+	<%= render :partial => "collaborating_with" %>
+  </div>
+<br />
+<% end %>
+
+<div style="width:760px;">
+	Original Tracks: <a href="" style="float:right;"><i id="usong" class="icon-upload"></i></a>
+	<div id="upload_song" style="display:none">
+		<%= render :partial => 'upload_file', :locals => { :type => "Song" } %>	
+	</div>
+	<div style="border: 1px solid black;padding: 5px;">
+		<%if @song_files.empty? %>
+		<h3>No Songs uploaded</h3> 
+		<% else %>
+		<%= render :partial => "mixdown", :locals => { :sound_files => @song_files, 
+			:user => @user, :player_size => "small"} %>
+		<% end %>
+	</div>
+	Remixes: <a href="" style="float:right;"><i id="uremix" class="icon-upload"></i></a>
+	<div id="upload_remix" style="display:none">
+		<%= render :partial => 'upload_file', :locals => { :type => "SongRemix" } %>
+		
+	</div>
+	<div style="border: 1px solid black;padding: 5px;">
+		<%if @remix_files.empty? %>
+		<h3>No Remixes uploaded</h3> 
+		<% else %>
+		<%= render :partial => "remix_list", :locals => { :sound_files => @remix_files, 
+			:user => @user, :player_size => "small"} %>
+		<% end %>
+	</div>
+</div>
+<br />
+<div style="width:760px;">
+<div style="width:760px;">
+	<div style="float:left;width:370px;">
+		Sounds and Loops:
+		<a href="#" style="float:right;" id="usound"><i class="icon-upload"></i></a>
+		<a href="" style="float:right;"><i class="icon-briefcase"></i></a>
+		<div id="upload_sound" style="display:none">
+			<%= render :partial => 'upload_file', :locals => { :type => "SoundFile" } %>
+		</div>
+		<div style="border: 1px solid black;padding:5px;">
+			<%if @sound_files.empty? %>
+			<h4>Select from banks or upload sounds and loops</h4>
+			<% else %>
+			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @sound_files, 
+				:user => @user, :player_size => "small"} %>
+			<% end %>
+		</div>
+	</div>
+	<div style="float:left;width:370px;margin-left:10px;">
+		stems:
+		<a href="" style="float:right;"><i id="ustem" class="icon-upload"></i></a>
+		<div id="upload_stem" style="display:none">
+			<%= render :partial => 'upload_file', :locals => { :type => "Stem" } %>
+		</div>
+		<div style="border: 1px solid black;padding:5px;">
+			<%if @stem_files.empty? %>
+			<h4>Upload song stems</h4>
+			<% else %>
+			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @stem_files, 
+				:user => @user, :player_size => "small"} %>
+			<% end %>
+			
+		</div>
+	</div>
+
+	<br style="clear:both;" />
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#usound').toggle(function() {
+	  	$('#upload_sound').show('slow');
+	}, function() {
+	  	$('#upload_sound').hide('slow');
+	});
+	
+	$('#usong').toggle(function() {
+	  	$('#upload_song').show('slow');
+	}, function() {
+	  	$('#upload_song').hide('slow');
+	});
+	
+	$('#ustem').toggle(function() {
+	  	$('#upload_stem').show('slow');
+	}, function() {
+	  	$('#upload_stem').hide('slow');
+	});
+	
+	$('#uremix').toggle(function() {
+	  	$('#upload_remix').show('slow');
+	}, function() {
+	  	$('#upload_remix').hide('slow');
+	});
+});
+</script>

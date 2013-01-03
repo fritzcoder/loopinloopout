@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :access %>
-    <%= f.text_field :access %>
+    <%= select :bank, :access, ['Public', 'Private'] %>
   </div>
   <div class="field">
     <%= f.label :collaboration %>

@@ -1,3 +1,6 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<% end %>
 <div class="page">
 <%= render :partial => "navigation", :locals => { :user => @user } %>
 <%= render 'form' %>

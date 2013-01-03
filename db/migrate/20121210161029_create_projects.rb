@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string   :type
       t.text     :description
       t.text     :rules
+      t.text     :prizes
       t.boolean  :leader_board
       t.boolean  :scoring
       t.boolean  :voting

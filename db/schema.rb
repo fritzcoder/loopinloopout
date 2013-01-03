@@ -13,24 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121218211641) do
 
-  create_table "audio_files", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "audio_file_name"
-    t.string   "audio_content_type"
-    t.integer  "audio_file_size"
-    t.datetime "audio_updated_at"
-    t.string   "wave_file_name"
-    t.string   "wave_content_type"
-    t.integer  "wave_file_size"
-    t.datetime "wave_updated_at"
-    t.integer  "length"
-    t.integer  "bpm"
-    t.string   "type"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
     t.integer  "bank_id"
@@ -65,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121218211641) do
   create_table "luser_projects", :force => true do |t|
     t.integer  "project_id"
     t.integer  "luser_id"
+    t.string   "role"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -97,13 +80,17 @@ ActiveRecord::Schema.define(:version => 20121218211641) do
     t.string   "name"
     t.string   "type"
     t.text     "description"
+    t.text     "rules"
+    t.text     "prizes"
+    t.boolean  "leader_board"
+    t.boolean  "scoring"
+    t.boolean  "voting"
     t.string   "access"
-    t.boolean  "collaboration"
     t.string   "created_by"
     t.datetime "start"
     t.datetime "end"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "softwares", :force => true do |t|
@@ -156,12 +143,16 @@ ActiveRecord::Schema.define(:version => 20121218211641) do
     t.string   "preview_content_type"
     t.integer  "preview_file_size"
     t.datetime "preview_updated_at"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
     t.integer  "length"
     t.integer  "bpm"
     t.string   "type"
     t.string   "created_by"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "sound_types", :force => true do |t|

@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs">
+	<li id="tab_project" class="active">
+		<%= link_to "Project", project_url(@project.created_by, @project) %>
+	</li>
+	<%if @project.type == "RemixChallenge" or @project.type == "Challenge"%>
+	<li id="tab_prizes">
+	    <%= link_to "Prizes", prizes_project_url(@project.created_by, @project) %>
+	</li>
+	<li id="tab_rules">
+		<%= link_to "Rules", rules_project_url(@project.created_by, @project) %>
+	</li>
+	<% end %>
+	<li id="tab_discussion">
+		<a href="">Discussion</a>
+	</li>
+	<li id="tab_settings">
+		<%= link_to "Settings", edit_project_url(@project.created_by, @project) %>
+	</li>
+</ul>

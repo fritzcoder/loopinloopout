@@ -1,0 +1,11 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
+<% end %>
+<div class="page">
+<%= render 'project_header' %>	
+<%= render 'project_nav' %>
+
+<%= @project.rules %>
+
+</div>
