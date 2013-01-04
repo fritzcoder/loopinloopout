@@ -51,6 +51,8 @@ before_filter :authenticate_user!
   # POST /sound_files.json
   def create
     @sound_file = SoundFile.new(params[:sound_file])
+    @sound_file.type = "SoundFile"
+    @sound_file.created_by = current_user.luser.name
     bank_id = params[:bank_id]
     @bank = Bank.find(params[:bank_id])
 

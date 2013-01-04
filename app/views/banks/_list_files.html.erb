@@ -1,4 +1,4 @@
-<div style="height:250px;overflow:auto; width:100%;border:1px solid black;">
+<div style="height:230px;overflow:auto; width:100%;border:1px solid black;">
 <ul style="margin:0px;">
 <% if sound_files.empty? %>
 <h3>No sound files in bank</h3>
@@ -31,9 +31,13 @@
 				<i class=" icon-upload" style="filter:alpha(opacity=100);-moz-opacity:1.0;opacity: 1.0;"></i>
 				<% end %>
     		</div>
-  			<div><%= sound_file.name %></div>
+  			<div>
+				<%= sound_file.name %><br />
+				<%= check_box_tag("sound_file[]", sound_file.id.to_s) %>
+			</div>
   		</div>
     </div>
+    <% if modal != "modal" %>
 	<div style="float:left;width:20px;">
 		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
 		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" style="display:none;">
@@ -54,6 +58,7 @@
     	<%= link_to '', edit_bank_sound_file_path(user, bank, sound_file), :class => 'icon-edit' %>
     	<%= link_to '', bank_sound_file_path(user, bank, sound_file), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
 	</div>
+	<% end %>
 	<br style="clear:both;"/>
   </div>
  </li>

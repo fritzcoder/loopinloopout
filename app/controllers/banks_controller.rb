@@ -26,15 +26,32 @@ class BanksController < ApplicationController
   
   def browse
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
+    @modal = params[:window]
     @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
     @user = params[:username];
+    @projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id}).map { |p| p.project }
     
     #@banks = Bank.all
     @sound_files = []
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @banks }
+      if @modal == "modal"
+        format.html { render :layout => false }
+      else
+        format.html # index.html.erb
+        format.json { render json: @banks }
+      end
+    end
+  end
+  
+  def copy_to
+    project = params[:project_id]
+    sound_file = params[:sound_file]
+    sound_file.each do |s|
+      project_file = ProjectFile.new
+      project_file.sound_file_id = s
+      project_file.project_id = project
+      project_file.save
     end
   end
   

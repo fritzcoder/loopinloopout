@@ -26,6 +26,7 @@ Loopinloopout::Application.routes.draw do
   get 'banks/update_subtypes', :as => 'update_subtypes'
   get 'banks/update_files', :as => 'update_files'
   get 'banks/update_subtypes', :as => 'update_subtypes'
+  get 'banks/copy_to', :as => 'copy_to'
   #get 'banks/browse', :as => 'browse'
 
   resources :softwares
