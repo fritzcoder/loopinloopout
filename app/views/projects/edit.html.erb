@@ -22,7 +22,12 @@
     <%= f.label :access %>
     <%= select :project, :access, ['Public', 'Private'] %>
   </div>
-
+  <div class="field">
+    <%= f.label :type %>
+    <%= select :project, :type,  [["Personal", "Project"],["Collaboration", "Collaboration"], ["Remix","Remix"], 
+				["Remix Challenge", "RemixChallenge"], ["Challenge", "Challenge"]] %>
+  </div>
+  
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -31,6 +36,8 @@
     <%= f.label :description %>
     <%= f.text_area :description, :cols => 20, :rows => 3 %>
   </div>
+  <% if @project.type == "Challenge" or
+	    @project.type == "RemixChallenge" %>
   <div class="field">
     <%= f.label :prizes %>
     <%= f.text_area :prizes, :cols => 20, :rows => 3 %>
@@ -63,7 +70,7 @@
     	<%= date_select :project, :end %>
   	</div>
 
-  
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

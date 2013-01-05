@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
   
   def upload_file
-    @sound_file = SoundFile.new(params[:sound_file])
+    @sound_file = eval(params[:sound_file][:type]).new(params[:sound_file])
     @project = Project.find(params[:id])
     @user = params[:username]
     @sound_file.created_by = current_user.luser.name

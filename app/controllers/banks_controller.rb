@@ -48,10 +48,11 @@ class BanksController < ApplicationController
     project = params[:project_id]
     sound_file = params[:sound_file]
     sound_file.each do |s|
-      project_file = ProjectFile.new
-      project_file.sound_file_id = s
-      project_file.project_id = project
-      project_file.save
+      ProjectFile.find_or_create_by_sound_file_id_and_project_id(s, project)
+      #project_file = ProjectFile.new
+      #project_file.sound_file_id = s
+      #project_file.project_id = project
+      #project_file.save
     end
   end
   
@@ -68,6 +69,7 @@ class BanksController < ApplicationController
   def update_files
     files = SoundFileType.find(:all, :conditions => { :sound_type_id => params[:type_id] })
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:bank_id] })
+    @modal = params[:modal]
     @bank = Bank.find(params[:bank_id])
     @user = "ontehfritz"
     #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})

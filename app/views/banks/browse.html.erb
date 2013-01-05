@@ -64,7 +64,7 @@
 		<div id="file_list">
 		<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, 
 			:player_size => "small", 
-			:modal => "modal" } %>
+			:modal => @modal } %>
 		</div>
 	</div>
 </div>
@@ -72,7 +72,6 @@
 <script type="text/javascript">
 function copy_to(project_id)
 {
-	
 	var checkeditems = [];
 	
 	var answer = confirm("Are you sure you want to copy the files?")
@@ -112,7 +111,8 @@ $(document).ready(function() {
 			  bank_id : $('#bank_id').val(),
 			  software_id : $('#software_id').val(),
 			  mode_id : $('#mode_id').val(),
-	          type_id : $('#type_id').val()
+	          type_id : $('#type_id').val(),
+			  modal : '<%= @modal %>'
 	        },
 	        dataType: "script"
 	      });

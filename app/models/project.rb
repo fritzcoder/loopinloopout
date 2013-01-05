@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end
+  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type
   
   def self.inherited(child)
   		child.instance_eval do
