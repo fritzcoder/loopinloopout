@@ -71,6 +71,19 @@
   	</div>
 
   <% end %>
+  <div class="field">
+	<%= submit_tag "Add Luser" %>
+	<%= text_field_tag :luser, "Type username"%>
+  </div>
+  <div style="border: 1px solid black;">
+	<% @lusers.each do |luser| %>
+	<div>
+		<a href="#"><img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png"></a>
+		<br />
+		<%= luser.name %>
+	</div>
+	<% end%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

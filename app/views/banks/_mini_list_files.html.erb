@@ -9,6 +9,7 @@
 	<th></th>
 	<th></th>
 	<th></th>
+	<th></th>
   </tr>
   </thead>
 
@@ -51,6 +52,9 @@
 			<i class="icon-bookmark icon-white"></i>
 		</a>
 		<% end %>
+	</td>
+	<td>
+		<%= link_to '', '', method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
 	</td>
   </tr>
 <% end %>

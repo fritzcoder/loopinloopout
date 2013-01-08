@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/banks/browse.html.erb</string>
+	<string>app/views/banks/_mini_list_files.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -59,6 +59,8 @@
 			<date>2012-10-17T11:30:23Z</date>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>lib</string>
 			<key>regexFolderFilter</key>
@@ -276,14 +278,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>15</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>37</integer>
+				<integer>71</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>8</integer>
+			<integer>49</integer>
 		</dict>
 		<key>app/controllers/home_controller.rb</key>
 		<dict>
@@ -332,30 +334,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>27</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>27</integer>
+				<integer>15</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>5</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>10</integer>
-				<key>line</key>
-				<integer>24</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>27</integer>
-				<key>line</key>
-				<integer>27</integer>
-			</dict>
+			<integer>103</integer>
 		</dict>
 		<key>app/controllers/registration_controller.rb</key>
 		<dict>
@@ -504,7 +490,7 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>77</integer>
+				<integer>84</integer>
 				<key>line</key>
 				<integer>1</integer>
 			</dict>
@@ -716,42 +702,44 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>15</integer>
+				<integer>151</integer>
 				<key>line</key>
-				<integer>39</integer>
+				<integer>58</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>49</integer>
-		</dict>
-		<key>app/views/banks/_list_files.html.erb.bak</key>
-		<dict>
-			<key>caret</key>
+			<integer>26</integer>
+			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>58</integer>
 			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>24</integer>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>151</integer>
+				<key>line</key>
+				<integer>58</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/_mini_list_files.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>47</integer>
+				<integer>20</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>56</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>26</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/banks/_navigation.html.erb</key>
 		<dict>
@@ -818,14 +806,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>70</integer>
+				<integer>117</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>50</integer>
+			<integer>81</integer>
 		</dict>
 		<key>app/views/banks/copy_to.js.coffee</key>
 		<dict>
@@ -1188,14 +1176,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>70</integer>
 				<key>line</key>
-				<integer>17</integer>
+				<integer>13</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>12</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>70</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
 		</dict>
 		<key>app/views/projects/_mixdown.html.erb</key>
 		<dict>
@@ -1230,14 +1234,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>48</integer>
+				<integer>110</integer>
 				<key>line</key>
-				<integer>63</integer>
+				<integer>69</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>46</integer>
+			<integer>52</integer>
 		</dict>
 		<key>app/views/projects/_project_header.html.erb</key>
 		<dict>
@@ -1360,30 +1364,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>32</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
+			<integer>5</integer>
 		</dict>
 		<key>app/views/projects/index.html.erb</key>
 		<dict>
@@ -1942,6 +1930,7 @@
 		<string>app/views/projects/_navigation.html.erb</string>
 		<string>app/controllers/modes_controller.rb</string>
 		<string>app/controllers/projects_controller.rb</string>
+		<string>lib/tasks/Runner.rb</string>
 		<string>app/views/projects/rules.html.erb</string>
 		<string>app/views/projects/prizes.html.erb</string>
 		<string>config/routes.rb</string>
@@ -1971,7 +1960,6 @@
 		<string>app/views/banks/update_files.js.coffee</string>
 		<string>app/views/banks/copy_to.js.coffee</string>
 		<string>app/views/banks/update_subtypes.js.coffee</string>
-		<string>app/views/banks/_list_files.html.erb.bak</string>
 		<string>app/views/projects/_form.html.erb</string>
 		<string>app/views/projects/_challenge.html.erb</string>
 		<string>app/views/projects/_remix_challenge.html.erb</string>

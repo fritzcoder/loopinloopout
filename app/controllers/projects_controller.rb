@@ -84,6 +84,7 @@ class ProjectsController < ApplicationController
   def edit
     @user = params[:username]
     @project = Project.find(params[:id])
+    @lusers = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |l| l.luser }
   end
 
   # POST /projects
@@ -117,9 +118,17 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @user = params[:username]
-
+    luser = Luser.find(:first, :conditions => {:name => params[:luser]} )
+    
     respond_to do |format|
-      if @project.update_attributes(params[:project])
+      if params[:commit] == "Add Luser"
+        if luser != nil 
+          luser_project = LuserProject.new 
+          luser_project.project_id = @project.id
+          luser_project.luser_id = luser.id
+          luser_project.save
+        end 
+      elsif @project.update_attributes(params[:project])
         format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else

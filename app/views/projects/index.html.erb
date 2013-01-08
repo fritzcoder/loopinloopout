@@ -7,7 +7,7 @@
 
 <% @luser_projects.each do |lproject| %>
 <div>
-	<h4><%= link_to(lproject.luser.name + "/" + lproject.project.name, project_path(@user, lproject.project)) %></h4>
+	<h4><%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user, lproject.project)) %></h4>
 	<%= lproject.project.description %>
 	<div>
 		<span class="label label-info"><%= lproject.project.type %></span>

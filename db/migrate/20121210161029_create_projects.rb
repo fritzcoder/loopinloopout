@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration
       t.boolean  :leader_board
       t.boolean  :scoring
       t.boolean  :voting
+      t.boolean  :invite
       t.string   :access
       t.string   :created_by
       t.datetime :start
