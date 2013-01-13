@@ -15,7 +15,7 @@ before_filter :authenticate_user!
   # GET /sound_files/1.json
   def show
     @sound_file = SoundFile.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @sound_file }
@@ -66,7 +66,7 @@ before_filter :authenticate_user!
         if @sound_file.audio != nil
           Runner.generate_waveform(@sound_file)
         end
-        format.html { redirect_to edit_bank_sound_file_path("ontehfritz", @bank, @sound_file), notice: 'Sound file was successfully created.' }
+        format.html { redirect_to edit_bank_sound_file_path(current_user.luser.name, @bank, @sound_file), notice: 'Sound file was successfully created.' }
         format.json { render json: @sound_file, status: :created, location: @sound_file }
       else
         format.html { render action: "new" }

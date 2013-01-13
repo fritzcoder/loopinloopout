@@ -1,3 +1,7 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
+<% end %>
 <div class="page">
 <h4>Editing sound_bank</h4>
 <%= render 'form' %>

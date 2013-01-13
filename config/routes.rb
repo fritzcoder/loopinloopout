@@ -1,5 +1,6 @@
 Loopinloopout::Application.routes.draw do
   resources :sound_file_bookmarks
+  resources :luser_projects
   devise_for :users
   
   match ":username/banks/browse" => "banks#browse"

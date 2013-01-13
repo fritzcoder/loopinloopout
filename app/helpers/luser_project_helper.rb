@@ -1,0 +1,2 @@
+module LuserProjectHelper
+end

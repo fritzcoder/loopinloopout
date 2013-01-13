@@ -80,7 +80,9 @@
 	<div>
 		<a href="#"><img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png"></a>
 		<br />
-		<%= luser.name %>
+		<%= luser.name %>	<%= link_to '', 
+				luser_project_path(LuserProject.find(:first, :conditions => {:project_id => @project.id, :luser_id => luser.id})), method: :delete, 
+				data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
 	</div>
 	<% end%>
   </div>

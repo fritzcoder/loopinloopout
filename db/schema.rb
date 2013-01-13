@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218211641) do
+ActiveRecord::Schema.define(:version => 20130113140145) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20121218211641) do
   create_table "luser_projects", :force => true do |t|
     t.integer  "project_id"
     t.integer  "luser_id"
-    t.string   "role"
+    t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -85,12 +85,19 @@ ActiveRecord::Schema.define(:version => 20121218211641) do
     t.boolean  "leader_board"
     t.boolean  "scoring"
     t.boolean  "voting"
+    t.boolean  "invite"
     t.string   "access"
     t.string   "created_by"
     t.datetime "start"
     t.datetime "end"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "softwares", :force => true do |t|

@@ -1,3 +1,7 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<br />
+<% end %>
 <div class="page">
 <h4>Sound Attributes</h4>
 <%= form_for([@bank, @sound_file], :url => bank_sound_file_path(@user, @bank, @sound_file)) do |f| %>

@@ -3,8 +3,7 @@ class CreateLuserProjects < ActiveRecord::Migration
     create_table :luser_projects do |t|
       t.references :project
       t.references :luser
-      
-      t.string :role
+      t.references :role
       
       t.timestamps
     end

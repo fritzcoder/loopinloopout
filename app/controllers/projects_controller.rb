@@ -96,12 +96,14 @@ class ProjectsController < ApplicationController
     @user = params[:username]
     luser = current_user.luser
     @project.created_by = luser.name
+    role = Role.find(:first, :conditions => {:name => "Creator"} )
 
     respond_to do |format|
       if @project.save
         luser_project = LuserProject.new 
         luser_project.project_id = @project.id
         luser_project.luser_id = luser.id
+        luser_project.role_id = role.id
         luser_project.save
         
         format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully created.' }
@@ -119,14 +121,19 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = params[:username]
     luser = Luser.find(:first, :conditions => {:name => params[:luser]} )
-    
+    role = Role.find(:first, :conditions => {:name => "Contributor"} )
+      
     respond_to do |format|
       if params[:commit] == "Add Luser"
         if luser != nil 
           luser_project = LuserProject.new 
           luser_project.project_id = @project.id
           luser_project.luser_id = luser.id
+          luser_project.role_id = role.id
           luser_project.save
+          
+          format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
+          format.json { head :no_content }
         end 
       elsif @project.update_attributes(params[:project])
         format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
