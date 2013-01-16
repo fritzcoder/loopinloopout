@@ -25,11 +25,13 @@
   <tr>
 	<% if sound_file.preview? %>
 	<td>
-		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');"><i  class="icon-play"></i></a>
+		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');">
+			<i  class="icon-play"></i></a>
 	</td>
 	<% elsif sound_file.audio != nil %>
 	<td>
-		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');"><i  class="icon-play"></i></a>
+		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');">
+			<i  class="icon-play"></i></a>
 	<% else %>
 	<td><i class=" icon-upload"></i></td>
 	<% end %>
@@ -37,8 +39,10 @@
 	<td><%= sound_file.file_type %></td>
 	<td><%= sound_file.created_by %></td>
 	<td>
-		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
-		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" style="display:none;">
+		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, 
+			:sound_file_id => sound_file.id }) != nil%>
+		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" 
+			style="display:none;">
 			<i class="icon-bookmark"></i>
 		</a>
 		<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark">
@@ -48,7 +52,8 @@
 		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark">
 			<i class="icon-bookmark"></i>
 		</a>
-		<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark" style="display:none;">
+		<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark" 
+			style="display:none;">
 			<i class="icon-bookmark icon-white"></i>
 		</a>
 		<% end %>

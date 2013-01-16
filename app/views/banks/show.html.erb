@@ -1,11 +1,11 @@
 <% content_for :profile do %>
-  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <% end %>
 <div class="page">
-<%= render :partial => "navigation", :locals => { :user => @user } %>
+<%= render :partial => "navigation", :locals => { :user => @user_name } %>
 <div style="width:760px;">
   <div style="float:left;">
-	<h3 style="margin:0px;"><%= @user %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3>
+	<h3 style="margin:0px;"><%= @user_name %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3>
   </div>
   <div style="float:right;">
 	<i class="icon-hdd"></i>
@@ -30,7 +30,8 @@
 </div>
 <div style="width:760px;">
 	<div style="float:left;">
-	<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user, :bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+	<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user_name, 
+		:bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
 	</div>
 	<div style="float:right;">
 	<%= render 'layouts/mini_player' %>
@@ -38,7 +39,7 @@
 	<div style="clear: both;"></div>
 </div>
 <div id="file_list">
-<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, :bank => @bank, 
+<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user_name, :bank => @bank, 
 	:player_size => "mini", :modal => "false"  } %>
 </div>
 </div>

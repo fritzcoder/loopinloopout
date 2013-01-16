@@ -1,12 +1,12 @@
 <ul class="nav nav-tabs">
 	<li id="tab_bank">
-	    <a href="/<%= @user %>/banks">All</a>
+	    <a href="/<%= @user_name %>/banks">All</a>
 	</li>
 	<li id="tab_browse">
-		<a href="/<%= @user %>/banks/browse">Browse</a>
+		<a href="/<%= @user_name %>/banks/browse">Browse</a>
 	</li>
 	<li id="tab_favorites">
-		<a href="/<%= @user %>/banks/bookmarked">Bookmarked</a>
+		<a href="/<%= @user_name %>/banks/bookmarked">Bookmarked</a>
 	</li>
 	<% if user_signed_in? %>
 	<% if @user == current_user.luser.name %> 

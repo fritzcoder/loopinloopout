@@ -1,12 +1,12 @@
 <% content_for :profile do %>
-  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <br />
 <% end %>
 <% content_for :title do %>
 <%= @user %>
 <% end %>
 <div class="page">
-	<%= render :partial => "navigation", :locals => { :user => @user } %>
+	<%= render :partial => "navigation", :locals => { :user => @user_name } %>
 <div>
 	<div style="float:left;width:420px;">
 	<% @bank_bookmarks.each do |bank| %>
@@ -20,7 +20,8 @@
 	<div  style="float:left;width:320px;border: 1px solid black;padding: 5px;">
 		<h4>Sounds</h4>
 		<%= render 'layouts/mini_player' %>
-		<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_bookmarks, :user => @user, :player_size => "mini" } %>
+		<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_bookmarks, 
+			:user => @user_name, :player_size => "mini" } %>
 	</div>
 </div>
 </div>

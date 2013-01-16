@@ -1,19 +1,20 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
   
   def prizes
     @project = Project.find(params[:id])
-    @user = params[:username]
+    @user_name = params[:username]
   end
   
   def rules
     @project = Project.find(params[:id])
-    @user = params[:username]
+    @user_name = params[:username]
   end
   
   def upload_file
     @sound_file = eval(params[:sound_file][:type]).new(params[:sound_file])
     @project = Project.find(params[:id])
-    @user = params[:username]
+    @user_name = params[:username]
     @sound_file.created_by = current_user.luser.name
     
     respond_to do |format|
@@ -26,7 +27,7 @@ class ProjectsController < ApplicationController
           project_file.sound_file_id = @sound_file.id
           project_file.project_id = @project.id
           project_file.save
-          format.html { redirect_to project_url(@user, @project), notice: 'Sound was successfully added.' }
+          format.html { redirect_to project_url(@user_name, @project), notice: 'Sound was successfully added.' }
           format.json { render json: @sound_file, status: :created}
       else
           format.html { render action: "new" }
@@ -41,7 +42,7 @@ class ProjectsController < ApplicationController
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id })
     @projects = @luser_projects.map { |l| l.project }
-    @user = params[:username]
+    @user_name = params[:username]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,7 +61,7 @@ class ProjectsController < ApplicationController
     @song_files = all_sound_files.reject { |f| f.type != 'Song' }
     @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
     @sound_file = SoundFile.new
-    @user = params[:username]
+    @user_name = params[:username]
     @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
     
     respond_to do |format|
@@ -73,7 +74,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-    @user = params[:username]
+    @user_name = params[:username]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project }
@@ -82,7 +83,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @user = params[:username]
+    @user_name = params[:username]
     @project = Project.find(params[:id])
     @lusers = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |l| l.luser }
   end
@@ -93,7 +94,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     @project.type = params[:type][:id]
     @project.access = "Private"
-    @user = params[:username]
+    @user_name = params[:username]
     luser = current_user.luser
     @project.created_by = luser.name
     role = Role.find(:first, :conditions => {:name => "Creator"} )
@@ -106,7 +107,7 @@ class ProjectsController < ApplicationController
         luser_project.role_id = role.id
         luser_project.save
         
-        format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully created.' }
+        format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created}
       else
         format.html { render action: "new" }
@@ -119,7 +120,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
-    @user = params[:username]
+    @user_name = params[:username]
     luser = Luser.find(:first, :conditions => {:name => params[:luser]} )
     role = Role.find(:first, :conditions => {:name => "Contributor"} )
       
@@ -132,11 +133,11 @@ class ProjectsController < ApplicationController
           luser_project.role_id = role.id
           luser_project.save
           
-          format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
+          format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully updated.' }
           format.json { head :no_content }
         end 
       elsif @project.update_attributes(params[:project])
-        format.html { redirect_to project_url(@user, @project), notice: 'Project was successfully updated.' }
+        format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -148,7 +149,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @user = params[:username]
+    @user_name = params[:username]
     @project = Project.find(params[:id])
     @project.destroy
 

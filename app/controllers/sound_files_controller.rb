@@ -38,7 +38,7 @@ before_filter :authenticate_user!
   def edit
     @sound_file = SoundFile.find(params[:id])
     @bank = Bank.find(params[:bank_id])
-    @user = Luser.find(:first, :conditions => {:name => params[:username]})
+    @user_name = Luser.find(:first, :conditions => {:name => params[:username]})
     @bank_select = LuserBank.find(:all, :conditions => {:luser_id => @user.id}).map { |b| b.bank }
     #@sound_file_types = SoundTypes.find(:all, :conditions => {:sound_type_id => nil})
     @sound_file_types = @sound_file.sound_file_types.map {|i| i.sound_type_id }
@@ -80,7 +80,7 @@ before_filter :authenticate_user!
   def update
     @sound_file = SoundFile.find(params[:id])
     @bank = Bank.find(params[:bank_id])
-    @user = params[:username]
+    @user_name = params[:username]
 
     respond_to do |format|
       if @sound_file.update_attributes(params[:sound_file])

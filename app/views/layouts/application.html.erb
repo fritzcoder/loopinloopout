@@ -22,18 +22,18 @@
       <div class="container">
         <div class="content">
            <div class="row">
-			<% if @user != nil %>
+			<% if @user_name != nil %>
 			<div class="span2">
 				<%= yield(:profile) %>
 				
 				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
 			    	<li>
-						<a href="/<%= @user %>/projects" style="color: #000" class='active'>
+						<a href="/<%= @user_name %>/projects" style="color: #000" class='active'>
 							<i class="icon-headphones"></i> Projects
 						</a>
 					</li>
 			        <li>
-						<a href="/<%= @user %>/banks" style="color: #000">
+						<a href="/<%= @user_name %>/banks" style="color: #000">
 							<i class="icon-briefcase"></i> Banks
 						</a>
 					</li>
@@ -42,7 +42,7 @@
 				
 			</div>
 			<% end %>
-			<% if @user != nil %>
+			<% if @user_name != nil %>
 			<div class="span10" style="background-color: #838B8B; margin-left:10px;">
 			<% else%>
             <div class="span12" style="background-color: #838B8B; margin-left:20px;">
@@ -65,7 +65,6 @@
 				  <li class="nav-header">LILO</li>
 				  <li><a href="#">About</a></li>
 				  <li><a href="#">FAQ</a></li>
-				  
 				</ul>
 			</div>
 		</div>

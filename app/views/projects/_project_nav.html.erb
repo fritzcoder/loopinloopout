@@ -13,7 +13,9 @@
 	<li id="tab_discussion">
 		<a href="">Discussion</a>
 	</li>
-	<li id="tab_settings">
-		<%= link_to "Settings", edit_project_url(@project.created_by, @project) %>
-	</li>
+   <% if can? :create, @project %>
+		<li id="tab_settings">
+			<%= link_to "Settings", edit_project_url(@project.created_by, @project) %>
+		</li>
+	<% end %>
 </ul>

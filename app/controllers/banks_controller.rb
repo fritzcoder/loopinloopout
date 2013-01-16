@@ -5,7 +5,7 @@ class BanksController < ApplicationController
   def index
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @luser_banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id})
-    @user = params[:username];
+    @user_name = params[:username]
     @banks = @luser_banks.map { |l| l.bank }
     @sound_files = []
 
@@ -21,17 +21,15 @@ class BanksController < ApplicationController
     sound_bookmarked = SoundFileBookmark.find(:all, :conditions => {:luser_id => luser.id})
     @sound_bookmarks = sound_bookmarked.map { |s| s.sound_file }
     @bank_bookmarks = bookmarked.map { |b| b.bank }
-    @user = params[:username]
+    @user_name = params[:username]
   end
   
   def browse
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @modal = params[:window]
     @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
-    @user = params[:username];
+    @user_name = params[:username];
     @projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id}).map { |p| p.project }
-    
-    #@banks = Bank.all
     @sound_files = []
 
     respond_to do |format|
@@ -48,7 +46,7 @@ class BanksController < ApplicationController
     project = params[:project_id]
     sound_file = params[:sound_file]
     sound_file.each do |s|
-      ProjectFile.find_or_create_by_sound_file_id_and_project_id(s, project)
+    ProjectFile.find_or_create_by_sound_file_id_and_project_id(s, project)
       #project_file = ProjectFile.new
       #project_file.sound_file_id = s
       #project_file.project_id = project
@@ -71,7 +69,7 @@ class BanksController < ApplicationController
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:bank_id] })
     @modal = params[:modal]
     @bank = Bank.find(params[:bank_id])
-    @user = "ontehfritz"
+    @user_name = params[:username]
     #files = files + SoundFileType.find(:all, :conditions => {:sound_type_id => params[:sub_type_id]})
     #@sound_files = SoundFile.find(1,2);
     @sound_files = files.map {|f| f.sound_file }
@@ -85,7 +83,7 @@ class BanksController < ApplicationController
     @bank = Bank.find(params[:id])
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:id] })
     @sound_files = bank_files.map { |f| f.sound_file }
-    @user = params[:username]
+    @user_name = params[:username]
     @bank_bookmark = BankBookmark.find(:first, :conditions => {:bank_id => @bank.id, :luser_id => current_user.luser.id})
 
     respond_to do |format|
@@ -100,7 +98,7 @@ class BanksController < ApplicationController
   # GET /sound_banks/new.json
   def new
     @bank = Bank.new
-    @user = "ontehfritz"
+    @user_name = params[:username]
 
     respond_to do |format|
       format.html # new.html.erb

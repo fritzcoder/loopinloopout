@@ -1,10 +1,10 @@
 <% if @modal != "modal"%>
 <% content_for :profile do %>
-<%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+<%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <br />
 <% end %>
 <div class="page">
-<%= render :partial => "navigation", :locals => { :user => @user } %>
+<%= render :partial => "navigation", :locals => { :user => @user_name } %>
 <div>
 	<%= render 'layouts/small_player' %>
 </div>
@@ -62,7 +62,7 @@
 <div class="row">
 	<div class="span9">
 		<div id="file_list">
-		<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user, 
+		<%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user_name, 
 			:player_size => "small", 
 			:modal => @modal } %>
 		</div>

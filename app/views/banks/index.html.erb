@@ -6,13 +6,13 @@
 <%= @user %>
 <% end %>
 <div class="page">
-	<%= render :partial => "navigation", :locals => { :user => @user } %>
+	<%= render :partial => "navigation", :locals => { :user => @user_name } %>
 	
 	<% @luser_banks.each do |lbank| %>
 		<div>
 			<div>
 				<div style="float:left;">
-				<h4><%= link_to(lbank.luser.name + "/" + lbank.bank.name, bank_path(@user, lbank.bank)) %></h4>
+				<h4><%= link_to(lbank.luser.name + "/" + lbank.bank.name, bank_path(@user_name, lbank.bank)) %></h4>
 				</div>
 				<div style="float:right;">
 					0 <i class="icon-bookmark"></i>

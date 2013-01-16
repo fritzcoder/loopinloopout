@@ -1,4 +1,4 @@
-<%= form_for(@sound_file, :url => "/" + @user + "/projects/" + @project.id.to_s + "/upload_file") do |f| %>
+<%= form_for(@sound_file, :url => "/" + @user_name + "/projects/" + @project.id.to_s + "/upload_file") do |f| %>
   <% if @sound_file.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this project from being saved:</h2>

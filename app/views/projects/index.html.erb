@@ -1,13 +1,13 @@
 <% content_for :profile do %>
-  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <br />
 <% end %>
 <div class="page">
-<%= render :partial => "navigation", :locals => { :user => @user } %>
+<%= render :partial => "navigation", :locals => { :user => @user_name } %>
 
 <% @luser_projects.each do |lproject| %>
 <div>
-	<h4><%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user, lproject.project)) %></h4>
+	<h4><%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user_name, lproject.project)) %></h4>
 	<%= lproject.project.description %>
 	<div>
 		<span class="label label-info"><%= lproject.project.type %></span>

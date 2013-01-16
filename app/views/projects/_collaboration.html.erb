@@ -1,5 +1,5 @@
 <% content_for :profile do %>
-  <%= render :partial => "layouts/profile", :locals => { :user => @user } %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <br />
 <% end %>
 
@@ -22,7 +22,7 @@
 		<h3>No Songs uploaded</h3> 
 		<% else %>
 		<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @song_files, 
-			:user => @user, :player_size => "small"} %>
+			:user => @user_name, :player_size => "small"} %>
 		<% end %>
 	</div>
 </div>
@@ -41,7 +41,7 @@
 			<h4>Select from banks or upload sounds and loops</h4>
 			<% else %>
 			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @sound_files, 
-				:user => @user, :player_size => "small"} %>
+				:user => @user_name, :player_size => "small"} %>
 			<% end %>
 		</div>
 	</div>
@@ -56,7 +56,7 @@
 			<h4>Upload song stems</h4>
 			<% else %>
 			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @stem_files, 
-				:user => @user, :player_size => "small"} %>
+				:user => @user_name, :player_size => "small"} %>
 			<% end %>
 			
 		</div>
