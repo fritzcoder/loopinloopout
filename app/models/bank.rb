@@ -13,7 +13,8 @@ class Bank < ActiveRecord::Base
   		end
   		super
   end
-  def came_from
-  	  self.name
-  end
+  
+  # def came_from
+  #       self.name
+  #   end
 end

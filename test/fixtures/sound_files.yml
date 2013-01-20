@@ -1,7 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+# one:
+#   name: Sound file 1
+#   description: This is a test soundfile
+#   file:
+#   wave:
+#   preview:
+#   thumbnail:
+#   length: 20
+#   bpm: 120
+#   listen_count: 0
+#   sound_file_bookmarks_count: 0
+#   type: SoundFile
+#   created_by: Test
 
-two:
-  name: MyString
+#two:
+#  name: MyString

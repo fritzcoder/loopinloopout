@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113140145) do
+ActiveRecord::Schema.define(:version => 20130118112255) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20130113140145) do
     t.text     "description"
     t.string   "access"
     t.boolean  "collaboration"
+    t.integer  "bank_bookmarks_count"
     t.string   "created_by"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "luser_banks", :force => true do |t|
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20130113140145) do
     t.string   "profile_content_type"
     t.integer  "profile_file_size"
     t.datetime "profile_updated_at"
+    t.integer  "luser_banks_count"
+    t.integer  "luser_Projects_count"
     t.integer  "user_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
@@ -154,12 +157,14 @@ ActiveRecord::Schema.define(:version => 20130113140145) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.integer  "length"
-    t.integer  "bpm"
+    t.integer  "length",                     :default => 0
+    t.integer  "bpm",                        :default => 0
+    t.integer  "listen_count",               :default => 0
+    t.integer  "sound_file_bookmarks_count", :default => 0
     t.string   "type"
     t.string   "created_by"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "sound_types", :force => true do |t|
@@ -167,6 +172,14 @@ ActiveRecord::Schema.define(:version => 20130113140145) do
     t.integer  "sound_type_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "system_settings", :force => true do |t|
+    t.string  "name"
+    t.string  "label"
+    t.text    "value"
+    t.string  "type"
+    t.integer "position"
   end
 
   create_table "users", :force => true do |t|

@@ -3,9 +3,8 @@ class BankFile < ActiveRecord::Base
   belongs_to :bank  
   belongs_to :sound_file
   
-  #this is a convience method to assign 
-  #multiple types to a sound object
-  #pass the sound_file_id and an array of type ids
+  #this is a convience method to assign a soundfile to multiple banks
+  #pass the sound_file_id and an array of banks ids
   def self.save_bank_types(sound_file_id, bank_ids)
     bank_ids.each do |id|
       bank = BankFile.new

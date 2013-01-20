@@ -10,7 +10,6 @@
   </div>
 <br />
 <% end %>
-
 <div style="width:760px;">
 	Original Tracks: <a href="" style="float:right;"><i id="usong" class="icon-upload"></i></a>
 	<div id="upload_song" style="display:none">
@@ -24,23 +23,7 @@
 			:user => @user_name, :player_size => "small"} %>
 		<% end %>
 	</div>
-	Remixes: <a href="" style="float:right;"><i id="uremix" class="icon-upload"></i></a>
-	<div id="upload_remix" style="display:none">
-		<%= render :partial => 'upload_file', :locals => { :type => "SongRemix" } %>
-		
-	</div>
-	<div style="border: 1px solid black;padding: 5px;">
-		<%if @remix_files.empty? %>
-		<h3>No Remixes uploaded</h3> 
-		<% else %>
-		<%= render :partial => "remix_list", :locals => { :sound_files => @remix_files, 
-			:user => @user_name, :player_size => "small"} %>
-		<% end %>
-	</div>
-</div>
-<br />
-<div style="width:760px;">
-<div style="width:760px;">
+	<br />
 	<div style="float:left;width:370px;">
 		Sounds and Loops:
 		<a href="#" style="float:right;" id="usound"><i class="icon-upload"></i></a>
@@ -76,6 +59,21 @@
 
 	<br style="clear:both;" />
 </div>
+
+<div style="width:760px;">
+	Remixes: <a href="" style="float:right;"><i id="uremix" class="icon-upload"></i></a>
+	<div id="upload_remix" style="display:none">
+		<%= render :partial => 'upload_file', :locals => { :type => "SongRemix" } %>
+		
+	</div>
+	<div style="border: 1px solid black;padding: 5px;">
+		<%if @remix_files.empty? %>
+		<h3>No Remixes uploaded</h3> 
+		<% else %>
+		<%= render :partial => "remix_list", :locals => { :sound_files => @remix_files, 
+			:user => @user_name, :player_size => "small"} %>
+		<% end %>
+	</div>
 </div>
 </div>
 <script type="text/javascript">

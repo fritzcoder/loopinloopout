@@ -13,9 +13,12 @@
   <body style="background-color: #000">
     <header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
-        <div class="container" style="background-color:#666;padding:2px;width: 900px;">
+        <div class="container" id="head" style="background-color:#666;padding:2px;width: 900px;">
           <%= render 'layouts/navigation' %>
         </div>
+        <div class="container" id="player" style="background-color:#666;width:900px;display:none;">
+			<%= render 'layouts/small_player'%>
+		</div>
       </nav>
     </header>
     <div id="main" role="main">

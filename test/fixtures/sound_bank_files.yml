@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  sound_file: 
-  sound_bank: 
-
-two:
-  sound_file: 
-  sound_bank: 

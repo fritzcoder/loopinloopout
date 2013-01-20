@@ -7,8 +7,10 @@ class CreateSoundFiles < ActiveRecord::Migration
       t.attachment  :wave
       t.attachment  :preview
       t.attachment  :thumbnail
-      t.integer     :length
-      t.integer     :bpm
+      t.integer     :length, :default => 0
+      t.integer     :bpm,:default => 0
+      t.integer     :listen_count,:default => 0
+      t.integer     :sound_file_bookmarks_count,:default => 0
       t.string      :type
       t.string      :created_by
 

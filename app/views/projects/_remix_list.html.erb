@@ -9,42 +9,56 @@
 			else sound_file.wave.url
 		end
   %>
-  <div style="border: 1px solid black;float:left;width:300px;height:50px;margin:5px;padding:5px;">
-	
-	<div style="float:left;">
-		<img src="http://127.0.0.1:3000/assets/CD-grey-icon.png" />
+  <div style="border: 1px solid black;float:left;width:700px;height:50px;margin:5px;padding:5px;background-color:#ccc">
+	<div style="float:left;width:50px;height:50px;border: 1px solid black;background-image: url('http://127.0.0.1:3000/assets/CD-grey-icon.png');">
+		<div style="float:left;border: 1px solid black;text-align:center;margin:10px;background-color:#fff">
+		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>', 
+			'<%= sound_file.id %>');">
+			<i class="icon-play" style="margin-top: expression(( 50 - this.height) / 2);"></i>
+		</a>
+		</div>
 	</div>
-	<div style="float:left;margin-left:5px;width:200px;">	
-		<div style="float:left;"> 
-			<h5 style="margin:0px;"><%= sound_file.name %></h5>
-			<h5 style="margin:0px;"><small><%= sound_file.created_by %></small></h5>
-			<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');">
-				<i  class="icon-play"></i>
+	<div style="float:left;margin-left:5px;width:350px;height:50px;">	
+		<div style="float:left;">
+			<span><b><%= sound_file.name %></b></span><br />
+			<span><a href=""><%= sound_file.created_by %></a></span>
+		</div>
+	</div>
+	<div style="float:left;width:150px;">
+		
+		<div style="float:left;">
+			<%= sound_file.listen_count %> Listens
+			<br />
+			Added: <%= time_ago_in_words(sound_file.created_at,true) %>
+		</div>
+	</div>
+	<div style="float:right;text-align:right;padding:4px;">
+		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
+	</div>
+	<div style="float:right;text-align:right;border: 1px solid black;padding:4px;">
+		<%= sound_file.sound_file_bookmarks_count %>
+		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, 
+			:sound_file_id => sound_file.id }) != nil%>
+			<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" 
+						style="display:none;">
+				<i class="icon-star"></i>
 			</a>
-		</div>
-		<div style="float:right;">
-			<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
-				<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" style="display:none;">
-					<i class="icon-bookmark"></i>
-				</a>
-				<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark">
-					<i class="icon-bookmark icon-white"></i>
-				</a>
-			<% else %>
-				<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark">
-					<i class="icon-bookmark"></i>
-				</a>
-				<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark" style="display:none;">
-					<i class="icon-bookmark icon-white"></i>
-				</a>
-			<% end %>	
-			<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
-		</div>
+			<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark">
+				<i class="icon-star icon-white"></i>
+			</a>
+		<% else %>
+			<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark">
+				<i class=" icon-star"></i>
+			</a>
+			<a href="#" id="sfb_<%= sound_file.id.to_s %>" onclick="bookmarked(<%= sound_file.id.to_s %>);" title="unbookmark" 
+					style="display:none;">
+				<i class=" icon-star icon-white"></i>
+			</a>
+		<% end %>	
 	</div>
+	
 	</div>
-	<% if (index+1) % 2 == 0 %>
 	<br style="clear:both;"/>
-	<% end %>
 <% end %>
 </div>
 <script type="text/javascript">

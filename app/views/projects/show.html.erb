@@ -3,10 +3,6 @@
 <%= render 'project_header' %>
 <%= render 'project_nav' %>
 </div>
-<div>
-	<%= render 'layouts/small_player' %>
-</div>
-<br />
 <% if @project.type == "Collaboration"%>
 <%= render 'collaboration' %>
 <% elsif @project.type == "Remix" %>

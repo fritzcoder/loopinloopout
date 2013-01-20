@@ -17,6 +17,14 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
+#test:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: test_loop
+#  host: localhost
+#  pool: 5
+#  username: root
+#  password:
 
 production:
   adapter: sqlite3

@@ -22,6 +22,8 @@ class Ability
       p.access == "Public"
     end
     
+    can :create, Project
+    
     can :manage, Project do |p|
       #ActiveRecord::Base.logger.info(p.created_by)
       p.created_by == user.luser.name
