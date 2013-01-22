@@ -11,6 +11,7 @@ class CreateSoundFiles < ActiveRecord::Migration
       t.integer     :bpm,:default => 0
       t.integer     :listen_count,:default => 0
       t.integer     :sound_file_bookmarks_count,:default => 0
+      t.integer     :votes_count, :default => 0
       t.string      :type
       t.string      :created_by
 

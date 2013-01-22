@@ -17,6 +17,7 @@ class SoundFile < ActiveRecord::Base
   has_many    :softwares, :through => :sound_file_softwares
   has_many    :sound_file_types 
   has_many    :sound_types, :through => :sound_file_types
+  has_many    :votes
   
   has_attached_file :file
   has_attached_file :wave , :styles => { :medium => "900x40!", :thumb => "300x19!" }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118112255) do
+ActiveRecord::Schema.define(:version => 20130122111405) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -81,20 +81,21 @@ ActiveRecord::Schema.define(:version => 20130118112255) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "type",         :default => "Project"
     t.text     "description"
     t.text     "rules"
     t.text     "prizes"
-    t.boolean  "leader_board"
-    t.boolean  "scoring"
-    t.boolean  "voting"
-    t.boolean  "invite"
-    t.string   "access"
+    t.boolean  "leader_board", :default => false
+    t.boolean  "scoring",      :default => false
+    t.boolean  "voting",       :default => false
+    t.boolean  "invite",       :default => false
+    t.string   "access",       :default => "Private"
+    t.integer  "votes_count",  :default => 0
     t.string   "created_by"
     t.datetime "start"
     t.datetime "end"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -161,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20130118112255) do
     t.integer  "bpm",                        :default => 0
     t.integer  "listen_count",               :default => 0
     t.integer  "sound_file_bookmarks_count", :default => 0
+    t.integer  "votes_count",                :default => 0
     t.string   "type"
     t.string   "created_by"
     t.datetime "created_at",                                :null => false
@@ -172,14 +174,6 @@ ActiveRecord::Schema.define(:version => 20130118112255) do
     t.integer  "sound_type_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-  end
-
-  create_table "system_settings", :force => true do |t|
-    t.string  "name"
-    t.string  "label"
-    t.text    "value"
-    t.string  "type"
-    t.integer "position"
   end
 
   create_table "users", :force => true do |t|
@@ -199,5 +193,13 @@ ActiveRecord::Schema.define(:version => 20130118112255) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "sound_file_id"
+    t.integer  "luser_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

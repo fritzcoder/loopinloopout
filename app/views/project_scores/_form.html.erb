@@ -1,0 +1,17 @@
+<%= form_for(@project_score) do |f| %>
+  <% if @project_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_score.errors.count, "error") %> prohibited this project_score from being saved:</h2>
+
+      <ul>
+      <% @project_score.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

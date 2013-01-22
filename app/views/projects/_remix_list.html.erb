@@ -1,6 +1,4 @@
-<div style="height:250px;overflow : auto; width:98%">
-
-
+<div style="height:250px;overflow : auto; width:100%">
 <% sound_files.each_with_index do |sound_file, index| %>
   <% 
 		wave_url = case player_size
@@ -9,7 +7,7 @@
 			else sound_file.wave.url
 		end
   %>
-  <div style="border: 1px solid black;float:left;width:700px;height:50px;margin:5px;padding:5px;background-color:#ccc">
+  <div style="border: 1px solid black;float:left;width:730px;height:50px;margin:5px;padding:5px;background-color:#ccc">
 	<div style="float:left;width:50px;height:50px;border: 1px solid black;background-image: url('http://127.0.0.1:3000/assets/CD-grey-icon.png');">
 		<div style="float:left;border: 1px solid black;text-align:center;margin:10px;background-color:#fff">
 		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>', 
@@ -18,24 +16,28 @@
 		</a>
 		</div>
 	</div>
-	<div style="float:left;margin-left:5px;width:350px;height:50px;">	
+	<div style="float:left;margin-left:5px;">
+		<span style="font-size: 30px;"><%= (index + 1).to_s %></span>
+	</div>
+	<div style="float:left;margin-left:5px;width:340px;height:50px;">	
 		<div style="float:left;">
 			<span><b><%= sound_file.name %></b></span><br />
 			<span><a href=""><%= sound_file.created_by %></a></span>
 		</div>
 	</div>
 	<div style="float:left;width:150px;">
-		
 		<div style="float:left;">
 			<%= sound_file.listen_count %> Listens
 			<br />
 			Added: <%= time_ago_in_words(sound_file.created_at,true) %>
 		</div>
 	</div>
-	<div style="float:right;text-align:right;padding:4px;">
-		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
-	</div>
 	<div style="float:right;text-align:right;border: 1px solid black;padding:4px;">
+		<%= sound_file.votes_count %>
+		<a href="#" onclick="vote(<%= sound_file.id.to_s %>);" title="vote">
+			<i class="icon-ok"></i>
+		</a>
+		|
 		<%= sound_file.sound_file_bookmarks_count %>
 		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, 
 			:sound_file_id => sound_file.id }) != nil%>
@@ -54,9 +56,10 @@
 					style="display:none;">
 				<i class=" icon-star icon-white"></i>
 			</a>
-		<% end %>	
+		<% end %>
+		| <a href=""><i class="icon-list-alt"></i></a>
+		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>	
 	</div>
-	
 	</div>
 	<br style="clear:both;"/>
 <% end %>
@@ -95,4 +98,22 @@
 	        dataType: 'json'
 	      });
 	};
+	
+	function vote(sound_file_id) {
+		$.ajax({
+			type: 'POST',
+			url: '<%= votes_path %>',
+	        data: {
+			  _method : 'POST',
+			  sound_file_id : sound_file_id,
+			  project_id : '<%= @project.id %>',
+			  username : '<%= current_user.luser.name %>'
+	        },
+			success: function(data) {
+				//$('#sf_' + sound_file_id ).hide();
+				//$('#sfb_' + sound_file_id).show('slow');
+			},
+	        dataType: 'json'
+	      });
+	}
 </script>

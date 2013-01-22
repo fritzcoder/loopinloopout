@@ -1,5 +1,8 @@
 Loopinloopout::Application.routes.draw do
+  resources :project_scores
+
   resources :sound_file_bookmarks
+  resources :votes
   resources :luser_projects
   devise_for :users
   
