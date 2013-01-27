@@ -2,7 +2,11 @@ class ProjectScoresController < ApplicationController
   # GET /project_scores
   # GET /project_scores.json
   def index
-    @project_scores = ProjectScore.all
+    @project_scores = ProjectScore.find(:all, :conditions => {:project_id => params[:project_id]})
+    @project_score = ProjectScore.new
+    @project = Project.find(params[:project_id])
+    
+    @user_name = params[:username]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,10 +45,13 @@ class ProjectScoresController < ApplicationController
   # POST /project_scores.json
   def create
     @project_score = ProjectScore.new(params[:project_score])
+    @project = Project.find(params[:project_id])
+    @project_score.project_id = @project.id
+    @user_name = params[:username]
 
     respond_to do |format|
       if @project_score.save
-        format.html { redirect_to @project_score, notice: 'Project score was successfully created.' }
+        format.html { redirect_to project_project_scores_url(@user_name, @project), notice: 'Project score was successfully created.' }
         format.json { render json: @project_score, status: :created, location: @project_score }
       else
         format.html { render action: "new" }
@@ -74,9 +81,11 @@ class ProjectScoresController < ApplicationController
   def destroy
     @project_score = ProjectScore.find(params[:id])
     @project_score.destroy
+    @project = Project.find(params[:project_id])
+    @user_name = params[:username]
 
     respond_to do |format|
-      format.html { redirect_to project_scores_url }
+      format.html { redirect_to project_project_scores_url(@user_name, @project) }
       format.json { head :no_content }
     end
   end

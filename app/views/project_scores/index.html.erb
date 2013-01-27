@@ -1,21 +1,51 @@
-<h1>Listing project_scores</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @project_scores.each do |project_score| %>
-  <tr>
-    <td><%= link_to 'Show', project_score %></td>
-    <td><%= link_to 'Edit', edit_project_score_path(project_score) %></td>
-    <td><%= link_to 'Destroy', project_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <br />
+<% end %>
+<div class="page">
+<%= render 'projects/project_header' %>
+<%= render 'projects/project_nav' %>
+<h3>Scoring<a href="#"><i id="add_score" class="icon-plus-sign"></i></a></h3>
 
-<%= link_to 'New Project score', new_project_score_path %>
+<div id="new_score" style="display:none;">
+<%= render :partial => "form", :locals => { :user => @user_name } %>
+</div>
+<% total_score = 0 %>
+<% @project_scores.each do |project_score| %>
+<div>
+  <div style="float:left;">
+	<h1><%= project_score.weight.to_s %></h1>
+  </div>
+  <div style="float:left;">
+  <h4><%= project_score.point %></h4>
+  <p>
+	<%= project_score.description %>
+  </p> 
+  <%= link_to '', project_project_score_path(@user_name, @project, project_score), 
+			method: :delete, data: { confirm: 'Are you sure?' }, 
+					:class => 'icon-remove-sign' %>
+  </div>
+</div>
+<% total_score = total_score + project_score.weight %>
+<br style="clear:both;"/>
+<% end %>
+<hr />
+<div>
+  <div style="float:left;">
+	<h1><%= total_score.to_s %></h1>
+  </div>
+  <div style="float:left;">
+  <h4>Total</h4>
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("#tab_score").addClass('active');
+	$('#add_score').toggle(function() {
+	  	$('#new_score').show('slow');
+	}, function() {
+	  	$('#new_score').hide('slow');
+	});
+});
+</script>

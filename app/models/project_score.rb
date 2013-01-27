@@ -1,3 +1,3 @@
 class ProjectScore < ActiveRecord::Base
-  # attr_accessible :title, :body
+   attr_accessible :point, :description, :weight
 end

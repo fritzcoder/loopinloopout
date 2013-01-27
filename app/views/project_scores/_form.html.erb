@@ -1,4 +1,4 @@
-<%= form_for(@project_score) do |f| %>
+<%= form_for(@project_score, :url => "/" + @user_name + "/projects/" + @project.id.to_s + "/project_scores") do |f| %>
   <% if @project_score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project_score.errors.count, "error") %> prohibited this project_score from being saved:</h2>
@@ -10,7 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :point %>
+    <%= f.text_field :point %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :cols => 20, :rows => 3 %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

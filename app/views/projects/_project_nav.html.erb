@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs">
-	<li id="tab_project" class="active">
+	<li id="tab_project">
 		<%= link_to "Project", project_url(@project.created_by, @project) %>
 	</li>
 	<%if @project.type == "RemixChallenge" or @project.type == "Challenge"%>
@@ -12,6 +12,9 @@
 	<% end %>
 	<li id="tab_discussion">
 		<a href="">Discussion</a>
+	</li>
+	<li id="tab_score">
+		<%= link_to "Score", project_project_scores_url(@project.created_by, @project) %>
 	</li>
    <% if can? :create, @project %>
 		<li id="tab_settings">
