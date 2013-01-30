@@ -1,4 +1,5 @@
 Loopinloopout::Application.routes.draw do
+  #resources :sound_file_scores
   #resources :project_scores
   resources :sound_file_bookmarks
   resources :votes
@@ -15,6 +16,7 @@ Loopinloopout::Application.routes.draw do
         get 'rules'
         get 'prizes'
       end
+      resources :sound_file_scores
       resources :project_scores
     end
     resources :bank_bookmarks 

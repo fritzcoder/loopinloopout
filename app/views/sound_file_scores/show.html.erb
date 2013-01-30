@@ -1,0 +1,86 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
+<br />
+<% end %>
+
+<div class="page">
+<h3><%= link_to @project.name, project_path(@user_name, @project) %> Entry submission:</h3>
+
+<div style="border: 1px solid black;float:left;width:730px;height:50px;margin:5px;padding:5px;background-color:#ccc">
+	<div style="float:left;width:50px;height:50px;border: 1px solid black;background-image: url('http://127.0.0.1:3000/assets/CD-grey-icon.png');">
+		<div style="float:left;border: 1px solid black;text-align:center;margin:10px;background-color:#fff">
+		<a href="#" onclick="playFile('<%= @song.file.url%>', '<%= @song.wave.url %>', '<%= @song.name %>', 
+			'<%= @song.id %>');">
+			<i class="icon-play" style="margin-top: expression(( 50 - this.height) / 2);"></i>
+		</a>
+		</div>
+	</div>
+	<div style="float:left;margin-left:5px;">
+		<span style="font-size: 30px;"></span>
+	</div>
+	<div style="float:left;margin-left:5px;width:340px;height:50px;">	
+		<div style="float:left;">
+			<span><b><%= @song.name %></b></span><br />
+			<span><a href=""><%= @song.created_by %></a></span>
+		</div>
+	</div>
+	<div style="float:left;width:150px;">
+		<div style="float:left;">
+			<%= @song.listen_count %> Listens
+			<br />
+			Added: <%= time_ago_in_words(@song.created_at,true) %>
+		</div>
+	</div>
+	<div style="float:right;text-align:right;border: 1px solid black;padding:4px;">
+		<%= @song.votes_count %>
+		<i class="icon-ok"></i>
+		|
+		<%= @song.sound_file_bookmarks_count %>
+		<i class="icon-star"></i>
+	</div>
+	</div>
+<% 
+	total_points = 0
+	total_score = 0
+ %>
+<% @sound_file_scores.each do |score| %>
+<div>
+	<h4><a href="#" onclick="score(<%= score.id.to_s %>);"><%= score.project_score.point %></a></h4>
+	<% if score.comment == "" %>
+	<p>No comments</p>
+	<% else %>
+	<p><%= score.comment %></p>
+	<% end %>
+	<%= text_field_tag('score_' + score.id.to_s, score.score.to_s, 
+		:onchange => "score(" + score.id.to_s + ");" ) %>/<%= score.project_score.weight.to_s %>
+	<% total_points = total_points + score.project_score.weight %>
+	<% total_score = total_score + score.score %>
+</div>
+<% end %>
+<div>
+	<hr />
+	<h4>Total</h4> 
+	<%= total_score.to_s %> / <%= total_points.to_s %>
+	</div>
+</div>
+<script type="text/javascript">
+function score(sound_file_id) {
+	$.ajax({
+		type: 'POST',
+		url: '/<%= @user_name %>/projects/<%= @project.id.to_s %>/sound_file_scores/' + sound_file_id,
+        data: {
+		  _method : 'PUT',
+		  //sound_file_id : sound_file_id,
+		  'sound_file_score[score]' : $('#score_' + sound_file_id).val()
+		  //username : '<%= current_user.luser.name %>'
+        },
+		success: function(data) {
+			//$('#sf_' + sound_file_id ).hide();
+			//$('#sfb_' + sound_file_id).show('slow');
+		},
+        dataType: 'json'
+      });
+}
+</script>
+
+

@@ -1,0 +1,23 @@
+<div class="page">
+<h1>Scores</h1>
+
+<table>
+  <tr>
+	<th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sound_file_scores.each do |sound_file_score| %>
+  <tr>
+	<td><%= sound_file_score.project_score.point %></td>
+    <td><%= link_to 'Show', sound_file_score %></td>
+    <td><%= link_to 'Edit', edit_sound_file_score_path(sound_file_score) %></td>
+    <td><%= link_to 'Destroy', sound_file_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>

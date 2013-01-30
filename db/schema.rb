@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122155018) do
+ActiveRecord::Schema.define(:version => 20130128090216) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20130122155018) do
 
   create_table "project_scores", :force => true do |t|
     t.integer  "project_id"
-    t.string   "attribute"
+    t.string   "point"
     t.text     "description"
     t.integer  "weight"
     t.datetime "created_at",  :null => false
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(:version => 20130122155018) do
     t.integer  "mode_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "sound_file_scores", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "sound_file_id"
+    t.integer  "project_score_id"
+    t.integer  "score"
+    t.text     "comment"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "sound_file_softwares", :force => true do |t|

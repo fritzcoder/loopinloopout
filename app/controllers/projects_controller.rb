@@ -27,6 +27,17 @@ class ProjectsController < ApplicationController
           project_file.sound_file_id = @sound_file.id
           project_file.project_id = @project.id
           project_file.save
+          
+          if @sound_file.type == "SongRemix"
+            @project.project_scores.each do |score|
+              sound_file_score = SoundFileScore.new
+              sound_file_score.project_id = @project.id
+              sound_file_score.sound_file_id = @sound_file.id
+              sound_file_score.project_score_id = score.id
+              sound_file_score.save
+            end
+          end
+          
           format.html { redirect_to project_url(@user_name, @project), notice: 'Sound was successfully added.' }
           format.json { render json: @sound_file, status: :created}
       else

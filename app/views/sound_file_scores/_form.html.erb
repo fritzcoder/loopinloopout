@@ -1,0 +1,17 @@
+<%= form_for(@sound_file_score) do |f| %>
+  <% if @sound_file_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sound_file_score.errors.count, "error") %> prohibited this sound_file_score from being saved:</h2>
+
+      <ul>
+      <% @sound_file_score.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

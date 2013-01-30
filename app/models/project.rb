@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   has_many :luser_projects
   has_many :lusers, :through => :luser_projects
   has_many :votes
+  has_many :project_scores
   scope :public, :conditions => { :access => 'Public' }
   attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type
   
