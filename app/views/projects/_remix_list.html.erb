@@ -60,6 +60,8 @@
 		|
 		<%= link_to '', project_sound_file_score_path(@user_name, @project, sound_file), :class => 'icon-list-alt' %>
 		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>	
+		<br />
+		Score: <%= sound_file.score %>/<%= @total_score %>
 	</div>
 	</div>
 	<br style="clear:both;"/>

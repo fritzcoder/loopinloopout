@@ -74,6 +74,7 @@ class ProjectsController < ApplicationController
     @sound_file = SoundFile.new
     @user_name = params[:username]
     @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
+    @total_score = @project.total_score
     
     respond_to do |format|
       format.html # show.html.erb

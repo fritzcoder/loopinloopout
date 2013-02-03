@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  #Validateions 
+  #Validations 
   validates :name, :presence => true
   validates :description, :presence => true
   validates :access, :presence => true
@@ -12,6 +12,7 @@ class Project < ActiveRecord::Base
   has_many :lusers, :through => :luser_projects
   has_many :votes
   has_many :project_scores
+  has_many :project_files
   scope :public, :conditions => { :access => 'Public' }
   attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type
   
@@ -46,6 +47,14 @@ class Project < ActiveRecord::Base
         end
       end
     end
+  end
+  
+  def total_score
+    total = 0
+    self.project_scores.each do |point|
+      total = total + point.weight
+    end
+    total 
   end
   
 end

@@ -37,30 +37,33 @@
 		|
 		<%= @song.sound_file_bookmarks_count %>
 		<i class="icon-star"></i>
+		<br />
+		Score: 0/30
 	</div>
-	</div>
+</div>
+<br style="clear:both;" />
+
 <% 
 	total_points = 0
 	total_score = 0
  %>
 <% @sound_file_scores.each do |score| %>
 <div>
-	<h4><a href="#" onclick="score(<%= score.id.to_s %>);"><%= score.project_score.point %></a></h4>
-	<% if score.comment == "" %>
-	<p>No comments</p>
-	<% else %>
-	<p><%= score.comment %></p>
-	<% end %>
+	<h4><a href="#"><%= score.project_score.point %></a></h4>
 	<%= text_field_tag('score_' + score.id.to_s, score.score.to_s, 
-		:onchange => "score(" + score.id.to_s + ");" ) %>/<%= score.project_score.weight.to_s %>
+		:oninput => "score(" + score.id.to_s + ");", :size => 2) %><span style="font-size:20px;">/<%= score.project_score.weight.to_s %></span>
 	<% total_points = total_points + score.project_score.weight %>
 	<% total_score = total_score + score.score %>
+	<br />
+	Comment:<br />
+	<%= text_area_tag('score_comment_' + score.id.to_s, score.comment, 
+		:oninput=> "score(" + score.id.to_s + ");" ) %>
 </div>
 <% end %>
 <div>
 	<hr />
 	<h4>Total</h4> 
-	<%= total_score.to_s %> / <%= total_points.to_s %>
+	<h4><%= total_score.to_s %> / <%= total_points.to_s %></h4>
 	</div>
 </div>
 <script type="text/javascript">
@@ -71,7 +74,8 @@ function score(sound_file_id) {
         data: {
 		  _method : 'PUT',
 		  //sound_file_id : sound_file_id,
-		  'sound_file_score[score]' : $('#score_' + sound_file_id).val()
+		  'sound_file_score[score]' : $('#score_' + sound_file_id).val(),
+		  'sound_file_score[comment]' : $('#score_comment_' + sound_file_id).val()
 		  //username : '<%= current_user.luser.name %>'
         },
 		success: function(data) {

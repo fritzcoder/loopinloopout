@@ -39,11 +39,7 @@ class SoundFile < ActiveRecord::Base
   		end
   		super
   end
-  
-  # def came_from
-  #       self.name
-  #   end
-  
+
   def audio
     audio_types = ['mp3', 'aiff', 'wav']
     return audio_types.index(self.file_type);
@@ -52,5 +48,13 @@ class SoundFile < ActiveRecord::Base
   def file_type
     file_file_name.split(".")[1]
   end 
+  
+  def score
+    total = 0
+    self.sound_file_scores.each do |score|
+      total = total + score.score
+    end
+    total
+  end  
 
 end

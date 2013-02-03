@@ -51,6 +51,15 @@ class ProjectScoresController < ApplicationController
 
     respond_to do |format|
       if @project_score.save
+        @project.project_files.each do |file|
+          add = SoundFileScore.new
+          add.project_id = @project.id
+          add.sound_file_id = file.sound_file_id
+          add.project_score_id = @project_score.id
+          add.score = 0
+          add.save
+        end
+        
         format.html { redirect_to project_project_scores_url(@user_name, @project), notice: 'Project score was successfully created.' }
         format.json { render json: @project_score, status: :created, location: @project_score }
       else
