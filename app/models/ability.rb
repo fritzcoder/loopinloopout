@@ -11,25 +11,28 @@ class Ability
     #if user.luser.name != nil
     #  can :create, Project
     #end
-    ActiveRecord::Base.logger.info("Checking access ....................")
+    #ActiveRecord::Base.logger.info("Checking access ....................")
     
     can :update, Project do |p|
+      access = p.user_access(user)
       #ActiveRecord::Base.logger.info("Access: " + p.user_access(user))
-      p.user_access(user) == "Contributor"
+      access == "Contributor"
     end
     
     can :read, Project do |p|
-      p.access == "Public"
+      access = p.user_access(user)
+      access == "Contributor" or 
+      access == "Admin" or
+      p.access == "Public" 
     end
     
     can :create, Project
     
     can :manage, Project do |p|
-      #ActiveRecord::Base.logger.info(p.created_by)
-      p.created_by == user.luser.name
+      access = p.user_access(user)
+      p.created_by == user.luser.name or
+      access == "Admin"
     end
-    
-   
     
     #can :read, Project
     #can :contibutor, Project do |p|
@@ -40,9 +43,6 @@ class Ability
     #  end
       #false
     #end
-    
-  
-    
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

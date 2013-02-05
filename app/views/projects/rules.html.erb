@@ -6,6 +6,56 @@
 <%= render 'project_header' %>	
 <%= render 'project_nav' %>
 
-<%= @project.rules %>
-
+<div id="edit_rules" style="display:none;" >
+	<div><%= text_area(:project, :rules, :cols => 60, :rows => 2) %></div>
+	<div><a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a></div>
 </div>
+<a href="#" id="edit"> Edit</a>
+<div id="rules">
+   	<p><%= @project.rules %></p>
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#tab_rules").addClass('active');
+	
+	$('#edit').click(function() {
+	  	$('#rules').hide();
+		$('#edit').hide();
+		$('#edit_rules').show();
+	});
+	
+	$('#cancel').click(function() {
+	  	$('#rules').show();
+		$('#edit_rules').hide();
+		$('#edit').show();
+	});
+	
+	$('#save').click(function() {
+		//alert("save");
+		$.ajax({
+			type: 'POST',
+			url: '<%=  project_path %>',
+	        data: {
+			  _method : 'PUT',
+			  'project[rules]': $('#project_rules').val()
+			  //software_id : $('#software_id').val(),
+			  //mode_id : $('#mode_id').val(),
+	          //type_id : $('#type_id').val()
+	        },
+			success: function(data) {
+			    //$('.result').html(data);
+			    alert('Saved');
+				$('#rules').show();
+				$('#rules>p').html($('#project_rules').val());
+				$('#edit_rules').hide();
+				$('#edit').show();
+				
+			},
+	        dataType: 'json'
+			
+	      });
+	});
+});
+</script>

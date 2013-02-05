@@ -39,14 +39,15 @@ class Project < ActiveRecord::Base
   
   def user_access(user)
     if self.created_by == user.luser.name
-      "Manager"
+      return "Creator"
     else
-      self.lusers.each do |luser|
-        if luser.name == user.luser.name
-          return "Contributor"
+      self.luser_projects.each do |luser|
+        if luser.luser.id == user.luser.id
+          return luser.role.name
         end
       end
     end
+    nil
   end
   
   def total_score

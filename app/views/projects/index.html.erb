@@ -6,18 +6,20 @@
 <%= render :partial => "navigation", :locals => { :user => @user_name } %>
 
 <% @luser_projects.each do |lproject| %>
-<div>
-	<h4><%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user_name, lproject.project)) %></h4>
-	<%= lproject.project.description %>
-	<div>
+<% if lproject.project.access == 'Public' or lproject.project.user_access(current_user) != nil %>
+<div style="border-bottom: 1px solid white ; padding:5px ;">
+	<h4>
+		<%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user_name, lproject.project)) %>
 		<span class="label label-info"><%= lproject.project.type %></span>
 		<% if lproject.project.access == "public" %>
 		<span class="label label-success"><%= lproject.project.access %></span>
 		<% else %>
 		<span class="label label-important"><%= lproject.project.access %></span>
 		<% end %>
-	</div>
+	</h4>
+	<%= lproject.project.description %>
 </div>
+<% end %>
 <% end %>
 <script type="text/javascript">
 $(document).ready(function() {

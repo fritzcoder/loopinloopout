@@ -39,15 +39,6 @@
   <% if @project.type == "Challenge" or
 	    @project.type == "RemixChallenge" %>
   <div class="field">
-    <%= f.label :prizes %>
-    <%= f.text_area :prizes, :cols => 20, :rows => 3 %>
-  </div>
-  <div class="field">
-    <%= f.label :rules %>
-    <%= f.text_area :rules, :cols => 20, :rows => 3 %>
-  </div>
-
-  <div class="field">
     <%= f.label :leader_board %>
     <%= f.check_box :leader_board %>
   </div>
@@ -56,33 +47,40 @@
     	<%= f.check_box :scoring %>
   </div>
 
-	<div class="field">
-    	<%= f.label :voting %>
-    	<%= f.check_box :voting %>
-  	</div>
-
-    <div class="field">
-    	<%= f.label :start %>
-    	<%= date_select :project, :start %>
-  	</div>
-    <div class="field">
-    	<%= f.label :end %>
-    	<%= date_select :project, :end %>
-  	</div>
-
-  <% end %>
   <div class="field">
-	<%= submit_tag "Add Luser" %>
-	<%= text_field_tag :luser, "Type username"%>
+  	<%= f.label :voting %>
+  	<%= f.check_box :voting %>
   </div>
+
+  <div class="field">
+  	<%= f.label :start %>
+  	<%= date_select :project, :start %>
+  </div>
+  <div class="field">
+  	<%= f.label :end %>
+  	<%= date_select :project, :end %>
+  </div>
+  <% end %>
+
+  <div class="field">
+	<%= text_field_tag :luser_name, "Type username"%>
+	<%= collection_select :luser, :role, Role.find(:all, :conditions => {:assignable => "true" }), :id, :name %>
+	<%= submit_tag "Add Luser" %>
+  </div>
+
   <div style="border: 1px solid black;">
 	<% @lusers.each do |luser| %>
 	<div>
 		<a href="#"><img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png"></a>
 		<br />
-		<%= luser.name %>	<%= link_to '', 
+		<%= luser.name %>
+		<br />
+		<%= luser.project_role(@project) %>	
+		<% if @project.created_by != luser.name %>
+		<%= link_to '', 
 				luser_project_path(LuserProject.find(:first, :conditions => {:project_id => @project.id, :luser_id => luser.id})), 
 				method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
+		<% end %>
 	</div>
 	<% end%>
   </div>

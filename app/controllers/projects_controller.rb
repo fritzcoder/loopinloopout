@@ -133,16 +133,15 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @user_name = params[:username]
-    luser = Luser.find(:first, :conditions => {:name => params[:luser]} )
-    role = Role.find(:first, :conditions => {:name => "Contributor"} )
-      
+    luser = Luser.find(:first, :conditions => {:name => params[:luser_name]} )
+        
     respond_to do |format|
       if params[:commit] == "Add Luser"
         if luser != nil 
           luser_project = LuserProject.new 
           luser_project.project_id = @project.id
           luser_project.luser_id = luser.id
-          luser_project.role_id = role.id
+          luser_project.role_id = params[:luser][:role]
           luser_project.save
           
           format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully updated.' }
