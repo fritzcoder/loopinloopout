@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
   has_many :votes
   has_many :project_scores
   has_many :project_files
+  has_many :discussions
   scope :public, :conditions => { :access => 'Public' }
   attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type
   
@@ -38,14 +39,19 @@ class Project < ActiveRecord::Base
   #end
   
   def user_access(user)
+    if user == nil
+      return nil
+    end
+    
     if self.created_by == user.luser.name
       return "Creator"
     else
-      self.luser_projects.each do |luser|
-        if luser.luser.id == user.luser.id
-          return luser.role.name
-        end
+      access = LuserProject.find(:first, :conditions => {:project_id => self.id, :luser_id => user.luser.id })
+      
+      if access != nil
+        return access.role.name
       end
+      
     end
     nil
   end

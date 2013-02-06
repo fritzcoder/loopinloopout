@@ -91,5 +91,5 @@ $(document).ready(function() {
 	  	$('#upload_stem').hide('slow');
 	});
 });
-$('#modal-body').load('/<%= @user_name %>/banks/browse?window=modal');
+$('#modal-body').load('/<%= current_user.luser.name %>/banks/browse?window=modal');
 </script>

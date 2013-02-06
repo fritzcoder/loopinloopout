@@ -6,8 +6,9 @@
 <%= render :partial => "navigation", :locals => { :user => @user_name } %>
 
 <% @luser_projects.each do |lproject| %>
-<% if lproject.project.access == 'Public' or lproject.project.user_access(current_user) != nil %>
-<div style="border-bottom: 1px solid white ; padding:5px ;">
+<% if lproject.project.access == 'Public' or 
+	lproject.project.user_access(current_user) != nil %>
+<div style="border-bottom: 0.5px solid white ; padding:5px ;">
 	<h4>
 		<%= link_to(lproject.project.created_by + "/" + lproject.project.name, project_path(@user_name, lproject.project)) %>
 		<span class="label label-info"><%= lproject.project.type %></span>

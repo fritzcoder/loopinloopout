@@ -1,4 +1,10 @@
 Loopinloopout::Application.routes.draw do
+  resources :discussions
+
+  resources :follows
+
+  resources :subscriptions
+
   #resources :sound_file_scores
   #resources :project_scores
   resources :sound_file_bookmarks

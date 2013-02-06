@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128090216) do
+ActiveRecord::Schema.define(:version => 20130206105122) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(:version => 20130128090216) do
     t.string   "created_by"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "discussions", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "luser_id"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "luser_id"
+    t.integer  "following_luser_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "luser_banks", :force => true do |t|
@@ -194,6 +209,14 @@ ActiveRecord::Schema.define(:version => 20130128090216) do
     t.integer  "sound_type_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "luser_id"
+    t.boolean  "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
