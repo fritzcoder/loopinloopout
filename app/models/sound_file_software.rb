@@ -1,5 +1,9 @@
 class SoundFileSoftware < ActiveRecord::Base
   attr_accessible :notes
+  
+  validates :sound_file_id, :presence => true, :numericality => { :only_integer => true }
+  validates :software_id, :presence => true, :numericality => { :only_integer => true }
+  
   belongs_to :sound_file
   belongs_to :software
   

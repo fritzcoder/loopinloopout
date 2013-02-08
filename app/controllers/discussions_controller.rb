@@ -3,6 +3,9 @@ class DiscussionsController < ApplicationController
   # GET /discussions.json
   def index
     @discussions = Discussion.all
+    @discussion = Discussion.new
+    @project = Project.find(params[:project_id])
+    @user_name = params[:username]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,10 +44,16 @@ class DiscussionsController < ApplicationController
   # POST /discussions.json
   def create
     @discussion = Discussion.new(params[:discussion])
+    @discussion.project_id
+    @project = Project.find(params[:project_id])
+    @discussion.project_id = @project.id
+    @discussion.luser_id = current_user.luser.id
+    @user_name = params[:username]
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
+        format.html { redirect_to project_discussions_path(@project.created_by, @project), 
+          notice: 'Discussion was successfully created.' }
         format.json { render json: @discussion, status: :created, location: @discussion }
       else
         format.html { render action: "new" }

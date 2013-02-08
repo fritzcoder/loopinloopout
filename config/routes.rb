@@ -1,8 +1,5 @@
 Loopinloopout::Application.routes.draw do
-  resources :discussions
-
   resources :follows
-
   resources :subscriptions
 
   #resources :sound_file_scores
@@ -17,11 +14,14 @@ Loopinloopout::Application.routes.draw do
   
   scope ":username" do
     resources :projects do 
+      
       member do 
         post 'upload_file'
         get 'rules'
         get 'prizes'
       end
+      
+      resources :discussions
       resources :sound_file_scores
       resources :project_scores
     end

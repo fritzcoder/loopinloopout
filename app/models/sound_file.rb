@@ -5,6 +5,7 @@ class SoundFile < ActiveRecord::Base
   validates :created_by, :presence => true
   validates :type, :presence => true
   validate  :file, :presence => true
+  validates :bpm, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   
   attr_accessible :name, :description, :length, :file, :preview, :bpm, :type
   attr_readonly :wave, :type

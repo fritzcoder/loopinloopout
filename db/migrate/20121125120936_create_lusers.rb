@@ -3,8 +3,8 @@ class CreateLusers < ActiveRecord::Migration
     create_table :lusers do |t|
       t.string      :name
       t.attachment  :profile
-      t.integer     :luser_banks_count
-      t.integer     :luser_Projects_count
+      t.integer     :luser_banks_count, :default => 0
+      t.integer     :luser_Projects_count, :default => 0
       t.references  :user
 
       t.timestamps

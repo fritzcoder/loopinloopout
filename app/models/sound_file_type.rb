@@ -1,5 +1,9 @@
 class SoundFileType < ActiveRecord::Base
   # attr_accessible :title, :body
+  
+  validates :sound_file_id, :presence => true, :numericality => { :only_integer => true }
+  validates :sound_type_id, :presence => true, :numericality => { :only_integer => true }
+  
   belongs_to :sound_file
   belongs_to :sound_type
   

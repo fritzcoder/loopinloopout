@@ -14,7 +14,7 @@
 	</li>
 	<% end %>
 	<li id="tab_discussion">
-		<a href="">Discussion</a>
+		<%= link_to "Discussion", project_discussions_path(@project.created_by, @project) %>
 	</li>
    <% if can? :update, @project %>
 		<li id="tab_settings">

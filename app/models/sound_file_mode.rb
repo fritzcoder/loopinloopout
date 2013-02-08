@@ -1,8 +1,10 @@
 class SoundFileMode < ActiveRecord::Base
   # attr_accessible :title, :body
+  validates :sound_file_id, :presence => true, :numericality => { :only_integer => true }
+  validates :mode_id, :presence => true, :numericality => { :only_integer => true }
+  
   belongs_to :sound_file
   belongs_to :mode
-  
   
   #this is a convience method to assign 
   #multiple types to a sound object

@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(:version => 20130206105122) do
     t.string   "name"
     t.text     "description"
     t.string   "access"
-    t.boolean  "collaboration"
-    t.integer  "bank_bookmarks_count"
+    t.boolean  "collaboration",        :default => false
+    t.integer  "bank_bookmarks_count", :default => 0
     t.string   "created_by"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   create_table "discussions", :force => true do |t|
@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(:version => 20130206105122) do
     t.string   "profile_content_type"
     t.integer  "profile_file_size"
     t.datetime "profile_updated_at"
-    t.integer  "luser_banks_count"
-    t.integer  "luser_Projects_count"
+    t.integer  "luser_banks_count",    :default => 0
+    t.integer  "luser_Projects_count", :default => 0
     t.integer  "user_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "modes", :force => true do |t|

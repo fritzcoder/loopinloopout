@@ -1,0 +1,10 @@
+bank1:
+    name: Bank 1
+    description: This is bank 1
+    access: Public
+    
+bank2:
+    name: Bank 2
+    description: This is bank 2
+    access: Private
+    

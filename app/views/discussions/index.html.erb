@@ -1,21 +1,41 @@
-<h1>Listing discussions</h1>
+<div class="page">
+<div style="width:760px;height:400px;background-color:#000">
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<% @discussions.each do |discussion| %>
+	<div>
+	 	<div style="float:left;width:100px;background-color:grey">
+		 	<span style="color:#fff"><%= discussion.created_at.strftime("%v %r") %></span>
+		 </div>
+		 <div style="float:left;padding-left:5px;width:100px;">
+		 	<span style="color:green"><b><%= discussion.luser.name %></b></span>
+		 </div>
+		 <div style="float:left;padding-left:5px;width:500px;"> 
+		    <span style="color:green;"><%= discussion.comment %></span>
+			<%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</div>
+		<br style="clear:both;"/>
+    </div>	
+	<% end %>
+</div>
+<hr />
+<div>
+	<%= form_for(@discussion, :url => "/" + @user_name + "/projects/" + @project.id.to_s + "/discussions") do |f| %>
+	  <% if @discussion.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
 
-<% @discussions.each do |discussion| %>
-  <tr>
-    <td><%= link_to 'Show', discussion %></td>
-    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-    <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Discussion', new_discussion_path %>
+	      <ul>
+	      <% @discussion.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	 
+	 <div class="field">
+	  	<%= f.submit %>
+	    <%= f.text_field :comment %>
+	  </div>	
+	<% end %>
+</div>
+</div>
