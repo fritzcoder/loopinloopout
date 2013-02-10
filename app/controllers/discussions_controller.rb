@@ -2,7 +2,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.order('created_at desc').find(:all, :conditions => {:project_id => params[:project_id]})
     @discussion = Discussion.new
     @project = Project.find(params[:project_id])
     @user_name = params[:username]

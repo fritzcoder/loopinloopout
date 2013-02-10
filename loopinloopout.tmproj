@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/discussion.rb</string>
+	<string>app/views/discussions/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -17,6 +17,8 @@
 			<string>app</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>config</string>
 			<key>regexFolderFilter</key>
@@ -105,8 +107,6 @@
 			<string>script</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>test</string>
 			<key>regexFolderFilter</key>
@@ -247,6 +247,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/discussions_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>48</integer>
+				<key>line</key>
+				<integer>49</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>38</integer>
+		</dict>
 		<key>app/controllers/modes_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -352,9 +366,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>84</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>1</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -374,6 +388,36 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>app/views/banks/_form.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/_list_files.html.erb</key>
 		<dict>
@@ -449,6 +493,50 @@
 				<integer>95</integer>
 			</dict>
 		</dict>
+		<key>app/views/banks/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>69</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/banks/show.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>74</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>3</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>74</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+		</dict>
 		<key>app/views/devise/registrations/edit.html.erb</key>
 		<dict>
 			<key>caret</key>
@@ -490,6 +578,94 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>app/views/discussions/_form.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+		</dict>
+		<key>app/views/discussions/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/discussions/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/home/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>15</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>15</integer>
+			</dict>
 		</dict>
 		<key>app/views/lusers/_form.html.erb</key>
 		<dict>
@@ -649,6 +825,96 @@
 				<integer>24</integer>
 			</dict>
 		</dict>
+		<key>app/views/projects/_project_nav.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>28</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+		</dict>
+		<key>app/views/projects/_remix_list.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>31</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>25</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>31</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>31</integer>
+			</dict>
+		</dict>
+		<key>app/views/projects/_upload_file.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>101</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>101</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
 		<key>app/views/projects/new.html.erb</key>
 		<dict>
 			<key>caret</key>
@@ -791,20 +1057,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>config/routes.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>6</integer>
-				<key>line</key>
-				<integer>18</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>db/migrate/20121107160219_create_banks.rb</key>
 		<dict>
 			<key>caret</key>
@@ -883,6 +1135,20 @@
 				<integer>0</integer>
 				<key>line</key>
 				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20130206105122_create_discussions.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>5</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1234,30 +1500,19 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>test/unit/bank_bookmark_test.rb</string>
 		<string>app/models/discussion.rb</string>
-		<string>app/models/bank_bookmark.rb</string>
-		<string>test/functional/follows_controller_test.rb</string>
-		<string>test/unit/follow_test.rb</string>
-		<string>test/functional/bank_bookmarks_controller_test.rb</string>
-		<string>test/fixtures/lusers.yml</string>
-		<string>db/migrate/20121125120936_create_lusers.rb</string>
-		<string>test/fixtures/bank_bookmarks.yml</string>
-		<string>test/fixtures/follows.yml</string>
-		<string>app/models/follow.rb</string>
-		<string>test/fixtures/users.yml</string>
-		<string>test/functional/subscriptions_controller_test.rb</string>
-		<string>test/functional/project_scores_controller_test.rb</string>
-		<string>test/functional/sound_file_scores_controller_test.rb</string>
-		<string>test/functional/discussions_controller_test.rb</string>
-		<string>test/fixtures/banks.yml</string>
-		<string>test/fixtures/roles.yml</string>
-		<string>test/fixtures/sound_file_types.yml</string>
-		<string>test/fixtures/sound_file_modes.yml</string>
-		<string>test/fixtures/softwares.yml</string>
-		<string>test/fixtures/sound_file_bookmarks.yml</string>
-		<string>test/fixtures/subscriptions.yml</string>
-		<string>db/migrate/20121107160219_create_banks.rb</string>
+		<string>app/views/discussions/index.html.erb</string>
+		<string>app/views/projects/_remix_list.html.erb</string>
+		<string>app/controllers/discussions_controller.rb</string>
+		<string>db/migrate/20130206105122_create_discussions.rb</string>
+		<string>app/views/projects/_upload_file.html.erb</string>
+		<string>app/views/projects/_project_nav.html.erb</string>
+		<string>app/views/banks/_form.html.erb</string>
+		<string>app/views/banks/new.html.erb</string>
+		<string>app/views/discussions/new.html.erb</string>
+		<string>app/views/discussions/_form.html.erb</string>
+		<string>app/views/banks/show.html.erb</string>
+		<string>app/views/home/index.html.erb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

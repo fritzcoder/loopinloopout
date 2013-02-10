@@ -1,6 +1,11 @@
+<% content_for :profile do %>
+  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
+<br />
+<% end %>
 <div class="page">
-<div style="width:760px;height:400px;background-color:#000">
-
+<%= render 'projects/project_header' %>
+<%= render 'projects/project_nav' %>
+<div style="width:760px;height:400px;overflow:auto;background-color:#000">
 	<% @discussions.each do |discussion| %>
 	<div>
 	 	<div style="float:left;width:100px;background-color:grey">
@@ -11,10 +16,10 @@
 		 </div>
 		 <div style="float:left;padding-left:5px;width:500px;"> 
 		    <span style="color:green;"><%= discussion.comment %></span>
-			<%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %>
 		</div>
 		<br style="clear:both;"/>
     </div>	
+    <br style="clear:both;"/>
 	<% end %>
 </div>
 <hr />
@@ -33,9 +38,14 @@
 	  <% end %>
 	 
 	 <div class="field">
-	  	<%= f.submit %>
-	    <%= f.text_field :comment %>
+	  	<%= f.submit "Comment"%>
+	    <%= f.text_field :comment, :style => "width:650px;"%>
 	  </div>	
 	<% end %>
 </div>
 </div>
+<script>
+$(document).ready(function() {
+	$("#tab_discussion").addClass('active');
+});
+</script>
