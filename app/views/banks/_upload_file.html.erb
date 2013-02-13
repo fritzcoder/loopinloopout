@@ -1,0 +1,60 @@
+<%= form_for(@sound_file, :url => "/" + @user_name + "/banks/" + @bank.id.to_s + "/sound_files") do |f| %>
+  <% if @sound_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this sound_file from being saved:</h2>
+      <ul>
+      <% @sound_file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= hidden_field_tag "bank_id", @bank.id %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :file %>
+    <%= f.file_field :file%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script>
+// $(document).ready(function() {
+// function files()
+// {
+// 	$('#save').click(function() {
+// 		//alert("save");
+// 		$.ajax({
+// 			type: 'POST',
+// 			url: '<%=  project_path %>',
+// 	        data: {
+// 			  _method : 'PUT',
+// 			  'project[prizes]': $('#project_prizes').val()
+// 			  //software_id : $('#software_id').val(),
+// 			  //mode_id : $('#mode_id').val(),
+// 	          //type_id : $('#type_id').val()
+// 	        },
+// 			success: function(data) {
+// 			    //$('.result').html(data);
+// 			    alert('Saved');
+// 				$('#prizes').show();
+// 				$('#prizes>p').html($('#project_prizes').val());
+// 				$('#edit_prizes').hide();
+// 				$('#edit').show();
+// 				
+// 			},
+// 	        dataType: 'json'
+// 			
+// 	      });
+// 	});
+// }
+// });
+</script>

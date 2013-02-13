@@ -82,6 +82,7 @@ class BanksController < ApplicationController
   def show
     @bank = Bank.find(params[:id])
     bank_files = BankFile.find(:all, :conditions => { :bank_id => params[:id] })
+    @sound_file = SoundFile.new
     @sound_files = bank_files.map { |f| f.sound_file }
     @user_name = params[:username]
     @bank_bookmark = BankBookmark.find(:first, :conditions => {:bank_id => @bank.id, :luser_id => current_user.luser.id})

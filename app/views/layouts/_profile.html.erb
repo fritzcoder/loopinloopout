@@ -4,5 +4,25 @@
 	</a>
 </div>
 <h4><%= @user_name %></h4>
-<button class="btn btn-mini btn-primary" type="button">Follow</button>
+<button class="btn btn-mini btn-primary" type="button" id="follow">Follow</button>
+<button class="btn btn-mini" type="button" id="unfollow" style="display:none;">Unfollow</button>
 <br />
+<script>
+$(document).ready(function() {
+	$('#follow').click(function() {
+		$.ajax({
+			type: 'POST',
+			url: '<%= follows_path %>',
+	        data: {
+			  _method : 'POST',
+			  username : '<%= @user_name %>',
+	        },
+			success: function(data) {
+				$('#follow').hide();
+				$('#unfollow').show('slow');
+			},
+	        dataType: 'json'
+	      });
+	});
+});
+</script>

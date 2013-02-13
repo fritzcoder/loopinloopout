@@ -29,32 +29,31 @@
 	<div><a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a></div>
 </div>
 <div style="width:760px;">
-	<div style="float:left;">
-	<%= link_to 'New Sound', new_bank_sound_file_path(:username => @user_name, 
-		:bank_id => @bank.id), :class => ['btn', 'btn-mini'] %>
+	<div id="upload_sound" style="display:none">
+		<%= render :partial => 'upload_file', :locals => { :type => "SoundFile" } %>
 	</div>
-	<div style="float:right;">
-	<%= render 'layouts/mini_player' %>
+	<div style="float:left;">
+		<a href="" style="float:right;"><i id="bsound" class="icon-upload"></i></a>
 	</div>
 	<div style="clear: both;"></div>
 </div>
 <div id="file_list">
 <%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user_name, :bank => @bank, 
-	:player_size => "mini", :modal => "false"  } %>
+	:player_size => "small", :modal => "false"  } %>
 </div>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#edit').click(function() {
-	  	$('#description').hide();
-		$('#edit').hide();
-		$('#edit_bank').show();
+	  	$('#description').hide('slow');
+		$('#edit').hide('slow');
+		$('#edit_bank').show('slow');
 	});
 	
 	$('#cancel').click(function() {
-	  	$('#description').show();
-		$('#edit_bank').hide();
-		$('#edit').show();
+	  	$('#description').show('slow');
+		$('#edit_bank').hide('slow');
+		$('#edit').show('slow');
 	});
 	
 	$('#save').click(function() {
@@ -72,10 +71,10 @@ $(document).ready(function() {
 			success: function(data) {
 			    //$('.result').html(data);
 			    alert('Saved');
-				$('#description').show();
+				$('#description').show('slow');
 				$('#description>p').html($('#bank_description').val());
-				$('#edit_bank').hide();
-				$('#edit').show();
+				$('#edit_bank').hide('slow');
+				$('#edit').show('slow');
 			},
 	        dataType: 'json'
 			
@@ -114,6 +113,12 @@ $(document).ready(function() {
 			},
 	        dataType: 'json'
 	      });
+	});
+	
+	$('#bsound').toggle(function() {
+	  	$('#upload_sound').show('slow');
+	}, function() {
+	  	$('#upload_sound').hide('slow');
 	});
 });
 </script>

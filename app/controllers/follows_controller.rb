@@ -40,11 +40,14 @@ class FollowsController < ApplicationController
   # POST /follows
   # POST /follows.json
   def create
-    @follow = Follow.new(params[:follow])
-
+    @follow = Follow.new()
+    @follow.luser_id = current_user.luser.id
+    fluser = Luser.find(:first, :conditions => {:name => params[:username]})
+    @follow.following_luser_id = fluser.id
+    
     respond_to do |format|
       if @follow.save
-        format.html { redirect_to @follow, notice: 'Follow was successfully created.' }
+        format.html { redirect_to @follow, notice: 'You are now following ' + fluser.name }
         format.json { render json: @follow, status: :created, location: @follow }
       else
         format.html { render action: "new" }

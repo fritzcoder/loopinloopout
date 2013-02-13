@@ -2,8 +2,6 @@ class Bank < ActiveRecord::Base
   attr_accessible :access, :collaboration, :description, :name, :type
   validates :access, :presence => true
   validates :name, :presence => true
-  validates :type, :presence => true
- 
  
   has_many :bank_files
   has_many :sound_files, :through => :bank_files
