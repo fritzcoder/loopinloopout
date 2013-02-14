@@ -15,13 +15,10 @@ class Luser < ActiveRecord::Base
     project.role.name
   end
   
-  def following(user)
-    f = Follow(:first, :conditions => [:luser_id => self.id, :following_luser_id => user.luser.id])
-    if f != nil 
-      return true
-    end
-    
-    false
+  def following(username)
+    luser = Luser.find(:first, :conditions => { :name => username })
+    f = Follow.find(:first, :conditions => {:luser_id => self.id, :following_luser_id => luser.id})
+    f
   end
   
 end

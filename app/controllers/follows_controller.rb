@@ -45,8 +45,14 @@ class FollowsController < ApplicationController
     fluser = Luser.find(:first, :conditions => {:name => params[:username]})
     @follow.following_luser_id = fluser.id
     
+    current = Follow.find(:first, :conditions => {:luser_id => current_user.luser.id, 
+      :following_luser_id => fluser.id })
+    
     respond_to do |format|
-      if @follow.save
+      if current != nil
+        current.destroy
+        format.json { head :no_content }
+      elsif @follow.save
         format.html { redirect_to @follow, notice: 'You are now following ' + fluser.name }
         format.json { render json: @follow, status: :created, location: @follow }
       else

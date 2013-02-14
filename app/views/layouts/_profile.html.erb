@@ -4,8 +4,16 @@
 	</a>
 </div>
 <h4><%= @user_name %></h4>
-<button class="btn btn-mini btn-primary" type="button" id="follow">Follow</button>
-<button class="btn btn-mini" type="button" id="unfollow" style="display:none;">Unfollow</button>
+<% following = current_user.luser.following(@user_name) %>
+<% if @user_name != current_user.luser.name %>
+	<% if following != nil %>
+	<button class="btn btn-mini" type="button" id="unfollow">Unfollow</button>
+	<button class="btn btn-mini btn-primary" type="button" id="follow" style="display:none;">Follow</button>
+	<% else %>
+	<button class="btn btn-mini" type="button" id="unfollow" style="display:none;">Unfollow</button>
+	<button class="btn btn-mini btn-primary" type="button" id="follow">Follow</button>
+	<% end %>
+<% end %>
 <br />
 <script>
 $(document).ready(function() {
@@ -19,7 +27,23 @@ $(document).ready(function() {
 	        },
 			success: function(data) {
 				$('#follow').hide();
-				$('#unfollow').show('slow');
+				$('#unfollow').show();
+			},
+	        dataType: 'json'
+	      });
+	});
+	
+	$('#unfollow').click(function() {
+		$.ajax({
+			type: 'POST',
+			url: '<%= follows_path %>',
+	        data: {
+			  _method : 'POST',
+			  username : '<%= @user_name %>',
+	        },
+			success: function(data) {
+				$('#follow').show();
+				$('#unfollow').hide();
 			},
 	        dataType: 'json'
 	      });
