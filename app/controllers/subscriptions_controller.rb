@@ -41,9 +41,20 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions.json
   def create
     @subscription = Subscription.new(params[:subscription])
-
+    
+    @subscription = Subscription.new()
+    @subscription.luser_id = current_user.luser.id
+  
+    @subscription.project_id = params[:project_id]
+    
+    current = Subscription.find(:first, :conditions => {:luser_id => current_user.luser.id, 
+      :project_id => params[:project_id] })
+    
     respond_to do |format|
-      if @subscription.save
+      if current != nil
+        current.destroy
+        format.json { head :no_content }
+      elsif @subscription.save
         format.html { redirect_to @subscription, notice: 'Subscription was successfully created.' }
         format.json { render json: @subscription, status: :created, location: @subscription }
       else

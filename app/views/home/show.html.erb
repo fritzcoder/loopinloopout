@@ -1,12 +1,8 @@
 <% content_for :profile do %>
-  <div>
-  	<img src="http://127.0.0.1:3000/assets/profile_default.png" />
-  </div>
-  <h4><%= @user %></h4>
-  <br />
+ <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
 <% end %>
 <% content_for :title do %>
-<%= @user %>
+<%= @user_name %>
 <% end %>
 <div class="page">
 	<ul class="nav nav-tabs">
@@ -18,7 +14,7 @@
 		</li>
 	</ul>
 	
-	<h3><a href="">Projects:</a> 0 <a href="">Banks:</a> 0 </h3> 
+	<h3><a href="">Projects:</a> <%= @user.luser_projects_count %> <a href="">Banks:</a> <%= @user.luser_banks_count %> </h3> 
 	<div>
 	<div style="float:left;width:250px;">
 		About:
@@ -44,13 +40,13 @@
 		<a href="">See Battle Station</a>
 	</div>
 	<div style="float:left;width:250px;">
-		Followers:
-		<div>
-			
-		</div>
 		Following:
 		<div>
-			
+			<%= render :partial => 'following', :locals => { :following => @following } %>
+		</div>
+		Followers:
+		<div>
+			<%= render :partial => 'followers', :locals => { :followers => @followers } %>
 		</div>
 	</div>
 	</div>

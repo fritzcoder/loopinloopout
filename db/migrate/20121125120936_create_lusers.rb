@@ -4,7 +4,7 @@ class CreateLusers < ActiveRecord::Migration
       t.string      :name
       t.attachment  :profile
       t.integer     :luser_banks_count, :default => 0
-      t.integer     :luser_Projects_count, :default => 0
+      t.integer     :luser_projects_count, :default => 0
       t.references  :user
 
       t.timestamps

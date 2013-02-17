@@ -9,6 +9,7 @@ class Luser < ActiveRecord::Base
   has_many :luser_follows, :class_name => "Follow", :foreign_key => "luser_id"
   has_many :following_lusers, :class_name => "Follow", :foreign_key => "following_luser_id"
   has_many :discussions
+  has_many :subscriptions
 
   def project_role(project)
     project = LuserProject.find(:first, :conditions => {:project_id => project.id, :luser_id => self.id })

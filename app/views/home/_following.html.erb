@@ -1,0 +1,10 @@
+<div>
+<% following.each do | user |%>
+<div>
+	<a href="/<%= user.name %>">
+		<img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png">
+	</a>
+	<%= user.name %>
+</div>
+<% end %>
+</div>
