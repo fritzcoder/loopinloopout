@@ -13,41 +13,54 @@
 			<a href="/<%= @user_name %>/banks/browse"><i class="icon-fire"></i> Activity</a>
 		</li>
 	</ul>
-	
 	<h3><a href="">Projects:</a> <%= @user.luser_projects_count %> <a href="">Banks:</a> <%= @user.luser_banks_count %> </h3> 
-	<div>
-	<div style="float:left;width:250px;">
-		About:
-		<ul>
-			<li>
-				Location:<br />
-				Netherlands, Rotterdam
-			</li>
-			<li>
-				Blurb:<br />
-				Als senior developer werk je op ons hoofdkantoor in Rotterdam, waar je in een dynamisch team van 5 zeer ervaren 
-				senior ontwikkelaars plaatsneemt. VONQ bestaat als organisatie in geheel uit circa 30 medewerkers. 
-			</li>
-		</ul>
+	<button class="btn btn-mini btn-primary" type="button" id="edit">Edit</button>
+	<div id="edit_profile" style="display:none;">
+		<%= render 'lusers/form' %>
 	</div>
-	<div style="float:left;width:250px;">
-		Gear and Wares:
-		<ul>
-			<li>Mac Book Pro</li>
-			<li>Nord Lead</li>
-			<li>Ableton</li>
-		</ul>
-		<a href="">See Battle Station</a>
-	</div>
-	<div style="float:left;width:250px;">
-		Following:
-		<div>
-			<%= render :partial => 'following', :locals => { :following => @following } %>
+	<div id="profile">
+		<div style="float:left;width:250px;">
+		<h3>
+			<%= @luser.location %>
+		</h3>	
+		<h4>About:</h4>
+		<p><%= @luser.about %> </p>
+		
 		</div>
-		Followers:
-		<div>
-			<%= render :partial => 'followers', :locals => { :followers => @followers } %>
+		<div style="float:left;width:250px;margin-left: 10px;">
+			<h4>Gear and Wares:</h4>
+			<%= @luser.gear %>
+			<h4>Battle Station:</h4>
+			<% if @luser.battle_station != nil%>
+			<a href="">
+				<img src="http://127.0.0.1:3000<%= @user.battle_station.url(:medium) %>" />
+			</a>
+			<% else %>
+			<a href="">
+				<img src="http://127.0.0.1:3000/assets/profile_default.png" />
+			</a>
+			<% end %>
 		</div>
-	</div>
+		<div style="float:left;width:240px;margin-left: 10px;">
+		    <h4>Following:</h4>
+			<div>
+				<%= render :partial => 'following', :locals => { :following => @following } %>
+			</div>
+			<h4>Followers:</h4>
+			<div>
+				<%= render :partial => 'followers', :locals => { :followers => @followers } %>
+			</div>
+		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#edit').toggle(function() {
+	  	$('#edit_profile').show('slow');
+		$('#profile').hide();
+	}, function() {
+	  	$('#edit_profile').hide();
+		$('#profile').show('slow');
+	});
+});
+</script>

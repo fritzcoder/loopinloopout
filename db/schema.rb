@@ -74,11 +74,18 @@ ActiveRecord::Schema.define(:version => 20130206105122) do
     t.string   "profile_content_type"
     t.integer  "profile_file_size"
     t.datetime "profile_updated_at"
-    t.integer  "luser_banks_count",    :default => 0
-    t.integer  "luser_Projects_count", :default => 0
+    t.text     "gear"
+    t.text     "location"
+    t.text     "about"
+    t.string   "battle_station_file_name"
+    t.string   "battle_station_content_type"
+    t.integer  "battle_station_file_size"
+    t.datetime "battle_station_updated_at"
+    t.integer  "luser_banks_count",           :default => 0
+    t.integer  "luser_projects_count",        :default => 0
     t.integer  "user_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "modes", :force => true do |t|

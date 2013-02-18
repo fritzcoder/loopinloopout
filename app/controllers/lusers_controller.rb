@@ -63,7 +63,7 @@ class LusersController < ApplicationController
 
     respond_to do |format|
       if @luser.update_attributes(params[:luser])
-        format.html { redirect_to @luser, notice: 'Luser was successfully updated.' }
+        format.html { redirect_to '/' + @luser.name, notice: 'Luser was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

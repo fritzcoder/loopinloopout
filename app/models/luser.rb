@@ -1,5 +1,7 @@
 class Luser < ActiveRecord::Base
-  attr_accessible :name, :assigable
+  attr_accessible :name, :location, :about, :profile, :battle_station, :gear
+  has_attached_file :profile, :styles => { :medium => "300x300>", :thumb => "23x22>" }
+  has_attached_file :battle_station, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   belongs_to :user
   has_many :luser_banks

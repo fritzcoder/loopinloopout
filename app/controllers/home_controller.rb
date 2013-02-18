@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   def show
     @user_name =  params[:username]
     @user = Luser.find(:first, :conditions => { :name => @user_name })
-    
+    @luser = @user
     @following = @user.luser_follows.limit(20).map { |u| u.following_luser }
     @followers = @user.following_lusers.limit(20).map { |u| u.luser }
   end

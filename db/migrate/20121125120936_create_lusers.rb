@@ -3,6 +3,10 @@ class CreateLusers < ActiveRecord::Migration
     create_table :lusers do |t|
       t.string      :name
       t.attachment  :profile
+      t.text        :gear
+      t.text        :location
+      t.text        :about
+      t.attachment  :battle_station
       t.integer     :luser_banks_count, :default => 0
       t.integer     :luser_projects_count, :default => 0
       t.references  :user

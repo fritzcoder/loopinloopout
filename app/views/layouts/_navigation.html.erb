@@ -32,7 +32,7 @@
 	</li>
 		<% if current_user.luser != nil %>
 		<li>
-			<a href="/<%= current_user.luser.name %>"><img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png"></a>
+			<a href="/<%= current_user.luser.name %>"><img src="http://127.0.0.1:3000<%= current_user.luser.profile.url(:thumb)  %>"></a>
 		</li>
 		<% end %>
 	<% else %>
