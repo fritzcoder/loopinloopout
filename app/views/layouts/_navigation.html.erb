@@ -31,9 +31,15 @@
 		<a href="#">Notifications</a>
 	</li>
 		<% if current_user.luser != nil %>
-		<li>
+			<% if current_user.luser.profile_file_name != nil %>
+			<li>
 			<a href="/<%= current_user.luser.name %>"><img src="http://127.0.0.1:3000<%= current_user.luser.profile.url(:thumb)  %>"></a>
-		</li>
+			</li>
+			<% else %>
+			<li>
+			<a href="/<%= current_user.luser.name %>"><img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png"></a>
+			</li>
+			<% end%>
 		<% end %>
 	<% else %>
 	<li>

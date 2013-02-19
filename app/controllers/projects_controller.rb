@@ -50,8 +50,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    luser = Luser.find(:first, :conditions => {:name => params[:username]})
-    @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id })
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
+    @luser_projects = LuserProject.find(:all, :conditions => { :luser_id => @user.id })
     @projects = @luser_projects.map { |l| l.project }
     @user_name = params[:username]
 

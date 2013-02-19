@@ -5,7 +5,11 @@ You are not following anyone?
 <% following.each do | user |%>
 <div>
 	<a href="/<%= user.name %>">
-		<img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png">
+			<% if user.profile_file_name == nil %>
+			<img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png">
+			<% else %>
+			<img src="http://127.0.0.1:3000<%= user.profile.url(:thumb) %>">
+			<% end %>
 	</a>
 	<%= user.name %>
 </div>

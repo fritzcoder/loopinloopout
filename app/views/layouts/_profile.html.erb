@@ -1,6 +1,6 @@
 <div>
   	<a href="/<%= @user_name %>">
-		<% if  @user.profile != nil %>
+		<% if  @user.profile_file_name != nil %>
 		<img src="http://127.0.0.1:3000<%= @user.profile.url(:medium) %>" />
 		<% else %>
 		<img src="http://127.0.0.1:3000/assets/profile_default.png" />
