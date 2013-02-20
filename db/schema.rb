@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206105122) do
+ActiveRecord::Schema.define(:version => 20130220085316) do
 
   create_table "bank_bookmarks", :force => true do |t|
     t.integer  "luser_id"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(:version => 20130206105122) do
 
   create_table "modes", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "luser_id"
+    t.string   "type"
+    t.integer  "entity_id"
+    t.string   "action"
+    t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

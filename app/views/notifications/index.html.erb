@@ -1,0 +1,18 @@
+<div class="page">
+<h4>Notifications</h4>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @notifications.each do |notification| %>
+  <tr>
+	<td><%= notification.message.html_safe %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
+

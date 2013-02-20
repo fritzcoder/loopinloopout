@@ -55,6 +55,8 @@ class SubscriptionsController < ApplicationController
         current.destroy
         format.json { head :no_content }
       elsif @subscription.save
+        recieving_user = Luser.find(:first, :conditions => {:name => @subscription.project.created_by })
+        Notification.add(@subscription.project, nil,"project_subscription", recieving_user, current_user.luser)
         format.html { redirect_to @subscription, notice: 'Subscription was successfully created.' }
         format.json { render json: @subscription, status: :created, location: @subscription }
       else

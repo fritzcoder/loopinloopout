@@ -73,6 +73,7 @@ class ProjectsController < ApplicationController
     @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
     @sound_file = SoundFile.new
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
     @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
     @total_score = @project.total_score
     
@@ -87,6 +88,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @user_name = params[:username]
+    @user = current_user.luser
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project }
@@ -96,6 +98,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
     @project = Project.find(params[:id])
     @lusers = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |l| l.luser }
   end

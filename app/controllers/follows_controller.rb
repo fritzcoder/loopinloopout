@@ -53,6 +53,8 @@ class FollowsController < ApplicationController
         current.destroy
         format.json { head :no_content }
       elsif @follow.save
+        recieving_user = Luser.find(@follow.following_luser_id)
+        Notification.add(@follow, nil,"follow", recieving_user, current_user.luser)
         format.html { redirect_to @follow, notice: 'You are now following ' + fluser.name }
         format.json { render json: @follow, status: :created, location: @follow }
       else
