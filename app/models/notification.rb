@@ -26,7 +26,8 @@ class Notification < ActiveRecord::Base
       notification.type = "Bank"
       notification.entity_id = source_object.id
       notification.action = "Bookmarked"
-      notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> bookmarked bank <a href="">#{source_object.name}</a>"
+      notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> bookmarked bank 
+      <a href='/#{recieving_user.name}/banks/#{source_object.id}'>#{source_object.name}</a>"
       notification.save
     end
   end

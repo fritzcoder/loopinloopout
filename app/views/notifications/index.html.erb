@@ -1,18 +1,14 @@
 <div class="page">
 <h4>Notifications</h4>
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @notifications.each do |notification| %>
-  <tr>
-	<td><%= notification.message.html_safe %></td>
-  </tr>
+  <div>
+	<div style="float:left;width:100px;"><%= time_ago_in_words(notification.created_at) %> </div>
+	<div style="float:left;"> <%= notification.message.html_safe %></div>
+	<br style="clear:both;" />
+  </div>
 <% end %>
-</table>
+
 
 </div>
 

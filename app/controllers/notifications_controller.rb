@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.find(:all, :conditions => {:luser_id => current_user.luser.id })
+    @notifications = Notification.order('created_at desc').find(:all, :conditions => {:luser_id => current_user.luser.id })
 
     respond_to do |format|
       format.html # index.html.erb

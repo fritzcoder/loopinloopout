@@ -45,6 +45,7 @@ class BankBookmarksController < ApplicationController
   def create
     bank_id = params[:bank_id]
     user = Luser.find(:first, :conditions => { :name => params[:username]})
+    bank = Bank.find(bank_id)
     
     current = BankBookmark.find(:first, :conditions => {:bank_id => bank_id, :luser_id => user.id })
     
@@ -57,6 +58,7 @@ class BankBookmarksController < ApplicationController
         current.destroy
         format.json { head :no_content }
       elsif @bank_bookmark.save
+        Notification.add(bank, nil,"bookmark", user, current_user.luser)
         #format.html { redirect_to @bank_bookmark, notice: 'Bank bookmark was successfully created.' }
         format.json { render json: @bank_bookmark, status: :created }
       else

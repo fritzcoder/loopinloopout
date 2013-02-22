@@ -8,6 +8,7 @@ class BanksController < ApplicationController
     @user_name = params[:username]
     @banks = @luser_banks.map { |l| l.bank }
     @sound_files = []
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,6 +87,7 @@ class BanksController < ApplicationController
     @sound_files = bank_files.map { |f| f.sound_file }
     @user_name = params[:username]
     @bank_bookmark = BankBookmark.find(:first, :conditions => {:bank_id => @bank.id, :luser_id => current_user.luser.id})
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
 
     respond_to do |format|
       format.html # show.html.erb
@@ -100,6 +102,7 @@ class BanksController < ApplicationController
   def new
     @bank = Bank.new
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
 
     respond_to do |format|
       format.html # new.html.erb
