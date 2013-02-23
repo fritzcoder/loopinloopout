@@ -15,6 +15,11 @@ class Luser < ActiveRecord::Base
 
   def project_role(project)
     project = LuserProject.find(:first, :conditions => {:project_id => project.id, :luser_id => self.id })
+    
+    if project == nil
+      return nil
+    end 
+      
     project.role.name
   end
   

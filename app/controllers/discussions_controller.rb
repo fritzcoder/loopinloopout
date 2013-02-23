@@ -6,6 +6,7 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new
     @project = Project.find(params[:project_id])
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => @user_name })
 
     respond_to do |format|
       format.html # index.html.erb

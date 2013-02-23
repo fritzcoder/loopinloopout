@@ -16,9 +16,11 @@
 		</a>
 		</div>
 	</div>
+	<% if @project.leader_board and @project.type == "RemixChallenge"%>
 	<div style="float:left;margin-left:5px;">
 		<span style="font-size: 30px;"><%= (index + 1).to_s %></span>
 	</div>
+	<% end %>
 	<div style="float:left;margin-left:5px;width:340px;height:50px;">	
 		<div style="float:left;">
 			<span><b><%= sound_file.name %></b></span><br />
@@ -33,11 +35,13 @@
 		</div>
 	</div>
 	<div style="float:right;text-align:right;border: 1px solid black;padding:4px;">
+		<% if @project.voting and @project.type == "RemixChallenge" %>
 		<%= sound_file.votes_count %>
 		<a href="#" onclick="vote(<%= sound_file.id.to_s %>);" title="vote">
 			<i class="icon-ok"></i>
 		</a>
 		|
+		<% end %>
 		<%= sound_file.sound_file_bookmarks_count %>
 		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, 
 			:sound_file_id => sound_file.id }) != nil%>
@@ -57,11 +61,17 @@
 				<i class=" icon-star icon-white"></i>
 			</a>
 		<% end %>
-		|
+		
+		<% if @project.scoring and @project.type == "RemixChallenge" %>
 		<%= link_to '', project_sound_file_score_path(@user_name, @project, sound_file), :class => 'icon-list-alt' %>
+		<% end %>
+		<% if current_user.luser.project_role(@project) == "Admin" or current_user.luser.name == @project.created_by %>
 		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>	
+		<% end %>
 		<br />
+		<% if @project.scoring and @project.type == "RemixChallenge" %>
 		Score: <%= sound_file.score %>/<%= @total_score %>
+		<% end %>
 	</div>
 	</div>
 	<br style="clear:both;"/>

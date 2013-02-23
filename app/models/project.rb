@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
   has_many :project_files
   has_many :discussions
   scope :public, :conditions => { :access => 'Public' }
-  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type
+  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type, :scoring, :leader_board, :voting
   
   #override the model_name method so it always returns
   #the method name of the parent and not the child name

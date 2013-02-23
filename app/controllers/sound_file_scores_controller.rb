@@ -17,6 +17,7 @@ class SoundFileScoresController < ApplicationController
     @project = Project.find(params[:project_id])
     @song = SoundFile.find(params[:id])
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => @user_name })
     
     respond_to do |format|
       format.html # show.html.erb

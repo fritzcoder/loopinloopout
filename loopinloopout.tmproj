@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/notification.rb</string>
+	<string>app/controllers/notifications_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -245,47 +245,93 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/bank_bookmarks_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>25</integer>
+				<key>line</key>
+				<integer>60</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>37</integer>
+		</dict>
 		<key>app/controllers/banks_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>33</integer>
+				<integer>68</integer>
 				<key>line</key>
-				<integer>90</integer>
+				<integer>104</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>60</integer>
+			<integer>82</integer>
 		</dict>
 		<key>app/controllers/discussions_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>96</integer>
+				<integer>30</integer>
 				<key>line</key>
 				<integer>4</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>54</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
 		</dict>
 		<key>app/controllers/follows_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>23</integer>
+				<integer>83</integer>
 				<key>line</key>
-				<integer>51</integer>
+				<integer>56</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>34</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>56</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>56</integer>
+			</dict>
 		</dict>
 		<key>app/controllers/luser_projects_controller.rb</key>
 		<dict>
@@ -320,9 +366,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>59</integer>
 				<key>line</key>
-				<integer>67</integer>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -350,12 +396,28 @@
 				<key>column</key>
 				<integer>68</integer>
 				<key>line</key>
-				<integer>100</integer>
+				<integer>75</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>84</integer>
+			<integer>59</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>75</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>68</integer>
+				<key>line</key>
+				<integer>75</integer>
+			</dict>
 		</dict>
 		<key>app/controllers/sound_file_scores_controller.rb</key>
 		<dict>
@@ -536,9 +598,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>96</integer>
+				<integer>63</integer>
 				<key>line</key>
-				<integer>28</integer>
+				<integer>29</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -716,6 +778,20 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>app/views/discussions/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>52</integer>
+				<key>line</key>
+				<integer>41</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>10</integer>
 		</dict>
 		<key>app/views/discussions/new.html.erb</key>
 		<dict>
@@ -936,9 +1012,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1882,6 +1958,9 @@
 	<array>
 		<string>db/migrate/20130220085316_create_notifications.rb</string>
 		<string>app/models/notification.rb</string>
+		<string>db/migrate/20121107160219_create_banks.rb</string>
+		<string>app/controllers/bank_bookmarks_controller.rb</string>
+		<string>app/controllers/banks_controller.rb</string>
 		<string>app/models/subscription.rb</string>
 		<string>app/controllers/subscriptions_controller.rb</string>
 		<string>app/controllers/follows_controller.rb</string>
@@ -1890,6 +1969,9 @@
 		<string>app/views/layouts/_navigation.html.erb</string>
 		<string>app/views/notifications/_form.html.erb</string>
 		<string>app/views/notifications/index.html.erb</string>
+		<string>app/views/discussions/index.html.erb</string>
+		<string>app/controllers/discussions_controller.rb</string>
+		<string>app/views/projects/_remix_list.html.erb</string>
 		<string>app/views/devise/passwords/edit.html.erb</string>
 		<string>app/views/devise/registrations/edit.html.erb</string>
 		<string>app/models/project.rb</string>
