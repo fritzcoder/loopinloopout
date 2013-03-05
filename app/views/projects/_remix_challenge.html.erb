@@ -12,7 +12,7 @@
 <% end %>
 
 <div style="width:760px;">
-	Original Tracks: <a href="" style="float:right;"><i id="usong" class="icon-upload"></i></a>
+	Original Tracks: <i id="usong" class="icon-upload" style="float:right;"></i>
 	<div id="upload_song" style="display:none">
 		<%= render :partial => 'upload_file', :locals => { :type => "Song" } %>	
 	</div>
@@ -24,10 +24,9 @@
 			:user => @user_name, :player_size => "small"} %>
 		<% end %>
 	</div>
-	Remixes: <a href="" style="float:right;"><i id="uremix" class="icon-upload"></i></a>
+	Remixes: <i id="uremix" style="float:right;" class="icon-upload"></i>
 	<div id="upload_remix" style="display:none">
 		<%= render :partial => 'upload_file', :locals => { :type => "SongRemix" } %>
-		
 	</div>
 	<div style="border: 1px solid black;padding: 5px;">
 		<%if @remix_files.empty? %>
@@ -43,7 +42,7 @@
 <div style="width:760px;">
 	<div style="float:left;width:370px;">
 		Sounds and Loops:
-		<a href="#" style="float:right;" id="usound"><i class="icon-upload"></i></a>
+		<i class="icon-upload" id="usound" style="float:right;"></i>
 		<a href="#myModal" style="float:right;" data-toggle="modal"><i class="icon-briefcase"></i></a>
 		<div id="upload_sound" style="display:none">
 			<%= render :partial => 'upload_file', :locals => { :type => "SoundFile" } %>
@@ -58,8 +57,8 @@
 		</div>
 	</div>
 	<div style="float:left;width:370px;margin-left:10px;">
-		stems:
-		<a href="" style="float:right;"><i id="ustem" class="icon-upload"></i></a>
+		Stems:
+		<i id="ustem" class="icon-upload" style="float:right;"></i>
 		<div id="upload_stem" style="display:none">
 			<%= render :partial => 'upload_file', :locals => { :type => "Stem" } %>
 		</div>
@@ -95,28 +94,20 @@
 $(document).ready(function() {
 	$("#tab_project").addClass('active');
 	
-	$('#usound').toggle(function() {
-	  	$('#upload_sound').show('slow');
-	}, function() {
-	  	$('#upload_sound').hide('slow');
+	$('#usound').click(function() {
+		$('#upload_sound').toggle('slow', function(){});
 	});
 	
-	$('#usong').toggle(function() {
-	  	$('#upload_song').show('slow');
-	}, function() {
-	  	$('#upload_song').hide('slow');
+	$('#usong').click(function() {
+	  	$('#upload_song').toggle('slow', function(){});
 	});
 	
-	$('#ustem').toggle(function() {
-	  	$('#upload_stem').show('slow');
-	}, function() {
-	  	$('#upload_stem').hide('slow');
+	$('#ustem').click(function() {
+	  	$('#upload_stem').toggle('slow', function(){});
 	});
 	
-	$('#uremix').toggle(function() {
-	  	$('#upload_remix').show('slow');
-	}, function() {
-	  	$('#upload_remix').hide('slow');
+	$('#uremix').click(function() {
+	  	$('#upload_remix').toggle('slow', function(){});
 	});
 });
 $('#modal-body').load('/<%= current_user.luser.name %>/banks/browse?window=modal');

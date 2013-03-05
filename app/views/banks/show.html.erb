@@ -33,7 +33,7 @@
 		<%= render :partial => 'upload_file', :locals => { :type => "SoundFile" } %>
 	</div>
 	<div style="float:left;">
-		<a href="" style="float:right;"><i id="bsound" class="icon-upload"></i></a>
+		<i id="bsound" class="icon-upload" style="float:right;"></i>
 	</div>
 	<div style="clear: both;"></div>
 </div>
@@ -115,10 +115,8 @@ $(document).ready(function() {
 	      });
 	});
 	
-	$('#bsound').toggle(function() {
-	  	$('#upload_sound').show('slow');
-	}, function() {
-	  	$('#upload_sound').hide('slow');
+	$('#bsound').click(function() {
+	  	$('#upload_sound').toggle('slow', function(){});
 	});
 });
 </script>

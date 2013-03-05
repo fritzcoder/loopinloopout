@@ -67,12 +67,9 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#edit').toggle(function() {
-	  	$('#edit_profile').show('slow');
-		$('#profile').hide();
-	}, function() {
-	  	$('#edit_profile').hide();
-		$('#profile').show('slow');
+	$('#edit').click(function() {
+	  	$('#edit_profile').toggle('slow', function(){});
+		$('#profile').toggle('slow', function(){});
 	});
 });
 </script>

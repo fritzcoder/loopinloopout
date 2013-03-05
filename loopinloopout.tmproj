@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/notifications_controller.rb</string>
+	<string>Gemfile</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -17,6 +17,8 @@
 			<string>app</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>config</string>
 			<key>regexFolderFilter</key>
@@ -52,7 +54,9 @@
 			<key>filename</key>
 			<string>Gemfile</string>
 			<key>lastUsed</key>
-			<date>2013-01-19T14:29:50Z</date>
+			<date>2013-02-24T19:29:36Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -133,6 +137,20 @@
 	<integer>259</integer>
 	<key>metaData</key>
 	<dict>
+		<key>Gemfile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>Gemfile.lock</key>
 		<dict>
 			<key>caret</key>
@@ -152,9 +170,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -231,6 +249,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/assets/stylesheets/bootstrap_and_overrides.css.scss</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/assets/stylesheets/home.css.scss</key>
 		<dict>
 			<key>caret</key>
@@ -245,63 +277,33 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/controllers/bank_bookmarks_controller.rb</key>
+		<key>app/assets/stylesheets/lusers.css.scss</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>25</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>60</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>37</integer>
-		</dict>
-		<key>app/controllers/banks_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>68</integer>
-				<key>line</key>
-				<integer>104</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
 			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>82</integer>
 		</dict>
 		<key>app/controllers/discussions_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>4</integer>
+				<integer>8</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>54</integer>
-				<key>line</key>
-				<integer>4</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>30</integer>
-				<key>line</key>
-				<integer>4</integer>
-			</dict>
 		</dict>
 		<key>app/controllers/follows_controller.rb</key>
 		<dict>
@@ -361,20 +363,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/controllers/notifications_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>59</integer>
-				<key>line</key>
-				<integer>4</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>app/controllers/project_scores_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -424,30 +412,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>51</integer>
+				<integer>14</integer>
 				<key>line</key>
-				<integer>64</integer>
+				<integer>19</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>35</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>70</integer>
-				<key>line</key>
-				<integer>64</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>51</integer>
-				<key>line</key>
-				<integer>64</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 		<key>app/controllers/sound_files_controller.rb</key>
 		<dict>
@@ -570,9 +542,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>82</integer>
+				<integer>4</integer>
 				<key>line</key>
-				<integer>2</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -593,33 +565,33 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/models/notification.rb</key>
+		<key>app/models/project.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>63</integer>
+				<integer>118</integer>
 				<key>line</key>
-				<integer>29</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/models/project.rb</key>
+		<key>app/models/sound_file_score.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>89</integer>
 				<key>line</key>
-				<integer>8</integer>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/models/subscription.rb</key>
 		<dict>
@@ -907,6 +879,20 @@
 			<key>firstVisibleLine</key>
 			<integer>7</integer>
 		</dict>
+		<key>app/views/layouts/application.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/views/lusers/_form.html.erb</key>
 		<dict>
 			<key>caret</key>
@@ -1172,30 +1158,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>32</integer>
+				<integer>65</integer>
 				<key>line</key>
-				<integer>31</integer>
+				<integer>64</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>25</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>14</integer>
-				<key>line</key>
-				<integer>31</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>32</integer>
-				<key>line</key>
-				<integer>31</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/projects/_upload_file.html.erb</key>
 		<dict>
@@ -1226,6 +1196,20 @@
 				<key>line</key>
 				<integer>27</integer>
 			</dict>
+		</dict>
+		<key>app/views/projects/edit.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>86</integer>
+				<key>line</key>
+				<integer>66</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>57</integer>
 		</dict>
 		<key>app/views/projects/index.html.erb</key>
 		<dict>
@@ -1439,7 +1423,21 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>13</integer>
+			<integer>18</integer>
+		</dict>
+		<key>config/database.yml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>config/routes.rb</key>
 		<dict>
@@ -1449,20 +1447,6 @@
 				<integer>18</integer>
 				<key>line</key>
 				<integer>7</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>db/migrate/20121107160219_create_banks.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>49</integer>
-				<key>line</key>
-				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1555,6 +1539,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>db/migrate/20121210161029_create_projects.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>49</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>db/migrate/20121218211641_create_luser_projects.rb</key>
 		<dict>
 			<key>caret</key>
@@ -1591,20 +1589,6 @@
 				<integer>27</integer>
 				<key>line</key>
 				<integer>5</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>db/migrate/20130220085316_create_notifications.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>24</integer>
-				<key>line</key>
-				<integer>8</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1956,30 +1940,28 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>db/migrate/20130220085316_create_notifications.rb</string>
-		<string>app/models/notification.rb</string>
-		<string>db/migrate/20121107160219_create_banks.rb</string>
-		<string>app/controllers/bank_bookmarks_controller.rb</string>
-		<string>app/controllers/banks_controller.rb</string>
-		<string>app/models/subscription.rb</string>
-		<string>app/controllers/subscriptions_controller.rb</string>
-		<string>app/controllers/follows_controller.rb</string>
-		<string>app/controllers/projects_controller.rb</string>
-		<string>app/controllers/notifications_controller.rb</string>
-		<string>app/views/layouts/_navigation.html.erb</string>
-		<string>app/views/notifications/_form.html.erb</string>
-		<string>app/views/notifications/index.html.erb</string>
-		<string>app/views/discussions/index.html.erb</string>
-		<string>app/controllers/discussions_controller.rb</string>
 		<string>app/views/projects/_remix_list.html.erb</string>
+		<string>app/views/layouts/application.html.erb</string>
+		<string>app/assets/stylesheets/bootstrap_and_overrides.css.scss</string>
+		<string>app/assets/stylesheets/lusers.css.scss</string>
+		<string>app/assets/javascripts/application.js</string>
+		<string>config/application.rb</string>
+		<string>Gemfile</string>
+		<string>config/database.yml</string>
+		<string>app/models/luser.rb</string>
+		<string>app/controllers/discussions_controller.rb</string>
+		<string>app/controllers/projects_controller.rb</string>
+		<string>app/views/projects/edit.html.erb</string>
+		<string>db/migrate/20121210161029_create_projects.rb</string>
 		<string>app/views/devise/passwords/edit.html.erb</string>
 		<string>app/views/devise/registrations/edit.html.erb</string>
 		<string>app/models/project.rb</string>
-		<string>app/models/luser.rb</string>
+		<string>app/models/sound_file_score.rb</string>
+		<string>app/controllers/sound_file_scores_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{266, -0}, {1014, 778}}</string>
+	<string>{{266, 80}, {1014, 698}}</string>
 </dict>
 </plist>
