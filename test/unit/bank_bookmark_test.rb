@@ -13,6 +13,7 @@ class BankBookmarkTest < ActiveSupport::TestCase
      assert !bank_bookmark.save, "Saved the bookmark without a bank_id"
   end
   
+  
   test "counter cache updating: Bank" do
     bank = Bank.find(:first, :conditions => {:name => "Bank 1"})
     user = User.find(:first, :conditions => {:email => "test1@test.com"})

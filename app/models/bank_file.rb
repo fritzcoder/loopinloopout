@@ -10,7 +10,7 @@ class BankFile < ActiveRecord::Base
   
   #this is a convience method to assign a soundfile to multiple banks
   #pass the sound_file_id and an array of banks ids
-  def self.save_bank_types(sound_file_id, bank_ids)
+  def self.save_to_multiple_banks(sound_file_id, bank_ids)
     bank_ids.each do |id|
       bank = BankFile.new
       bank.bank_id = id;
