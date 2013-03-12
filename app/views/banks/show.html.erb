@@ -9,6 +9,7 @@
   </div>
   <div style="float:right;">
 	<i class="icon-hdd"></i>
+	<%= link_to("", copy_bank_path(@user_name, @bank), :class => "icon-plus-sign")%>
 	<% if @bank_bookmark != nil %>
 	<a href="#" id="bookmarked"><i class="icon-bookmark icon-white"></i></a>
 	<a href="#" id="bookmark" style="display:none"><i class="icon-bookmark"></i></a>

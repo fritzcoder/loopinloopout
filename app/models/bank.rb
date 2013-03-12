@@ -17,6 +17,29 @@ class Bank < ActiveRecord::Base
   		super
   end
   
+  
+  def self.copy(bank, user)
+    ActiveRecord::Base.transaction do
+      copy = bank.dup
+      copy.save!
+      luser_bank = LuserBank.new
+      luser_bank.bank_id = copy.id
+      luser_bank.luser_id = user.id
+      luser_bank.save!
+    
+      bank.sound_files.each do |s|
+        new_s = s.dup
+        new_s.wave = s.wave
+        new_s.save!
+        bank_file = BankFile.new
+        bank_file.bank_id = copy.id
+        bank_file.sound_file_id = new_s.id
+        bank_file.save!
+      end
+    end
+    
+    true
+  end
   # def came_from
   #       self.name
   #   end

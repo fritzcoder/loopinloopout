@@ -29,6 +29,9 @@ Loopinloopout::Application.routes.draw do
     end
     resources :bank_bookmarks 
     resources :banks do
+      member do
+        get 'copy' 
+      end
       resources :sound_files
     end
   end

@@ -46,8 +46,9 @@ class BanksController < ApplicationController
   def copy_to
     project = params[:project_id]
     sound_file = params[:sound_file]
+    
     sound_file.each do |s|
-    ProjectFile.find_or_create_by_sound_file_id_and_project_id(s, project)
+      ProjectFile.find_or_create_by_sound_file_id_and_project_id(s, project)
       #project_file = ProjectFile.new
       #project_file.sound_file_id = s
       #project_file.project_id = project
@@ -115,20 +116,29 @@ class BanksController < ApplicationController
     @bank = Bank.find(params[:id])
   end
 
+  def copy
+    @bank = Bank.find(params[:id])
+    
+    respond_to do |format|
+      if Bank.copy(@bank, current_user.luser)
+        format.html { redirect_to bank_url(current_user.luser.name, @bank), notice: 'Sound bank was successfully copied.' }
+        format.json { render json: @bank, status: :created, location: @bank }
+      end
+    end
+  end
   # POST /sound_banks
   # POST /sound_banks.json
   def create
     @bank = Bank.new(params[:bank])
-    luser = Luser.find(:first, :conditions =>{ :name => params[:username]})
-    @bank.created_by = luser.name
+    @bank.created_by = current_user.luser.name
 
     respond_to do |format|
       if @bank.save
         luser_bank = LuserBank.new
         luser_bank.bank_id = @bank.id
-        luser_bank.luser_id = luser.id
+        luser_bank.luser_id = current_user.luser.id
         luser_bank.save
-        format.html { redirect_to bank_url(luser.name, @bank), notice: 'Sound bank was successfully created.' }
+        format.html { redirect_to bank_url(current_user.luser.name, @bank), notice: 'Sound bank was successfully created.' }
         format.json { render json: @bank, status: :created, location: @bank }
       else
         format.html { render action: "new" }

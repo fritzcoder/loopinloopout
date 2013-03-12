@@ -98,7 +98,7 @@ before_filter :authenticate_user!
         @sound_file.bank_files.each {|i| i.destroy }
         @sound_file.sound_file_softwares.each { |i| i.destroy }
         SoundFileSoftware.save_software_types(@sound_file.id, params[:software][:id])
-        BankFile.save_bank_types(@sound_file.id, params[:bank][:id])
+        BankFile.save_to_multiple_banks(@sound_file.id, params[:bank][:id])
         SoundFileType.save_file_types(@sound_file.id, params[:type][:id])
         SoundFileMode.save_mode_types(@sound_file.id, params[:type][:id])
         #SoundFileType.save_file_types(@sound_file.id, params[:sub_type])

@@ -4,7 +4,6 @@ class BankFile < ActiveRecord::Base
   validates :bank_id, :presence => true, :numericality => { :only_integer => true }
   validates :sound_file_id, :presence => true, :numericality => { :only_integer => true }
   
-  
   belongs_to :bank  
   belongs_to :sound_file
   
