@@ -16,6 +16,26 @@ class BanksController < ApplicationController
     end
   end
   
+  def download
+    require 'zip/zip'
+    require 'zip/zipfilesystem'
+    bank = Bank.find(params[:id])
+    files = bank.bank_files.map { |f| f.sound_file }
+
+    t = Tempfile.new('tmp-zip-' + request.remote_ip)
+    Zip::ZipOutputStream.open(t.path) do |zos|
+      files.each do |f|
+        zos.put_next_entry(f.file_file_name)
+        zos.print IO.read(f.file.path)
+      end
+    end
+
+    send_file t.path, :type => "application/zip", :filename => "#{params[:username]}_#{bank.name}.zip"
+
+    t.close
+  end
+  
+  
   def bookmarked
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     bookmarked = BankBookmark.find(:all, :conditions => {:luser_id => luser.id })

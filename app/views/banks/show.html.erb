@@ -8,7 +8,7 @@
 	<h3 style="margin:0px;"><%= @user_name %>/<%= @bank.name %><small><a href="#" id="edit"> Edit</a></small></h3>
   </div>
   <div style="float:right;">
-	<i class="icon-hdd"></i>
+	<%= link_to("", download_bank_path(@user_name, @bank), :class => "icon-hdd")%>
 	<%= link_to("", copy_bank_path(@user_name, @bank), :class => "icon-plus-sign")%>
 	<% if @bank_bookmark != nil %>
 	<a href="#" id="bookmarked"><i class="icon-bookmark icon-white"></i></a>

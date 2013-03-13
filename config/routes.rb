@@ -31,6 +31,7 @@ Loopinloopout::Application.routes.draw do
     resources :banks do
       member do
         get 'copy' 
+        get 'download'
       end
       resources :sound_files
     end
