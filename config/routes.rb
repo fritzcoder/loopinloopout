@@ -44,6 +44,7 @@ Loopinloopout::Application.routes.draw do
   get 'banks/update_files', :as => 'update_files'
   get 'banks/update_subtypes', :as => 'update_subtypes'
   get 'banks/copy_to', :as => 'copy_to'
+  get 'banks/copy_files', :as => 'copy_files'
   post 'sound_files/update_listen_count', :as => 'update_listen_count'
   #get 'banks/browse', :as => 'browse'
 

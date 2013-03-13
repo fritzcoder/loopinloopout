@@ -38,12 +38,44 @@
 	</div>
 	<div style="clear: both;"></div>
 </div>
+<div class="btn-group">
+  <a class="btn btn-mini dropdown-toggle " data-toggle="dropdown" href="#">
+    Copy to bank:
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% @banks.each do |b| %>
+		<li><a href="#" onclick='copy_to(<%= b.id.to_s %>);return false;'><%= b.name %></a></li>
+	<% end %>
+  </ul>
+</div>
 <div id="file_list">
 <%= render :partial => "list_files", :locals => { :sound_files => @sound_files, :user => @user_name, :bank => @bank, 
 	:player_size => "small", :modal => "false"  } %>
 </div>
 </div>
 <script type="text/javascript">
+function copy_to(bank_id)
+{
+	var checkeditems = [];
+	
+	var answer = confirm("Are you sure you want to copy the files?")
+	if (answer){
+		$.each($('input:checkbox[name="sound_file[]"]:checked'), function() {
+			checkeditems.push($(this).val()); 
+	     });
+
+	    $.ajax({
+	        url: "<%= copy_files_path %>",
+	        data: {
+			  bank_id : bank_id,
+			  'sound_file[]': checkeditems
+	        },
+	        dataType: "script"
+	      });
+		//window.location = "http://www.google.com/";
+	}
+}
 $(document).ready(function() {
 	$('#edit').click(function() {
 	  	$('#description').hide('slow');

@@ -41,6 +41,19 @@ class SoundFile < ActiveRecord::Base
   		super
   end
 
+  def self.copy_to_bank(sound_file, bank)
+    ActiveRecord::Base.transaction do
+      copy_sound = sound_file.dup
+      copy_sound.wave = sound_file.wave
+      copy_sound.file = sound_file.file
+      copy_sound.save!
+      bank_file = BankFile.new 
+      bank_file.bank_id = bank.id
+      bank_file.sound_file_id = copy_sound.id
+      bank_file.save!
+    end
+  end
+  
   def audio
     audio_types = ['mp3', 'aiff', 'wav']
     return audio_types.index(self.file_type);

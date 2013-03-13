@@ -31,6 +31,7 @@ class BanksController < ApplicationController
     @banks = LuserBank.find(:all, :conditions => { :luser_id => luser.id}).map { |b| b.bank }
     @user_name = params[:username];
     @projects = LuserProject.find(:all, :conditions => { :luser_id => luser.id}).map { |p| p.project }
+    @user = Luser.find(:first, :conditions => {:name => @user_name})
     @sound_files = []
 
     respond_to do |format|
@@ -89,6 +90,7 @@ class BanksController < ApplicationController
     @user_name = params[:username]
     @bank_bookmark = BankBookmark.find(:first, :conditions => {:bank_id => @bank.id, :luser_id => current_user.luser.id})
     @user = Luser.find(:first, :conditions => {:name => @user_name})
+    @banks = current_user.luser.banks
 
     respond_to do |format|
       format.html # show.html.erb
@@ -126,6 +128,16 @@ class BanksController < ApplicationController
       end
     end
   end
+  
+  def copy_files
+    bank = Bank.find(params[:bank_id])
+    sound_file = SoundFile.find(params[:sound_file])
+    
+    sound_file.each do |s|
+      SoundFile.copy_to_bank(s, bank)
+    end
+  end
+  
   # POST /sound_banks
   # POST /sound_banks.json
   def create

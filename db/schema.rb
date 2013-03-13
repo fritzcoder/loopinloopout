@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130220085316) do
     t.text     "description"
     t.string   "access"
     t.boolean  "collaboration",        :default => false
+    t.boolean  "allow_copy",           :default => false
     t.integer  "bank_bookmarks_count", :default => 0
     t.string   "created_by"
     t.datetime "created_at",                              :null => false
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130220085316) do
     t.integer  "entity_id"
     t.string   "action"
     t.text     "message"
+    t.boolean  "read"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
