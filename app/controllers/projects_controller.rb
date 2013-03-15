@@ -38,6 +38,8 @@ class ProjectsController < ApplicationController
             end
           end
           
+          Activity.AddedFileToProject(current_user.luser, @project, @sound_file)
+          
           format.html { redirect_to project_url(@user_name, @project), notice: 'Sound was successfully added.' }
           format.json { render json: @sound_file, status: :created}
       else
@@ -110,17 +112,19 @@ class ProjectsController < ApplicationController
     @project.type = params[:type][:id]
     @project.access = "Private"
     @user_name = params[:username]
-    luser = current_user.luser
-    @project.created_by = luser.name
+    
+    @user = current_user.luser
+    @project.created_by = @user.name
     role = Role.find(:first, :conditions => {:name => "Creator"} )
 
     respond_to do |format|
       if @project.save
         luser_project = LuserProject.new 
         luser_project.project_id = @project.id
-        luser_project.luser_id = luser.id
+        luser_project.luser_id = @user.id
         luser_project.role_id = role.id
         luser_project.save
+        Activity.CreatedBank(current_user.luser, @project)
         
         format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created}

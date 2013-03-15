@@ -1,0 +1,36 @@
+<% content_for :profile do %>
+ <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
+<% end %>
+<% content_for :title do %>
+<%= @user_name %>
+<% end %>
+
+<div class="page">
+<ul class="nav nav-tabs">
+	<li id="tab_bank">
+		<a href="/<%= @user_name %>"><i class="icon-info-sign"></i> Info</a>
+	</li>
+	<li id="tab_activity" class="active">
+		<a href="/<%= @user_name %>/activities"><i class="icon-fire"></i> Activity</a>
+	</li>
+</ul>
+<% @activities.each do |activity| %>
+<div>
+	<% feed_user = Luser.find(activity.o_id) %>
+	<div>
+		<% if feed_user.profile_file_name != nil %>
+		<img src="http://127.0.0.1:3000<%=feed_user.profile.url(:thumb) %>" />
+		<% else %>
+		<img src="http://127.0.0.1:3000/assets/glyphicons_003_user.png">
+		<% end %>
+	</div>
+	<div>
+		<%= time_ago_in_words(activity.created_at,true) %>
+	</div>
+	<div>
+		<%= activity.description.html_safe %>
+	</div>
+</div>  
+<br />
+<% end %>
+</div>

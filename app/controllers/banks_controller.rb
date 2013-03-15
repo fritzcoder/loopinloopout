@@ -126,6 +126,7 @@ class BanksController < ApplicationController
     @bank = Bank.new
     @user_name = params[:username]
     @user = Luser.find(:first, :conditions => {:name => @user_name})
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -170,6 +171,9 @@ class BanksController < ApplicationController
         luser_bank.bank_id = @bank.id
         luser_bank.luser_id = current_user.luser.id
         luser_bank.save
+        
+        Activity.CreatedBank(current_user.luser, @bank)
+        
         format.html { redirect_to bank_url(current_user.luser.name, @bank), notice: 'Sound bank was successfully created.' }
         format.json { render json: @bank, status: :created, location: @bank }
       else
