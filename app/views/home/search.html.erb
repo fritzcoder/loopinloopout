@@ -1,0 +1,33 @@
+<div class="page">
+<h4>Search</h4>
+<%= form_tag search_path, :method => 'get', :class => "form-search" do %>
+    <%= text_field_tag :q, params[:q], :class => "input-xxlarge" %>
+    <%= submit_tag "Search", :name => nil, :class => "btn" %>
+<br />
+	<label class="radio">
+	<%= radio_button_tag 'type', 'project', params[:type] == "project" || params[:type] == nil %> Projects
+	</label>
+	<label class="radio">
+	<%= radio_button_tag 'type', 'bank',params[:type] == "bank" %> Bank
+	</label>
+<% end %>
+
+<% if @results != nil %>
+Found <%= @results.count.to_s %> Result(s)
+<% @results.each do |result| %>
+<div style="border: 1px solid black;padding: 5px;background-color:#D8D8D8">
+	<div>
+	<h4><a href="/<%= result.created_by %>/projects/<%= result.id %>">
+		<%= result.created_by %>/<%= result.name%></a></h4>	
+	</div>
+	<div>
+		<p>
+		<%= result.description %>
+		</p>
+	</div>
+</div>
+<br />
+<% end %>
+<%= will_paginate @results %>
+<% end %>
+</div>

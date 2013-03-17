@@ -131,6 +131,7 @@ GEM
     waveform (0.1.2)
       chunky_png
       ruby-audio
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -150,3 +151,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   uuidtools
   waveform
+  will_paginate
