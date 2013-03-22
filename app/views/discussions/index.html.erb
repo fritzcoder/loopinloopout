@@ -7,19 +7,40 @@
 <%= render 'projects/project_nav' %>
 <div style="width:760px;height:400px;overflow:auto;background-color:#000">
 	<% @discussions.each do |discussion| %>
+<div style="border: 1px solid white;">
 	<div>
 	 	<div style="float:left;width:100px;background-color:grey">
 		 	<span style="color:#fff"><%= discussion.created_at.strftime("%v %r") %></span>
 		 </div>
+		<div style="float:left;font-size: 14px;">
+			<%= discussion.number.to_s %>
+		</div>
 		 <div style="float:left;padding-left:5px;width:100px;">
 		 	<span style="color:green"><b><%= discussion.luser.name %></b></span>
 		 </div>
-		 <div style="float:left;padding-left:5px;width:500px;"> 
+		 <div style="float:left;padding-left:5px;width:400px;"> 
 		    <span style="color:green;"><%= discussion.comment %></span>
-		</div>
+		 </div>
+		 <div style="float:left;"><a href="" onclick="reply(<%= discussion.number.to_s %>);return false;">reply</a></div>
 		<br style="clear:both;"/>
-    </div>	
-    <br style="clear:both;"/>
+    </div>
+		<% discussion.replies.each do |reply| %>
+		<div style="background-color: #424242;">
+		 	<div style="float:left;width:100px;background-color:grey">
+			 	<span style="color:#fff"><%= reply.created_at.strftime("%v %r") %></span>
+			 </div>
+			 <div style="float:left;padding-left:5px;width:100px;">&nbsp;</div>
+			 <div style="float:left;padding-left:5px;width:100px;">
+			 	<span style="color:green"><b><%= reply.luser.name %></b></span>
+			 </div>
+			 <div style="float:left;padding-left:5px;width:400px;"> 
+			    <span style="color:green;"><%= reply.comment %></span>
+			</div>
+			<br style="clear:both;"/>
+	    </div>	
+	    <br style="clear:both;"/>
+		<% end %>
+</div>
 	<% end %>
 </div>
 <hr />
@@ -45,7 +66,12 @@
 </div>
 </div>
 <script>
+function reply(comment_id){
+	$("#discussion_comment").val("#" + comment_id + ":");
+}
+
 $(document).ready(function() {
 	$("#tab_discussion").addClass('active');
+	
 });
 </script>

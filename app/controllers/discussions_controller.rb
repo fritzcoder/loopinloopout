@@ -2,7 +2,8 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.order('created_at desc').find(:all, :conditions => {:project_id => params[:project_id]})
+    @discussions = Discussion.order('created_at desc').find(:all, 
+    :conditions => {:project_id => params[:project_id], :parent_id => nil})
     @discussion = Discussion.new
     @project = Project.find(params[:project_id])
     @user_name = params[:username]
@@ -50,6 +51,12 @@ class DiscussionsController < ApplicationController
     @discussion.project_id = @project.id
     @discussion.luser_id = current_user.luser.id
     @user_name = params[:username]
+    
+    if @discussion.comment.start_with?("#")
+      parent = Discussion.find(:first, :conditions => {:number => @discussion.comment[/\#(.*?):/, 1], 
+        :project_id => @discussion.project_id})
+      @discussion.parent_id = parent.id
+    end
 
     respond_to do |format|
       if @discussion.save
