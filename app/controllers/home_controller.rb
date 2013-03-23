@@ -25,6 +25,30 @@ class HomeController < ApplicationController
     end
   end
   
+  def explore
+    @latest_projects = Project.find(:all, :limit => 10, :order => 'created_at desc')
+    @latest_banks = Bank.find(:all, :limit => 10, :order => 'created_at desc')
+    @popular_banks = Bank.find(:all, :limit => 10, :order => 'bank_bookmarks_count desc')
+    Project.find(:all, :group => "type").count
+    
+    @types = Project.find(
+        :all, 
+        :select => 'count(*) count, type', 
+        :group => 'type', 
+        :order => 'count DESC',
+        :limit => 5)
+    
+    #Create a genre cache table that will collect all the different genres
+    #@genres = Project.select(:genre).uniq
+    #@project_types =  [["Personal", "Project"],["Collaboration", "Collaboration"], ["Remix","Remix"], 
+  	#			["Remix Challenge", "RemixChallenge"], ["Challenge", "Challenge"]]
+  				
+  	
+    respond_to do |format|
+      format.html 
+    end
+  end
+  
   def show
     @user_name =  params[:username]
     @user = Luser.find(:first, :conditions => { :name => @user_name })

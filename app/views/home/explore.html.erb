@@ -1,0 +1,51 @@
+<div class="page">
+	<div style="float:left">
+		<div>
+		<h4>Project Types</h4>
+		<ul>
+			<% @types.each do |type| %>
+				<li><%= type.class.name %>(<%= type.count %>)</li>
+			<% end %>
+		</ul>
+		</div>
+		<div>
+		<h4>Genres</h4>	
+		</div>
+	</div>
+	<div style="float:left;margin-left:10px;">
+		<h4>Popular Banks</h4>
+		<ul>
+			<% @popular_banks.each do |bank| %>
+				<li><%= link_to("#{bank.created_by}/#{bank.name}", 
+				bank_url(bank.created_by,bank)) %><br />
+				Favourited: <%= bank.bank_bookmarks_count %><br />
+				Created: <%= time_ago_in_words(bank.created_at) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div style="float:left;margin-left:10px;">
+		<h4>Latest Projects</h4>
+		<ul>
+			<% @latest_projects.each do |project| %>
+				<li>
+				<%= link_to("#{project.created_by}/#{project.name}", 
+				project_url(project.created_by,project)) %><br />
+				Created: <%= time_ago_in_words(project.created_at) %>
+				
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div style="float:left;margin-left:10px;">
+		<h4>Latest Banks</h4>
+		<ul>
+			<% @latest_banks.each do |bank| %>
+				<li><%= link_to("#{bank.created_by}/#{bank.name}", 
+				bank_url(bank.created_by,bank)) %><br />
+				Created: <%= time_ago_in_words(bank.created_at) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

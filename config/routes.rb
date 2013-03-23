@@ -48,7 +48,7 @@ Loopinloopout::Application.routes.draw do
   post 'sound_files/update_listen_count', :as => 'update_listen_count'
   #get 'banks/browse', :as => 'browse'
 
-  
+  match "explore" => "home#explore"
   match "search" => "home#search"
   match ":username" => "home#show"
   root :to => 'home#index'
