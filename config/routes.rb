@@ -49,7 +49,9 @@ Loopinloopout::Application.routes.draw do
   #get 'banks/browse', :as => 'browse'
 
   match "explore" => "home#explore"
+  match "favourites" => "home#favourites"
   match "search" => "home#search"
   match ":username" => "home#show"
+  
   root :to => 'home#index'
 end

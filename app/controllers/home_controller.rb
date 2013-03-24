@@ -6,6 +6,17 @@ class HomeController < ApplicationController
      end
   end
   
+  def favourites
+    @user_name = current_user.luser.name
+    @user = current_user.luser
+    bookmarked = BankBookmark.find(:all, :conditions => {:luser_id => @user.id })
+    sound_bookmarked = SoundFileBookmark.find(:all, :conditions => {:luser_id => @user.id})
+    @sound_bookmarks = sound_bookmarked.map { |s| s.sound_file }
+    @bank_bookmarks = bookmarked.map { |b| b.bank }
+    subscriptions = Subscription.find(:all, :conditions => {:luser_id => @user.id})
+    @projects = subscriptions.map { |p| p.project }
+  end
+  
   def search
     sql = "name LIKE ?"
     

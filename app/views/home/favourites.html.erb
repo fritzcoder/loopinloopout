@@ -1,0 +1,58 @@
+<% content_for :profile do %>
+ <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
+<% end %>
+<% content_for :title do %>
+<%= @user_name %>
+<% end %>
+<div class="page">
+	<ul class="nav nav-tabs">
+		<li id="tab_bank">
+		    <a href="/<%= @user_name %>"><i class="icon-info-sign"></i> Info</a>
+		</li>
+		<li id="tab_activity">
+			<a href="/<%= @user_name %>/activities"><i class="icon-fire"></i> Activity</a>
+		</li>
+		<li id="tab_fav" class="active">
+			<a href="/favourites"><i class="icon-heart"></i> Favourites</a>
+		</li>
+	</ul>
+	<div class="tabbable tabs-left">
+	  <ul class="nav nav-tabs">
+	  <li class="active"><a href="#lA" data-toggle="tab">Sounds</a></li>
+	  <li><a href="#lB" data-toggle="tab">Banks</a></li>
+	  <li><a href="#lC" data-toggle="tab">Subscriptions</a></li>
+	  </ul>
+	  <div class="tab-content">
+	   	<div class="tab-pane active" id="lA">
+			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @sound_bookmarks, 
+				:user => @user_name, :player_size => "mini" } %>
+		</div>
+		<div class="tab-pane" id="lB">
+			<% @bank_bookmarks.each do |bank| %>
+				<h4><%= link_to(bank.created_by + "/" + bank.name, bank_path(bank.created_by , bank)) %></h4>
+				<div>
+					<p><%= bank.description %></p>
+				</div>
+				<div><i>Last updated: <%= time_ago_in_words(bank.updated_at.to_s, true) %></i></div>
+			<% end %>
+		</div>
+		<div class="tab-pane" id="lC">
+			<% @projects.each do |project| %>
+			<div style="border-bottom: 0.5px solid white ; padding:5px ;">
+				<h4>
+					<%= link_to(project.created_by + "/" + project.name, project_path(project.created_by, project)) %>
+					<span class="label label-info"><%= project.type %></span>
+					<% if project.access == "public" %>
+					<span class="label label-success"><%= project.access %></span>
+					<% else %>
+					<span class="label label-important"><%= project.access %></span>
+					<% end %>
+				</h4>
+				<%= project.description %>
+				<div><i>Last updated: <%= time_ago_in_words(project.updated_at.to_s, true) %></i></div>
+			</div>
+			<% end %>
+		</div>
+	  </div>
+	</div>
+</div>
