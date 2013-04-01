@@ -1,0 +1,11 @@
+<div class="page">
+<h4><a href="/<%= @clip.created_by %>"><%= @clip.created_by %></a>/<%= @clip.name %></h4>
+<p>
+	<%= @clip.description %>
+</p>
+<div style="border: 1px solid black;">
+<a href="#" onclick="playFile('<%= @clip.file.url%>', '<%= @clip.wave.url(:small) %>', '<%= @clip.name %>');">
+	<img src="http://127.0.0.1:3000<%= @clip.wave.url %>" /></a>
+</div>
+Created: <%= time_ago_in_words(@clip.created_at) %>
+</div>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/layouts/_navigation.html.erb</string>
+	<string>app/views/home/favourites.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -268,14 +268,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>82</integer>
+				<integer>4</integer>
 				<key>line</key>
-				<integer>30</integer>
+				<integer>13</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>5</integer>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>20</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>13</integer>
+			</dict>
 		</dict>
 		<key>app/controllers/modes_controller.rb</key>
 		<dict>
@@ -433,14 +449,14 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/models/subscription.rb</key>
+		<key>app/views/activities/show.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -460,6 +476,36 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>35</integer>
+		</dict>
+		<key>app/views/banks/bookmarked.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>10</integer>
+				<key>line</key>
+				<integer>17</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>10</integer>
+				<key>line</key>
+				<integer>17</integer>
+			</dict>
 		</dict>
 		<key>app/views/banks/browse.html.erb</key>
 		<dict>
@@ -605,33 +651,93 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/home/explore.html.erb</key>
+		<key>app/views/home/favourites.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>53</integer>
+				<integer>11</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>44</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>1</integer>
+			<integer>17</integer>
 		</dict>
-		<key>app/views/layouts/_navigation.html.erb</key>
+		<key>app/views/home/index.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>19</integer>
+				<integer>55</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>app/views/home/search.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>18</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
+		<key>app/views/home/show.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
 		</dict>
 		<key>app/views/luser_mailer/new_follower.text.erb</key>
 		<dict>
@@ -970,14 +1076,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>6</integer>
 				<key>line</key>
-				<integer>23</integer>
+				<integer>22</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>6</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
 		</dict>
 		<key>app/views/softwares/_form.html.erb</key>
 		<dict>
@@ -1221,35 +1343,19 @@
 			<key>firstVisibleLine</key>
 			<integer>195</integer>
 		</dict>
-		<key>db/migrate/20121107160219_create_banks.rb</key>
+		<key>config/routes.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>17</integer>
+				<integer>40</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>51</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>37</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>17</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
+			<integer>21</integer>
 		</dict>
 		<key>db/migrate/20121125120143_devise_create_users.rb</key>
 		<dict>
@@ -1301,20 +1407,6 @@
 				<integer>25</integer>
 				<key>line</key>
 				<integer>4</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>db/migrate/20121210161029_create_projects.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>23</integer>
-				<key>line</key>
-				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1680,12 +1772,15 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/views/home/explore.html.erb</string>
-		<string>app/views/layouts/_navigation.html.erb</string>
-		<string>db/migrate/20121107160219_create_banks.rb</string>
-		<string>db/migrate/20121210161029_create_projects.rb</string>
-		<string>db/migrate/20121209134212_create_sound_file_bookmarks.rb</string>
+		<string>config/routes.rb</string>
 		<string>app/controllers/home_controller.rb</string>
+		<string>app/views/home/favourites.html.erb</string>
+		<string>app/views/projects/index.html.erb</string>
+		<string>app/views/activities/show.html.erb</string>
+		<string>app/views/home/index.html.erb</string>
+		<string>app/views/home/show.html.erb</string>
+		<string>app/views/banks/bookmarked.html.erb</string>
+		<string>app/views/home/search.html.erb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

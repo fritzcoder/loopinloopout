@@ -1,4 +1,5 @@
 Loopinloopout::Application.routes.draw do
+  resources :clips
   resources :notifications
   resources :follows
   resources :subscriptions

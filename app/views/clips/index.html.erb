@@ -1,0 +1,21 @@
+<div class="page">
+<h3>Your Clips</h3>
+<%= link_to 'New Clip', new_clip_path, :class => "btn" %>
+<br style="clear:both;" />
+<% i = 1 %>
+<% @clips.each do |clip| %>
+  <div style="width:100px;margin-left:10px;float:left;">
+   	<h4><%= link_to clip.name, clip %>
+	<small><%= link_to 'X', clip, method: :delete, data: { confirm: 'Are you sure?' } %></small><h4>
+   <p>
+	<%= clip.description %> 
+	</p>
+  </div>
+<% if i == 7 %>
+	<% i = 0 %>
+	<br style="clear:both;"/>
+<% end %>
+
+<% i = i + 1 %>
+<% end %>
+</div>

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314124551) do
+ActiveRecord::Schema.define(:version => 20130326091046) do
 
   create_table "activities", :force => true do |t|
-    t.integer  "object_id"
+    t.integer  "o_id"
     t.string   "object_type"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "bank_bookmarks", :force => true do |t|
@@ -47,12 +47,33 @@ ActiveRecord::Schema.define(:version => 20130314124551) do
     t.datetime "updated_at",                              :null => false
   end
 
+  create_table "clips", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "wave_file_name"
+    t.string   "wave_content_type"
+    t.integer  "wave_file_size"
+    t.datetime "wave_updated_at"
+    t.integer  "length",            :default => 0
+    t.integer  "bpm",               :default => 0
+    t.integer  "listen_count",      :default => 0
+    t.string   "created_by"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
   create_table "discussions", :force => true do |t|
+    t.decimal  "parent_id"
+    t.decimal  "number"
     t.integer  "project_id"
     t.integer  "luser_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follows", :force => true do |t|
