@@ -1,21 +1,17 @@
 <div class="page">
 <h3>Your Clips</h3>
 <%= link_to 'New Clip', new_clip_path, :class => "btn" %>
-<br style="clear:both;" />
-<% i = 1 %>
 <% @clips.each do |clip| %>
-  <div style="width:100px;margin-left:10px;float:left;">
+  <div>
    	<h4><%= link_to clip.name, clip %>
-	<small><%= link_to 'X', clip, method: :delete, data: { confirm: 'Are you sure?' } %></small><h4>
+	<small><%= link_to 'X', clip, method: :delete, data: { confirm: 'Are you sure?' } %></small></h4>
+	<%= text_field_tag 'url', "http://127.0.0.1:3000/clips/#{clip.id.to_s}" %> Created <%= time_ago_in_words(clip.created_at) %> ago
+ 	<a href="#" onclick="playFile('<%= clip.file.url%>', '<%= clip.wave.url(:medium) %>', '<%= clip.name %>');return false;">
+	<img src="http://127.0.0.1:3000<%= clip.wave.url(:medium) %>" />
+	</a>
    <p>
 	<%= clip.description %> 
 	</p>
   </div>
-<% if i == 7 %>
-	<% i = 0 %>
-	<br style="clear:both;"/>
-<% end %>
-
-<% i = i + 1 %>
 <% end %>
 </div>

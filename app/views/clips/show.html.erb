@@ -4,8 +4,11 @@
 	<%= @clip.description %>
 </p>
 <div style="border: 1px solid black;">
-<a href="#" onclick="playFile('<%= @clip.file.url%>', '<%= @clip.wave.url(:small) %>', '<%= @clip.name %>');">
+<a href="#" onclick="playFile('<%= @clip.file.url%>', '<%= @clip.wave.url(:medium) %>', '<%= @clip.name %>');return false;">
 	<img src="http://127.0.0.1:3000<%= @clip.wave.url %>" /></a>
 </div>
-Created: <%= time_ago_in_words(@clip.created_at) %>
+<%= text_field_tag 'url', "http://127.0.0.1:3000/clips/#{@clip.id.to_s}" %> Created <%= time_ago_in_words(@clip.created_at) %> ago
 </div>
+<script>
+playFile('<%= @clip.file.url%>', '<%= @clip.wave.url(:medium) %>', '<%= @clip.name %>');
+</script>

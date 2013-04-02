@@ -60,7 +60,7 @@
 		});
 	}
 </script>
-<div class="player" style="width:950px;margin: 0px auto;position:absolute;top:0px;left:180px;">
+<div class="player" style="width:950px;margin: 0px auto;position:absolute;top:0px;left:180px;background-color: fff;">
 	<div class="controls" style="width: 15px; height: 40px; float: left; text-align: center; vertical-align: middle; 
 	border: 1px solid black; background-color: #fff;">
 		<a href="#" onclick="play();"><i class="icon-play"></i></a>
@@ -70,25 +70,16 @@
 	<div style="float: left;">
     	<div id="jquery_jplayer_1" class="jp-jplayer" style="height:40px;width:900px;">
     	</div>
-  		<div id="jp_container_1" class="jp-audio">
+  		<div id="jp_container_1" class="jp-audio" style="width:900px;">
     		<div class="jp-type-single" style="height:40px;width:900px;">
-      			<div class="jp-gui jp-interface" id="wave" style="height:40px;width:900px;">  	
-        			<div class="jp-progress" style="opacity: 0.8;width:900px;">
+      			<div class="jp-gui jp-interface" id="wave" style="height:40px;width:900px; width:100%;">  	
+        			<div class="jp-progress" style="opacity: 0.3;width:100%;height:40px;background-color: black;">
           				<div class="jp-seek-bar">
-            				<div class="jp-play-bar">
+            				<div class="jp-play-bar" style="background-color: white;height:40px;">
             				</div>
           				</div>
         			</div>
-        			<!-- div class="jp-time-holder">
-          				<div class="jp-current-time">
-          				</div>
-          				<div class="jp-duration">
-          				</div>
-        			</div>-->
       			</div>
-      			<!--<div class="jp-title"id="title">
-	    			No file loaded
-      			</div>-->
 			</div>
 		 </div>
     </div>

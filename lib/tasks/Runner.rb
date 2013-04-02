@@ -41,10 +41,10 @@ class Runner
         if system('waveform -W950 -H100 %s/tmp/waveform/%s.wav %s/tmp/waveform/%s.png' % [Rails.root.to_s, filename, Rails.root.to_s, filename])
           ActiveRecord::Base.logger.info("Generating waveform complete.")
           clip.wave = File.open("%s/tmp/waveform/%s.png" % [Rails.root.to_s, filename]);
-          if system('ffmpeg -b 192k -i "%s" -f mp3 "%s/tmp/waveform/%s.mp3"' % [path, Rails.root.to_s, filename])
-            clip.file = File.open("%s/tmp/waveform/%s.mp3" % [Rails.root.to_s, filename]);
+          #if system('ffmpeg -b 192k -i "%s" -f mp3 "%s/tmp/waveform/%s.mp3"' % [path, Rails.root.to_s, filename])
+            #clip.file = File.open("%s/tmp/waveform/%s.mp3" % [Rails.root.to_s, filename]);
             clip.save
-          end
+          #end
         end
      else
         ActiveRecord::Base.logger.info("false")
