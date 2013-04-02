@@ -57,9 +57,18 @@ class DiscussionsController < ApplicationController
         :project_id => @discussion.project_id})
       @discussion.parent_id = parent.id
     end
+    
+    find_user = Regexp.new('(^|[\n ])((@)[a-z0-9_-]*)', Regexp::MULTILINE | Regexp::IGNORECASE )
+    notify_users = @discussion.comment[/(?<![\w@])@([\w@]+(?:[.!][\w@]+)*)/, 1]
+    link = '<a href="/' + notify_users + '">@'+ notify_users + '</a>'
+    @discussion.comment.gsub!(find_user, link)
 
     respond_to do |format|
       if @discussion.save
+        if notify_users != ""
+          recieving_user = Luser.find(:first, :conditions => { :name => notify_users })
+          Notification.add(@discussion, nil,"discussion", recieving_user, current_user.luser)
+        end
         format.html { redirect_to project_discussions_path(@project.created_by, @project), 
           notice: 'Discussion was successfully created.' }
         format.json { render json: @discussion, status: :created, location: @discussion }

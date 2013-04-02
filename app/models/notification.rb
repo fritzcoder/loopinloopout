@@ -29,6 +29,15 @@ class Notification < ActiveRecord::Base
       notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> bookmarked bank 
       <a href='/#{recieving_user.name}/banks/#{source_object.id}'>#{source_object.name}</a>"
       notification.save
+    
+    when "discussion"
+      notification = Notification.new 
+      notification.luser_id = recieving_user.id
+      notification.type = "Discussion"
+      notification.entity_id = source_object.id
+      notification.action = "Discussion"
+      notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> having a discussion with you."
+      notification.save
     end
   end
 end
