@@ -36,7 +36,8 @@ class Notification < ActiveRecord::Base
       notification.type = "Discussion"
       notification.entity_id = source_object.id
       notification.action = "Discussion"
-      notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> having a discussion with you."
+      notification.message = "<a href='/#{source_user.name}'>#{source_user.name}</a> messaged you: <br /> 
+      <blockquote><p>#{source_object.comment}</p></blockquote>"
       notification.save
     end
   end

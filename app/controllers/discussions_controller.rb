@@ -68,6 +68,7 @@ class DiscussionsController < ApplicationController
         if notify_users != ""
           recieving_user = Luser.find(:first, :conditions => { :name => notify_users })
           Notification.add(@discussion, nil,"discussion", recieving_user, current_user.luser)
+          LuserMailer.mentioned_user(recieving_user, @discussion).deliver
         end
         format.html { redirect_to project_discussions_path(@project.created_by, @project), 
           notice: 'Discussion was successfully created.' }

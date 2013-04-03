@@ -15,4 +15,12 @@ class LuserMailer < ActionMailer::Base
     owner = User.find(Luser.find(:first, :conditions => {:name => project.created_by}).user_id)
     mail(:to => owner.email, :subject => "#{user.name} subscribed to project #{project.name}!")
   end
+  
+  def mentioned_user(user, discussion)
+    @user = user
+    user_email = User.find(@user.user_id).email
+    @discussion = discussion
+    
+    mail(:to => user_email, :subject => "#{discussion.luser.name} mentioned you in a discussion.")
+  end
 end
