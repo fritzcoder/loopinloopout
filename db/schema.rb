@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326091046) do
+ActiveRecord::Schema.define(:version => 20130404081617) do
 
   create_table "activities", :force => true do |t|
     t.integer  "o_id"
@@ -181,6 +181,17 @@ ActiveRecord::Schema.define(:version => 20130326091046) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sound_comments", :force => true do |t|
+    t.integer  "sound_file_id"
+    t.integer  "luser_id"
+    t.integer  "parent_id"
+    t.decimal  "time"
+    t.integer  "number",        :default => 0
+    t.text     "comment"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "sound_file_bookmarks", :force => true do |t|

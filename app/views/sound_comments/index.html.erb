@@ -1,0 +1,41 @@
+<div style="border: 1px solid black;">
+	<a href="#" onclick="playFile('<%= @sound_file.file.url%>', '<%= @sound_file.wave.url(:medium) %>', 
+		'<%= @sound_file.name %>');return false;">
+		<img src="http://127.0.0.1:3000<%= @sound_file.wave.url %>" /></a>
+</div>
+<div class="page">
+<div>
+	<%= form_for([@sound_file, @sound_comment]) do |f| %>
+	  <% if @sound_comment.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@sound_comment.errors.count, "error") %> prohibited this sound_comment from being saved:</h2>
+
+	      <ul>
+	      <% @sound_comment.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  <div>
+		<img src="http://127.0.0.1:3000<%= current_user.luser.profile.url(:thumb) %>" />
+	    <%= f.text_field :comment %>
+		<%= f.submit :value => "Post", :class => "btn"%>
+	  </div>
+	<% end %>
+</div>
+<h4>Comments:</h4>
+<ul style="list-style-type: none;">
+<% @sound_comments.each do |sound_comment| %>
+<li>
+    <img src="http://127.0.0.1:3000<%= sound_comment.luser.profile.url(:thumb) %>" />
+    <a style="margin-right:10px;" href="/<%= sound_comment.luser.name %>"><%= sound_comment.luser.name %></a>
+	<%= time_ago_in_words(sound_comment.created_at) %> ago
+	<p>
+		<%= sound_comment.comment %>
+	</p>
+</li>
+<% end %>
+</ul>
+</div>
+

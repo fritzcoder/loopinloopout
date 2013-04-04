@@ -36,6 +36,10 @@ Loopinloopout::Application.routes.draw do
     end
   end
   
+  resources :sound_files do 
+    resources :sound_comments
+  end
+  
   resources :lusers 
   resources :modes
   resources :sound_types
