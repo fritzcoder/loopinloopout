@@ -30,7 +30,7 @@
 			<%if @sound_files.empty? %>
 			<h4>Select from banks or upload sounds and loops</h4>
 			<% else %>
-			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @sound_files, 
+			<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_files, 
 				:user => @user_name, :player_size => "small"} %>
 			<% end %>
 		</div>
@@ -45,7 +45,7 @@
 			<%if @stem_files.empty? %>
 			<h4>Upload song stems</h4>
 			<% else %>
-			<%= render :partial => "banks/mini_list_files", :locals => { :sound_files => @stem_files, 
+			<%= render :partial => "mini_list_files", :locals => { :sound_files => @stem_files, 
 				:user => @user_name, :player_size => "small"} %>
 			<% end %>
 			

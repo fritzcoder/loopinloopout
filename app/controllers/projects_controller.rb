@@ -4,17 +4,21 @@ class ProjectsController < ApplicationController
   def prizes
     @project = Project.find(params[:id])
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
   end
   
   def rules
     @project = Project.find(params[:id])
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
   end
   
   def upload_file
     @sound_file = eval(params[:sound_file][:type]).new(params[:sound_file])
     @project = Project.find(params[:id])
     @user_name = params[:username]
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
+    
     @sound_file.created_by = current_user.luser.name
     
     respond_to do |format|
@@ -43,7 +47,7 @@ class ProjectsController < ApplicationController
           format.html { redirect_to project_url(@user_name, @project), notice: 'Sound was successfully added.' }
           format.json { render json: @sound_file, status: :created}
       else
-          format.html { render action: "new" }
+          format.html { render action: "new", notice: 'Error'  }
           format.json { render json: @sound_file.errors, status: :unprocessable_entity }
       end
     end  
@@ -78,6 +82,8 @@ class ProjectsController < ApplicationController
     @user = Luser.find(:first, :conditions => {:name => @user_name})
     @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
     @total_score = @project.total_score
+    
+    @user = Luser.find(:first, :conditions => {:name => params[:username]})
     
     respond_to do |format|
       format.html # show.html.erb

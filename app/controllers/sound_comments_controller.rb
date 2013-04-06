@@ -3,6 +3,13 @@ class SoundCommentsController < ApplicationController
   # GET /sound_comments.json
   def index
     @sound_comments = SoundComment.find(:all, :conditions => {:sound_file_id => params[:sound_file_id]})
+    
+    if params[:bank] != nil
+      @bank = Bank.find(params[:bank])
+    elsif params[:project] != nil
+      @project = Project.find(params[:project])
+    end
+    
     @sound_comment = SoundComment.new
     @sound_file = SoundFile.find(params[:sound_file_id])
 
@@ -49,8 +56,14 @@ class SoundCommentsController < ApplicationController
 
     respond_to do |format|
       if @sound_comment.save
-        format.html { redirect_to sound_file_sound_comments_path(@sound_file), 
-          notice: 'Sound comment was successfully created.' }
+        if params[:bank] != nil
+          format.html { redirect_to sound_file_sound_comments_path(@sound_file, :bank => params[:bank]), 
+            notice: 'Sound comment was successfully created.' }
+        end
+        if params[:project] != nil
+           format.html { redirect_to sound_file_sound_comments_path(@sound_file, :project => params[:project]), 
+              notice: 'Sound comment was successfully created.' }
+        end
         format.json { render json: @sound_comment, status: :created, location: @sound_comment }
       else
         format.html { render action: "new" }
