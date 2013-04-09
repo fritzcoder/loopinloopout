@@ -7,6 +7,11 @@
 	<span class="label label-important"><%= @project.access %></span>
 	<% end %>
 </h1>
+<div>
+	<% @project.genres.each do |genre|%>
+	<span class="label label-inverse"><%= genre.name %></span>
+	<% end %>
+</div>
 <p><%= @project.description %></p>
 <% subscription = nil %>
 <% if @user_name != current_user.luser.name %>

@@ -36,6 +36,11 @@
     <%= f.label :description %>
     <%= f.text_area :description, :cols => 20, :rows => 3 %>
   </div>
+  <div class="field">
+    Genre(comma sperated):<br />
+    <%= text_field_tag 'genres' %>
+  </div>
+
   <% if @project.type == "Challenge" or
 	    @project.type == "RemixChallenge" %>
   <div class="field">

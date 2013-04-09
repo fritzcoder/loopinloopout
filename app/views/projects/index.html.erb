@@ -18,6 +18,11 @@
 		<span class="label label-important"><%= lproject.project.access %></span>
 		<% end %>
 	</h4>
+	<div>
+		<% lproject.project.genres.each do |genre| %>
+		<span class="label label-inverse"><%= genre.name %></span>
+		<% end %>
+	</div>
 	<%= lproject.project.description %>
 	<div><i>Last updated: <%= time_ago_in_words(lproject.project.updated_at.to_s, true) %></i></div>
 </div>

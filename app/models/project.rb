@@ -14,6 +14,8 @@ class Project < ActiveRecord::Base
   has_many :project_scores
   has_many :project_files
   has_many :discussions
+  has_many :project_genres 
+  has_many :genres, :through => :project_genres
   scope :public, :conditions => { :access => 'Public' }
   attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type, :scoring, :leader_board, :voting
   

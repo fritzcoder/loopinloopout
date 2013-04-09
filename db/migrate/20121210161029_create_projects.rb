@@ -7,7 +7,6 @@ class CreateProjects < ActiveRecord::Migration
       t.text     :rules
       t.text     :prizes
       t.boolean  :leader_board, :default => false
-      t.string   :genre
       t.boolean  :scoring, :default => false
       t.boolean  :voting, :default => false
       t.boolean  :invite, :default => false

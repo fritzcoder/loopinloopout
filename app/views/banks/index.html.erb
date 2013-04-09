@@ -19,6 +19,11 @@
 				</div>
 				<br style="clear:both;"/>
 			</div>
+			<div>
+				<% lbank.bank.genres.each do |genre|%>
+				<span class="label label-inverse"><%= genre.name %></span>
+				<% end %>
+			</div>
 			<p><%= lbank.bank.description %></p>
 			<div><i>Last updated: <%= time_ago_in_words(lbank.bank.updated_at.to_s, true) %></i></div>
 			<div>

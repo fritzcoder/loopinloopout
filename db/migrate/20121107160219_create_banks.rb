@@ -4,7 +4,6 @@ class CreateBanks < ActiveRecord::Migration
       t.string  :name
       t.text    :description
       t.string  :access
-      t.string  :genre
       t.boolean :collaboration, :default => false
       t.boolean :allow_copy, :default => false
       t.integer :bank_bookmarks_count, :default => 0

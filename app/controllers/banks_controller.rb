@@ -187,9 +187,11 @@ class BanksController < ApplicationController
   # PUT /sound_banks/1.json
   def update
     @bank = Bank.find(params[:id])
-
+    genres = params[:genres].strip
+    
     respond_to do |format|
       if @bank.update_attributes(params[:bank])
+        Genre.add_bank_genres(@bank, genres)
         format.html { redirect_to @bank, notice: 'Sound bank was successfully updated.' }
         format.json { head :no_content }
       else

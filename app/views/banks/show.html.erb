@@ -20,11 +20,18 @@
   </div>
   <br style="clear: both;" />
 </div>
+<div id="genre">
+	<% @bank.genres.each do |genre| %>
+	<span class="label label-inverse"><%= genre.name %></span>
+	<% end %>
+</div>
 <div id="description">
    	<p><%= @bank.description %></p>
 </div>
 <div id="edit_bank" style="display:none;">
 	<div><%= text_area(:bank, :description, :cols => 60, :rows => 2) %></div>
+	Genres (comma separated):
+	<div><%= text_field_tag 'genres' %></div>
 	Access:
 	<div><%= select :bank, :access, ['Public', 'Private'] %></div>
 	<div><a href="#" id="save">Save</a> <a href="#" id="cancel">Cancel</a></div>
@@ -96,7 +103,9 @@ $(document).ready(function() {
 			url: '<%= bank_path %>',
 	        data: {
 			  _method : 'PUT',
-			  'bank[description]': $('#bank_description').val()
+			  'bank[description]': $('#bank_description').val(),
+			  'genres': $('#genres').val(),
+			  
 			  //software_id : $('#software_id').val(),
 			  //mode_id : $('#mode_id').val(),
 	          //type_id : $('#type_id').val()

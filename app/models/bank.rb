@@ -1,5 +1,6 @@
 class Bank < ActiveRecord::Base
   attr_accessible :access, :collaboration, :description, :name, :type
+  
   validates :access, :presence => true
   validates :name, :presence => true
  
@@ -7,6 +8,9 @@ class Bank < ActiveRecord::Base
   has_many :sound_files, :through => :bank_files
   has_many :luser_banks
   has_many :lusers, :through => :luser_banks
+  has_many :bank_genres 
+  has_many :genres, :through => :bank_genres
+  
   
   def self.inherited(child)
   		child.instance_eval do

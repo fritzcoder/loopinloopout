@@ -146,6 +146,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @user_name = params[:username]
+    genres = params[:genres].strip
     luser = Luser.find(:first, :conditions => {:name => params[:luser_name]} )
         
     respond_to do |format|
@@ -161,6 +162,7 @@ class ProjectsController < ApplicationController
           format.json { head :no_content }
         end 
       elsif @project.update_attributes(params[:project])
+        Genre.add_project_genres(@project, genres)
         format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else

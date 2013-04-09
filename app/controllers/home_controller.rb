@@ -40,6 +40,7 @@ class HomeController < ApplicationController
     @latest_projects = Project.find(:all, :limit => 10, :order => 'created_at desc')
     @latest_banks = Bank.find(:all, :limit => 10, :order => 'created_at desc')
     @popular_banks = Bank.find(:all, :limit => 10, :order => 'bank_bookmarks_count desc')
+    @genres = Genre.find(:all)
     Project.find(:all, :group => "type").count
     
     @types = Project.find(

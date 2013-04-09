@@ -9,7 +9,12 @@
 		</ul>
 		</div>
 		<div>
-		<h4>Genres</h4>	
+		<h4>Genres</h4>
+		<ul>	
+		<% @genres.each do |genre|%>
+			<li><%= genre.name %>(<%= (genre.project_genres_count + genre.bank_genres_count) %>)</li>
+		<% end %>
+		</ul>
 		</div>
 	</div>
 	<div style="float:left;margin-left:10px;">

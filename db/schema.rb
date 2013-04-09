@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404081617) do
+ActiveRecord::Schema.define(:version => 20130409074012) do
 
   create_table "activities", :force => true do |t|
     t.integer  "o_id"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130404081617) do
     t.integer  "bank_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "bank_genres", :force => true do |t|
+    t.integer  "bank_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "banks", :force => true do |t|
@@ -81,6 +88,14 @@ ActiveRecord::Schema.define(:version => 20130404081617) do
     t.integer  "following_luser_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.integer  "project_genre_count"
+    t.integer  "bank_genre_count"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "luser_banks", :force => true do |t|
@@ -140,6 +155,13 @@ ActiveRecord::Schema.define(:version => 20130404081617) do
     t.integer  "project_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "project_genres", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "project_scores", :force => true do |t|
@@ -234,6 +256,7 @@ ActiveRecord::Schema.define(:version => 20130404081617) do
   end
 
   create_table "sound_files", :force => true do |t|
+    t.integer  "sound_comments_count"
     t.string   "name"
     t.text     "description"
     t.string   "file_file_name"
@@ -252,15 +275,15 @@ ActiveRecord::Schema.define(:version => 20130404081617) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.integer  "length",                     :default => 0
-    t.integer  "bpm",                        :default => 0
-    t.integer  "listen_count",               :default => 0
-    t.integer  "sound_file_bookmarks_count", :default => 0
-    t.integer  "votes_count",                :default => 0
+    t.integer  "length"
+    t.integer  "bpm"
+    t.integer  "listen_count"
+    t.integer  "sound_file_bookmarks_count"
+    t.integer  "votes_count"
     t.string   "type"
     t.string   "created_by"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sound_types", :force => true do |t|
