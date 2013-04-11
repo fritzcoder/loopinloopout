@@ -5,9 +5,9 @@ class ProjectScoresController < ApplicationController
     @project_scores = ProjectScore.find(:all, :conditions => {:project_id => params[:project_id]})
     @project_score = ProjectScore.new
     @project = Project.find(params[:project_id])
-    
+    @user = Luser.find(:first, :conditions => {:name => params[:username]} )
     @user_name = params[:username]
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @project_scores }

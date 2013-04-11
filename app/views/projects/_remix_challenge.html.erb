@@ -32,9 +32,17 @@
 		<%if @remix_files.empty? %>
 		<h3>No Remixes uploaded</h3> 
 		<% else %>
+		<div class="btn-group" data-toggle="buttons-radio">
+		  <button type="button" class="btn" id="recent">Most Recent</button>
+		  <button type="button" class="btn" id="score">By Score</button>
+		  <button type="button" class="btn" id="vote">By Votes</button>
+		  <button type="button" class="btn" id="place">By Contest Place</button>
+		</div>
+		<div id="remix_list"> 
 		<%= render :partial => "remix_list", :locals => { :sound_files => @remix_files, 
 			:user => @user_name, :player_size => "small"} %>
 		<% end %>
+		</div>
 	</div>
 </div>
 <br />
@@ -93,7 +101,19 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#tab_project").addClass('active');
-	
+    
+    $('#recent').click(function() {
+		$.ajax({
+	        url: "<%= sort_remix_list_path %>",
+	        data: {
+			  id : <%= @project.id.to_s%>, 
+			  username : '<%= @user_name %>'
+	        },
+	        dataType: "script"
+	      });
+	});
+
+
 	$('#usound').click(function() {
 		$('#upload_sound').toggle('slow', function(){});
 	});
@@ -109,6 +129,9 @@ $(document).ready(function() {
 	$('#uremix').click(function() {
 	  	$('#upload_remix').toggle('slow', function(){});
 	});
+	
+	
+	
 });
 $('#modal-body').load('/<%= current_user.luser.name %>/banks/browse?window=modal');
 </script>

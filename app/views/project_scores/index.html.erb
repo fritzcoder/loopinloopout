@@ -42,10 +42,8 @@
 <script>
 $(document).ready(function() {
 	$("#tab_score").addClass('active');
-	$('#add_score').toggle(function() {
-	  	$('#new_score').show('slow');
-	}, function() {
-	  	$('#new_score').hide('slow');
+	$('#add_score').click(function() {
+	  	$('#new_score').toggle('slow', function(){});
 	});
 });
 </script>

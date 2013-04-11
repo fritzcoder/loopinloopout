@@ -45,6 +45,8 @@ Loopinloopout::Application.routes.draw do
   resources :sound_types
   resources :softwares
   
+  
+  get 'projects/sort_remix_list', :as => 'sort_remix_list'
   get 'banks/update_subtypes', :as => 'update_subtypes'
   get 'banks/update_files', :as => 'update_files'
   get 'banks/update_subtypes', :as => 'update_subtypes'

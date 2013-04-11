@@ -172,6 +172,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def sort_remix_list
+      @project = Project.find(params[:id])
+      sort_by = params[:sort_by]
+      @user_name = params[:username]
+      s_files = ProjectFile.find(:all, :conditions => { :project_id => params[:id] })
+      all_sound_files = s_files.map { |f| f.sound_file }
+      @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
+      
+      if sort_by == "recent"
+        @remix_files.sort!{|a,b| b.created_at <=> a.created_at }
+      elsif sort_by == "score"
+        @remix_files.sort!{|a,b| b.created_at <=> a.created_at }
+      else
+      
+      end
+  end
+
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
