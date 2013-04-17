@@ -83,6 +83,22 @@ class ProjectsController < ApplicationController
     @members = LuserProject.find(:all, :conditions => {:project_id => params[:id]}).map { |m| m.luser}
     @total_score = @project.total_score
     
+    if @project.scoring == true and @project.voting == true
+      total_votes = @project.total_votes
+      @remix_files.sort!{|a,b| b.score_with_votes(total_votes, 10) <=> a.score_with_votes(total_votes, 10) }
+    elsif @project.scoring == true 
+      @remix_files.sort!{|a,b| b.score <=> a.score }
+    else
+      @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
+    end
+    
+    @places = Hash.new
+    p = 1
+    @remix_files.each do |r|
+      @places[r.id] = p
+      p = p + 1
+    end
+    
     @user = Luser.find(:first, :conditions => {:name => params[:username]})
     
     respond_to do |format|
@@ -181,21 +197,28 @@ class ProjectsController < ApplicationController
       @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
       @total_score = @project.total_score
       
+      if @project.scoring == true and @project.voting == true
+        total_votes = @project.total_votes
+        @remix_files.sort!{|a,b| b.score_with_votes(total_votes, 10) <=> a.score_with_votes(total_votes, 10) }
+      elsif @project.scoring == true 
+        @remix_files.sort!{|a,b| b.score <=> a.score }
+      else
+        @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
+      end
+
+      @places = Hash.new
+      p = 1
+      @remix_files.each do |r|
+        @places[r.id] = p
+        p = p + 1
+      end
+      
       if sort_by == "recent"
         @remix_files.sort!{|a,b| b.created_at <=> a.created_at }
       elsif sort_by == "score"
         @remix_files.sort!{|a,b| b.score <=> a.score }
       elsif sort_by == "vote"
         @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
-      else
-        if @project.scoring == true and @project.voting == true
-           total_votes = @project.total_votes
-           @remix_files.sort!{|a,b| b.score_with_votes(total_votes, 10) <=> a.score_with_votes(total_votes, 10) }
-        elsif @project.scoring == true 
-          @remix_files.sort!{|a,b| b.score <=> a.score }
-        else
-          @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
-        end
       end
   end
 
