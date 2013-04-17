@@ -63,11 +63,20 @@ class SoundFile < ActiveRecord::Base
   end 
   
   def score
-    total = 0
+    total = 0.0
     self.sound_file_scores.each do |score|
       total = total + score.score
     end
     total
   end  
+  
+  def score_with_votes(total_votes, vote_weight)
+    total = 0.0
+    self.sound_file_scores.each do |score|
+      total = total + score.score
+    end
+    popularity = self.votes_count / total_votes * vote_weight
+    total + popularity
+  end
 
 end

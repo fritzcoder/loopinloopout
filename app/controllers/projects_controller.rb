@@ -179,13 +179,23 @@ class ProjectsController < ApplicationController
       s_files = ProjectFile.find(:all, :conditions => { :project_id => params[:id] })
       all_sound_files = s_files.map { |f| f.sound_file }
       @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
+      @total_score = @project.total_score
       
       if sort_by == "recent"
         @remix_files.sort!{|a,b| b.created_at <=> a.created_at }
       elsif sort_by == "score"
-        @remix_files.sort!{|a,b| b.created_at <=> a.created_at }
+        @remix_files.sort!{|a,b| b.score <=> a.score }
+      elsif sort_by == "vote"
+        @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
       else
-      
+        if @project.scoring == true and @project.voting == true
+           total_votes = @project.total_votes
+           @remix_files.sort!{|a,b| b.score_with_votes(total_votes, 10) <=> a.score_with_votes(total_votes, 10) }
+        elsif @project.scoring == true 
+          @remix_files.sort!{|a,b| b.score <=> a.score }
+        else
+          @remix_files.sort!{|a,b| b.votes_count <=> a.votes_count }
+        end
       end
   end
 

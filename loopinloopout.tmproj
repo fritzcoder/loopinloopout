@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>db/migrate/20130409072926_create_genres.rb</string>
+	<string>app/models/sound_file.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -17,6 +17,8 @@
 			<string>app</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>config</string>
 			<key>regexFolderFilter</key>
@@ -217,6 +219,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/banks_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>34</integer>
+				<key>line</key>
+				<integer>189</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>80</integer>
+		</dict>
 		<key>app/controllers/discussions_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -308,9 +324,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>68</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>7</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -322,14 +338,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>50</integer>
+				<integer>6</integer>
 				<key>line</key>
-				<integer>164</integer>
+				<integer>187</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>138</integer>
+			<integer>47</integer>
 		</dict>
 		<key>app/controllers/sound_comments_controller.rb</key>
 		<dict>
@@ -590,14 +606,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>15</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>65</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>42</integer>
 		</dict>
 		<key>app/models/sound_file_bookmark.rb</key>
 		<dict>
@@ -717,35 +733,77 @@
 				<integer>102</integer>
 			</dict>
 		</dict>
+		<key>app/views/banks/_upload_file.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>6</integer>
+				<key>line</key>
+				<integer>58</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/views/banks/browse.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>92</integer>
+				<integer>119</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>60</integer>
+			<integer>91</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>72</integer>
+				<integer>105</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>92</integer>
+				<integer>119</integer>
 			</dict>
+		</dict>
+		<key>app/views/banks/copy_files.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/banks/copy_to.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/banks/index.html.erb</key>
 		<dict>
@@ -775,7 +833,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>15</integer>
+			<integer>0</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
@@ -790,6 +848,50 @@
 				<key>line</key>
 				<integer>24</integer>
 			</dict>
+		</dict>
+		<key>app/views/banks/update_files.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+		</dict>
+		<key>app/views/banks/update_subtypes.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/clips/index.html.erb</key>
 		<dict>
@@ -1008,6 +1110,20 @@
 				<key>line</key>
 				<integer>41</integer>
 			</dict>
+		</dict>
+		<key>app/views/layouts/_profile.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/luser_mailer/mentioned_user.html.erb</key>
 		<dict>
@@ -1267,35 +1383,33 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/views/project_scores/edit.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/views/project_scores/index.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>36</integer>
+				<integer>19</integer>
 				<key>line</key>
-				<integer>43</integer>
+				<integer>45</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>43</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>36</integer>
-				<key>line</key>
-				<integer>43</integer>
-			</dict>
+			<integer>13</integer>
 		</dict>
 		<key>app/views/project_scores/new.html.erb</key>
 		<dict>
@@ -1432,14 +1546,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>27</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>47</integer>
+				<integer>76</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>51</integer>
+			<integer>52</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>20</integer>
+				<key>line</key>
+				<integer>76</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>50</integer>
+				<key>line</key>
+				<integer>76</integer>
+			</dict>
 		</dict>
 		<key>app/views/projects/_project_header.html.erb</key>
 		<dict>
@@ -1483,35 +1613,35 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>14</integer>
 		</dict>
 		<key>app/views/projects/_remix_challenge.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>27</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>112</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>37</integer>
+			<integer>100</integer>
 		</dict>
 		<key>app/views/projects/_remix_list.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>65</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>64</integer>
+				<integer>22</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>51</integer>
 		</dict>
 		<key>app/views/projects/_upload_file.html.erb</key>
 		<dict>
@@ -1581,6 +1711,20 @@
 				<integer>27</integer>
 				<key>line</key>
 				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/projects/sort_remix_list.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>45</integer>
+				<key>line</key>
+				<integer>1</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1862,14 +2006,44 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>42</integer>
 				<key>line</key>
-				<integer>41</integer>
+				<integer>48</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>26</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>57</integer>
+				<key>line</key>
+				<integer>48</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>42</integer>
+				<key>line</key>
+				<integer>48</integer>
+			</dict>
+		</dict>
+		<key>db/migrate/20121107154333_create_sound_files.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>22</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>8</integer>
+			<integer>0</integer>
 		</dict>
 		<key>db/migrate/20121107161700_create_bank_files.rb</key>
 		<dict>
@@ -1963,6 +2137,20 @@
 				<integer>0</integer>
 				<key>line</key>
 				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20130128090216_create_sound_file_scores.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>13</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -2390,15 +2578,36 @@
 	<array>
 		<string>app/controllers/discussions_controller.rb</string>
 		<string>app/controllers/projects_controller.rb</string>
+		<string>db/migrate/20121107154333_create_sound_files.rb</string>
+		<string>db/migrate/20130128090216_create_sound_file_scores.rb</string>
+		<string>app/models/sound_file.rb</string>
 		<string>app/views/projects/show.html.erb</string>
 		<string>app/views/projects/_project_header.html.erb</string>
 		<string>app/views/projects/index.html.erb</string>
 		<string>app/views/banks/index.html.erb</string>
+		<string>app/views/banks/browse.html.erb</string>
 		<string>app/controllers/home_controller.rb</string>
 		<string>app/views/home/explore.html.erb</string>
 		<string>db/migrate/20130404081617_create_sound_comments.rb</string>
 		<string>db/migrate/20130409074000_create_bank_genres.rb</string>
 		<string>db/migrate/20130409072926_create_genres.rb</string>
+		<string>app/views/project_scores/edit.html.erb</string>
+		<string>app/views/project_scores/_form.html.erb</string>
+		<string>app/controllers/project_scores_controller.rb</string>
+		<string>app/views/projects/_project.html.erb</string>
+		<string>app/views/project_scores/index.html.erb</string>
+		<string>app/views/projects/_remix_challenge.html.erb</string>
+		<string>config/routes.rb</string>
+		<string>app/views/projects/sort_remix_list.js.coffee</string>
+		<string>app/views/banks/update_files.js.coffee</string>
+		<string>app/controllers/banks_controller.rb</string>
+		<string>app/views/banks/_upload_file.html.erb</string>
+		<string>app/views/banks/update_subtypes.js.coffee</string>
+		<string>app/views/banks/copy_to.js.coffee</string>
+		<string>app/views/banks/copy_files.js.coffee</string>
+		<string>app/views/projects/_remix_list.html.erb</string>
+		<string>app/views/projects/_remix.html.erb</string>
+		<string>app/views/layouts/_profile.html.erb</string>
 		<string>app/views/banks/show.html.erb</string>
 		<string>app/models/project.rb</string>
 		<string>app/models/genre.rb</string>
@@ -2409,6 +2618,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{266, 80}, {1014, 698}}</string>
+	<string>{{266, 9}, {1014, 769}}</string>
 </dict>
 </plist>

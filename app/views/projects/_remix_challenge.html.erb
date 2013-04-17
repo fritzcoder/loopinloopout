@@ -101,13 +101,50 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#tab_project").addClass('active');
-    
+	    
     $('#recent').click(function() {
 		$.ajax({
 	        url: "<%= sort_remix_list_path %>",
 	        data: {
 			  id : <%= @project.id.to_s%>, 
-			  username : '<%= @user_name %>'
+			  username : '<%= @user_name %>',
+			  sort_by : 'recent'
+	        },
+	        dataType: "script"
+	      });
+	});
+	
+	$('#score').click(function() {
+		$.ajax({
+	        url: "<%= sort_remix_list_path %>",
+	        data: {
+			  id : <%= @project.id.to_s%>, 
+			  username : '<%= @user_name %>',
+			  sort_by : 'score'
+	        },
+	        dataType: "script"
+	      });
+	});
+	
+	$('#vote').click(function() {
+		$.ajax({
+	        url: "<%= sort_remix_list_path %>",
+	        data: {
+			  id : <%= @project.id.to_s%>, 
+			  username : '<%= @user_name %>',
+			  sort_by : 'vote'
+	        },
+	        dataType: "script"
+	      });
+	});
+	
+	$('#place').click(function() {
+		$.ajax({
+	        url: "<%= sort_remix_list_path %>",
+	        data: {
+			  id : <%= @project.id.to_s%>, 
+			  username : '<%= @user_name %>',
+			  sort_by : 'place'
 	        },
 	        dataType: "script"
 	      });
