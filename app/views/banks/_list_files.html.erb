@@ -68,7 +68,7 @@
     	<%= link_to '', edit_bank_sound_file_path(user, bank, sound_file), :class => 'icon-edit' %>
     	<%= link_to '', bank_sound_file_path(user, bank, sound_file), method: :delete, data: { confirm: 'Are you sure?' }, 
 					:class => 'icon-remove-sign' %>
-		<%= link_to '', sound_file_sound_comments_path(sound_file,:bank => bank.id.to_s), :class => 'icon-comment' %>
+		<%= link_to '', sound_file_sound_comments_path(sound_file), :class => 'icon-comment' %>
 	</div>
 	<% end %>
 	<br style="clear:both;"/>
