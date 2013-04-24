@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/sound_file.rb</string>
+	<string>app/controllers/projects_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -17,8 +17,6 @@
 			<string>app</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>config</string>
 			<key>regexFolderFilter</key>
@@ -33,8 +31,6 @@
 			<date>2013-02-05T12:27:28Z</date>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>db</string>
 			<key>regexFolderFilter</key>
@@ -340,12 +336,12 @@
 				<key>column</key>
 				<integer>6</integer>
 				<key>line</key>
-				<integer>187</integer>
+				<integer>214</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>47</integer>
+			<integer>194</integer>
 		</dict>
 		<key>app/controllers/sound_comments_controller.rb</key>
 		<dict>
@@ -587,6 +583,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/models/remix_challenge.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/models/sound_comment.rb</key>
 		<dict>
 			<key>caret</key>
@@ -606,9 +616,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>15</integer>
+				<integer>61</integer>
 				<key>line</key>
-				<integer>65</integer>
+				<integer>77</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1620,28 +1630,28 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>10</integer>
+				<integer>21</integer>
 				<key>line</key>
-				<integer>112</integer>
+				<integer>146</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>100</integer>
+			<integer>97</integer>
 		</dict>
 		<key>app/views/projects/_remix_list.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>10</integer>
+				<integer>44</integer>
 				<key>line</key>
-				<integer>22</integer>
+				<integer>20</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>51</integer>
+			<integer>4</integer>
 		</dict>
 		<key>app/views/projects/_upload_file.html.erb</key>
 		<dict>
@@ -2036,14 +2046,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>21</integer>
 				<key>line</key>
-				<integer>22</integer>
+				<integer>14</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>21</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
 		</dict>
 		<key>db/migrate/20121107161700_create_bank_files.rb</key>
 		<dict>
@@ -2109,6 +2135,20 @@
 				<integer>25</integer>
 				<key>line</key>
 				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20121210161029_create_projects.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>49</integer>
+				<key>line</key>
+				<integer>8</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -2576,11 +2616,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/controllers/discussions_controller.rb</string>
 		<string>app/controllers/projects_controller.rb</string>
+		<string>db/migrate/20121210161029_create_projects.rb</string>
 		<string>db/migrate/20121107154333_create_sound_files.rb</string>
 		<string>db/migrate/20130128090216_create_sound_file_scores.rb</string>
 		<string>app/models/sound_file.rb</string>
+		<string>app/models/remix_challenge.rb</string>
 		<string>app/views/projects/show.html.erb</string>
 		<string>app/views/projects/_project_header.html.erb</string>
 		<string>app/views/projects/index.html.erb</string>

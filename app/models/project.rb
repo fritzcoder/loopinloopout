@@ -17,7 +17,8 @@ class Project < ActiveRecord::Base
   has_many :project_genres 
   has_many :genres, :through => :project_genres
   scope :public, :conditions => { :access => 'Public' }
-  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type, :scoring, :leader_board, :voting
+  attr_accessible :name, :description, :access, :rules, :prizes, :start, :end, :type, :scoring, :leader_board, :voting,
+  :vote_weight
   
   #override the model_name method so it always returns
   #the method name of the parent and not the child name
@@ -63,6 +64,10 @@ class Project < ActiveRecord::Base
     self.project_scores.each do |point|
       total = total + point.weight
     end
+    if self.voting
+      total = total + self.vote_weight
+    end
+    
     total 
   end
   

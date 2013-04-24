@@ -69,9 +69,13 @@
 		<%= link_to '', "http://", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>	
 		<% end %>
 		<br />
-		<% if @project.scoring and @project.type == "RemixChallenge" %>
-		Score: <%= sound_file.score %>/<%= @total_score %>
-		<% end %>
+		
+			<% if @project.scoring and @project.voting and @project.type == "RemixChallenge"%>
+				Score: <%= sound_file.score_with_votes(@project.votes_count, @project.vote_weight) %>/<%= @total_score %>
+			<% elsif @project.scoring and @project.type == "RemixChallenge" %>
+			Score: <%= sound_file.score %>/<%= @total_score %>
+			<% end %>
+		
 	</div>
 	</div>
 	<br style="clear:both;"/>

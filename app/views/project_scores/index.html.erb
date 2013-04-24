@@ -29,6 +29,20 @@
 <% total_score = total_score + project_score.weight %>
 <br style="clear:both;"/>
 <% end %>
+<% if @project.voting %>
+<% total_score = total_score + @project.vote_weight %>
+<div>
+  <div style="float:left;">
+	<h1><%= @project.vote_weight %></h1>
+  </div>
+  <div style="float:left;">
+  <h4>Voting</h4>
+  <p>
+	This is the amount votes contribute to score
+  </p> 
+</div>
+<br style="clear:both;"/>
+<% end %>
 <hr />
 <div>
   <div style="float:left;">

@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
     activity.save
   end
   
-  def self.CreatedProject(user, project)
+  def self.created_project(user, project)
     activity = Activity.new
     activity.o_id = user.id
     activity.object_type = "User"

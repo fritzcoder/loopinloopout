@@ -146,7 +146,7 @@ class ProjectsController < ApplicationController
         luser_project.luser_id = @user.id
         luser_project.role_id = role.id
         luser_project.save
-        Activity.CreatedBank(current_user.luser, @project)
+        Activity.created_project(current_user.luser, @project)
         
         format.html { redirect_to project_url(@user_name, @project), notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created}

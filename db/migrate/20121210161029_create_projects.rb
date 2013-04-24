@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration
       t.boolean  :leader_board, :default => false
       t.boolean  :scoring, :default => false
       t.boolean  :voting, :default => false
+      t.integer  :vote_weight, :default => 0
       t.boolean  :invite, :default => false
       t.string   :access, :default => "Private"
       t.integer  :votes_count, :default => 0

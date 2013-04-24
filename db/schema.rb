@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
     t.integer  "o_id"
     t.string   "object_type"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "bank_bookmarks", :force => true do |t|
@@ -74,13 +74,13 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
   end
 
   create_table "discussions", :force => true do |t|
-    t.decimal  "parent_id"
-    t.decimal  "number"
     t.integer  "project_id"
     t.integer  "luser_id"
+    t.integer  "parent_id"
+    t.integer  "number",     :default => 0
     t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "follows", :force => true do |t|
@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
 
   create_table "genres", :force => true do |t|
     t.string   "name"
-    t.integer  "project_genre_count"
-    t.integer  "bank_genre_count"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.integer  "project_genres_count", :default => 0
+    t.integer  "bank_genres_count",    :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "luser_banks", :force => true do |t|
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
     t.boolean  "leader_board", :default => false
     t.boolean  "scoring",      :default => false
     t.boolean  "voting",       :default => false
+    t.integer  "vote_weight",  :default => 0
     t.boolean  "invite",       :default => false
     t.string   "access",       :default => "Private"
     t.integer  "votes_count",  :default => 0
@@ -256,7 +257,6 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
   end
 
   create_table "sound_files", :force => true do |t|
-    t.integer  "sound_comments_count"
     t.string   "name"
     t.text     "description"
     t.string   "file_file_name"
@@ -275,15 +275,16 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.integer  "length"
-    t.integer  "bpm"
-    t.integer  "listen_count"
-    t.integer  "sound_file_bookmarks_count"
-    t.integer  "votes_count"
+    t.integer  "length",                     :default => 0
+    t.integer  "bpm",                        :default => 0
+    t.integer  "listen_count",               :default => 0
+    t.integer  "sound_file_bookmarks_count", :default => 0
+    t.integer  "sound_comments_count",       :default => 0
+    t.integer  "votes_count",                :default => 0
     t.string   "type"
     t.string   "created_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "sound_types", :force => true do |t|

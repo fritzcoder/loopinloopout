@@ -37,7 +37,7 @@
     <%= f.text_area :description, :cols => 20, :rows => 3 %>
   </div>
   <div class="field">
-    Genre(comma sperated):<br />
+    Genre <i>(comma separated)</i>:<br />
     <%= text_field_tag 'genres' %>
   </div>
 
@@ -55,6 +55,11 @@
   <div class="field">
   	<%= f.label :voting %>
   	<%= f.check_box :voting %>
+  </div>
+  <div class="field">
+	<i>(Note: If you select scoring and voting, Please enter the weight amount.)</i>
+  	<%= f.label :vote_weight %>
+  	<%= f.text_field :vote_weight %>
   </div>
 
   <div class="field">
