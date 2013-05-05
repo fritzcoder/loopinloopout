@@ -44,6 +44,10 @@ class Bank < ActiveRecord::Base
     
     true
   end
+  
+  def to_param
+  		"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
+  end
   # def came_from
   #       self.name
   #   end

@@ -71,4 +71,8 @@ class Project < ActiveRecord::Base
     total 
   end
   
+  def to_param
+  		"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
+  end
+  
 end
