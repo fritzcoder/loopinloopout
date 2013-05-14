@@ -1,9 +1,8 @@
-<div style="height:230px;overflow:auto; width:100%;border:1px solid black;">
-<ul style="margin:0px;">
+<div style="height:375px;overflow:auto; width:100%;border:1px solid black;">
 <% if sound_files.empty? %>
-<h3>No sound files in bank</h3>
+	<h3>No sound files in bank</h3>
 <% end %>
-
+<ul style="margin:0px;">
 <% sound_files.each do |sound_file| %>
   <% 
 		wave_url = case player_size
@@ -12,39 +11,44 @@
 			else sound_file.wave.url
 		end
   %>
-  <li style="float:left;list-style-type: none;text-align:center;">
-  <div style="width:100px;height:60px;padding:5px;">
-  	<div style="float:left;">
-  		<div style="background:url('http://127.0.0.1:3000/assets/MIDI-red-icon.png') no-repeat;background-position:top center;
-					width:60px;height:40px;padding:5px;text-align:center;">
-			<div style="background-color:#ffffff;filter:alpha(opacity=80);-moz-opacity:0.8;opacity: 0.8;width:15px;
-						border: 1px solid black;display:inline-block;">
-				<a href="http://127.0.0.1:3000<%= sound_file.file.url %>" 
-					style="filter:alpha(opacity=100);-moz-opacity:1.0;opacity: 1.0;">
-					<i class="icon-download"></i>
-				</a>
-				<br />
-				<% if sound_file.preview? %>
-				<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');" 
-					style="filter:alpha(opacity=100);-moz-opacity:1.0;opacity: 1.0;">
-					<i  class="icon-play"></i></a>
-				<% elsif sound_file.audio != nil %>
-				<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');" 
-					style="filter:alpha(opacity=100);-moz-opacity:1.0;opacity: 1.0;">
-					<i  class="icon-play"></i></a>
-				<% else %>
-				<i class=" icon-upload" style="filter:alpha(opacity=100);-moz-opacity:1.0;opacity: 1.0;"></i>
-				<% end %>
-    		</div>
-  			<div>
-				<%= sound_file.name %><br />
-				<%= check_box_tag("sound_file[]", sound_file.id.to_s) %>
-				
-			</div>
-  		</div>
+  <li style="list-style-type: none;">
+  <div style="width:700px;height:20px;padding:5px;">
+  	<div style="float:left;padding:5px;">
+	      <%= check_box_tag("sound_file[]", sound_file.id.to_s) %>
+	</div>
+	<div style="float:left;padding:5px;">
+		<div style="background-color:#ffffff;border: 1px solid black;display:inline-block;">
+			<a href="<%= root_url %><%= sound_file.file.url %>">
+				<i class="icon-download"></i>
+			</a>
+			<% if sound_file.preview? %>
+			<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');">
+				<i  class="icon-play"></i></a>
+			<% elsif sound_file.audio != nil %>
+			<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');">
+				<i  class="icon-play"></i></a>
+			<% else %>
+			<i class="icon-upload"></i>
+			<% end %>
+		</div>
     </div>
+	<div style="float:left;padding:5px;width:250px;">
+		<div><%= sound_file.created_by %>/<b><%= link_to sound_file.name, sound_file_sound_comments_path(sound_file) %></b></div>	
+		<div><i><%= sound_file.categories.map {|cat| cat.name }.join(',') %></i></div>
+	</div>
+	<div style="width:100px;padding:5px;float:left;">
+		<%= sound_file.file_content_type %>
+	</div>
     <% if modal != "modal" %>
-	<div style="float:left;width:20px;">
+	<div style="float:left;padding:5px;">
+		Comments: <%= sound_file.sound_comments_count.to_s %> <br />
+		Downloads: 0
+	</div>
+	<div style="float:left;padding:5px;">
+		Modified: 0 <br />
+		Created: 0
+	</div>
+	<div style="float:left;width:50px;padding:5px;">
 		<% if SoundFileBookmark.find(:first, 
 			:conditions => {:luser_id => current_user.luser.id, :sound_file_id => sound_file.id }) != nil%>
 		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" 
@@ -64,15 +68,14 @@
 		</a>
 		<% end %>
 		
-		<%= link_to '', bank_sound_file_path(user, bank, sound_file), :class => 'icon-eye-open' %>
+		<% link_to '', bank_sound_file_path(user, bank, sound_file), :class => 'icon-eye-open' %>
     	<%= link_to '', edit_bank_sound_file_path(user, bank, sound_file), :class => 'icon-edit' %>
     	<%= link_to '', bank_sound_file_path(user, bank, sound_file), method: :delete, data: { confirm: 'Are you sure?' }, 
 					:class => 'icon-remove-sign' %>
-		<%= link_to '', sound_file_sound_comments_path(sound_file), :class => 'icon-comment' %>
 	</div>
 	<% end %>
-	<br style="clear:both;"/>
   </div>
+<br style="clear:both;"/>
  </li>
 <% end %>
 </ul>

@@ -5,9 +5,6 @@
 	<li id="tab_browse">
 		<a href="/<%= @user_name %>/banks/browse">Browse</a>
 	</li>
-	<li id="tab_favorites">
-		<a href="/<%= @user_name %>/banks/bookmarked">Bookmarked</a>
-	</li>
 	<% if user_signed_in? %>
 	<% if @user_name == current_user.luser.name %> 
 	<li id="tab_new">

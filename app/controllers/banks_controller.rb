@@ -34,17 +34,7 @@ class BanksController < ApplicationController
 
     t.close
   end
-  
-  
-  def bookmarked
-    luser = Luser.find(:first, :conditions => {:name => params[:username]})
-    bookmarked = BankBookmark.find(:all, :conditions => {:luser_id => luser.id })
-    sound_bookmarked = SoundFileBookmark.find(:all, :conditions => {:luser_id => luser.id})
-    @sound_bookmarks = sound_bookmarked.map { |s| s.sound_file }
-    @bank_bookmarks = bookmarked.map { |b| b.bank }
-    @user_name = params[:username]
-  end
-  
+
   def browse
     luser = Luser.find(:first, :conditions => {:name => params[:username]})
     @modal = params[:window]
