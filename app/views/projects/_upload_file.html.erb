@@ -9,14 +9,19 @@
       </ul>
     </div>
   <% end %>
+<div style="border: 1px solid black;padding:10px;">
   <%= f.hidden_field :type, :value => type %>
+  <div>
+    <%= f.label :track_part %>
+    <%= f.text_field :track_part %>
+  </div>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, :rows => 3 %>
   </div>
   <div>
     <%= f.label :file %>
@@ -25,4 +30,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

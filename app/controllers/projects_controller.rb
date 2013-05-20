@@ -71,10 +71,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    s_files = ProjectFile.find(:all, :conditions => { :project_id => params[:id] })
+    s_files = ProjectFile.find(:all, :conditions => { :project_id => params[:id]})
     all_sound_files = s_files.map { |f| f.sound_file }
     @sound_files = all_sound_files.reject { |f| f.type != 'SoundFile' }
+    @sound_files.sort! {|a, b| a.track_part <=> b.track_part }
     @stem_files = all_sound_files.reject { |f| f.type != 'Stem' }
+    @stem_files.sort! {|a, b| a.track_part <=> b.track_part }
+    
     @song_files = all_sound_files.reject { |f| f.type != 'Song' }
     @remix_files = all_sound_files.reject { |f| f.type != 'SongRemix' }
     @sound_file = SoundFile.new

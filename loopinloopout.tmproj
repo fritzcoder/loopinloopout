@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/bank.rb</string>
+	<string>app/views/banks/_list_files.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -161,6 +161,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/assets/javascripts/banks.js.coffee</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/assets/javascripts/home.js.coffee</key>
 		<dict>
 			<key>caret</key>
@@ -203,6 +217,34 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/assets/stylesheets/banks.css.scss</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>9</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/assets/stylesheets/bootstrap_and_overrides.css.scss</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/assets/stylesheets/home.css.scss</key>
 		<dict>
 			<key>caret</key>
@@ -217,19 +259,33 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/bank_bookmarks_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>25</integer>
+				<key>line</key>
+				<integer>60</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/controllers/banks_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>34</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>189</integer>
+				<integer>36</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>80</integer>
+			<integer>20</integer>
 		</dict>
 		<key>app/controllers/discussions_controller.rb</key>
 		<dict>
@@ -373,6 +429,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/sound_files_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
+				<key>line</key>
+				<integer>75</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>40</integer>
+		</dict>
 		<key>app/controllers/subscriptions_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -456,6 +526,20 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>1</integer>
+		</dict>
+		<key>app/models/bank_file.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/models/bank_genre.rb</key>
 		<dict>
@@ -648,9 +732,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>21</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -676,14 +760,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>54</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>80</integer>
+				<integer>67</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>38</integer>
+			<integer>20</integer>
 		</dict>
 		<key>app/models/sound_file_bookmark.rb</key>
 		<dict>
@@ -729,6 +813,34 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/models/sound_file_type.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/models/sound_type.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>36</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/models/user.rb</key>
 		<dict>
 			<key>caret</key>
@@ -737,6 +849,20 @@
 				<integer>73</integer>
 				<key>line</key>
 				<integer>9</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/banks/_list_files.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>22</integer>
+				<key>line</key>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -772,6 +898,20 @@
 				<key>line</key>
 				<integer>102</integer>
 			</dict>
+		</dict>
+		<key>app/views/banks/_navigation.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>6</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/banks/_upload_file.html.erb</key>
 		<dict>
@@ -857,7 +997,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>4</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/banks/show.html.erb</key>
 		<dict>
@@ -873,7 +1013,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>22</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
@@ -2071,6 +2211,20 @@
 				<integer>48</integer>
 			</dict>
 		</dict>
+		<key>db/migrate/20121107154333_create_sound_files.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>21</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>db/migrate/20121107161700_create_bank_files.rb</key>
 		<dict>
 			<key>caret</key>
@@ -2079,6 +2233,34 @@
 				<integer>24</integer>
 				<key>line</key>
 				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20121109132943_create_sound_file_types.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>9</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20121109154111_create_sound_file_modes.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -2605,6 +2787,26 @@
 		<string>app/controllers/projects_controller.rb</string>
 		<string>app/models/project.rb</string>
 		<string>app/models/bank.rb</string>
+		<string>app/views/banks/_list_files.html.erb</string>
+		<string>db/migrate/20121107161700_create_bank_files.rb</string>
+		<string>app/controllers/bank_bookmarks_controller.rb</string>
+		<string>app/controllers/banks_controller.rb</string>
+		<string>app/views/banks/index.html.erb</string>
+		<string>app/views/banks/_navigation.html.erb</string>
+		<string>app/views/banks/show.html.erb</string>
+		<string>db/migrate/20121109132943_create_sound_file_types.rb</string>
+		<string>db/migrate/20121107154333_create_sound_files.rb</string>
+		<string>db/migrate/20121109154111_create_sound_file_modes.rb</string>
+		<string>app/models/bank_file.rb</string>
+		<string>app/models/sound_file.rb</string>
+		<string>app/views/banks/_mini_list_files.html.erb</string>
+		<string>app/controllers/sound_files_controller.rb</string>
+		<string>app/models/sound_file_type.rb</string>
+		<string>app/models/sound_type.rb</string>
+		<string>app/models/song_remix.rb</string>
+		<string>app/assets/javascripts/banks.js.coffee</string>
+		<string>app/assets/stylesheets/banks.css.scss</string>
+		<string>app/assets/stylesheets/bootstrap_and_overrides.css.scss</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
