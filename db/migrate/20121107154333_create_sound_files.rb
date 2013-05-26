@@ -13,6 +13,7 @@ class CreateSoundFiles < ActiveRecord::Migration
       t.integer     :sound_file_bookmarks_count,:default => 0
       t.integer     :sound_comments_count, :default => 0
       t.integer     :votes_count, :default => 0
+      t.boolean     :publish, :default => false
       t.string      :type
       t.string      :track_part
       t.boolean     :idea

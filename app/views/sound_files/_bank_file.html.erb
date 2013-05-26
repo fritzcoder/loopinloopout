@@ -1,0 +1,66 @@
+<h4>Sound Attributes</h4>
+<%= form_for([@bank, @sound_file], :url => bank_sound_file_path(@user, @bank, @sound_file)) do |f| %>
+  <% if @sound_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sound_file.errors.count, "error") %> prohibited this sound_file from being saved:</h2>
+      <ul>
+      <% @sound_file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="span3">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="span3">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+</div>
+ <div class="row">
+  <div class="span3">
+  Bank:<br />
+  <%= select("bank", "id", 
+      @bank_select.collect {|t| [ t.name, t.id ] }, 
+          {:selected => @banks},{:multiple => true } ) %>
+  </div>
+  <div class="span3">
+  Software:<br />
+  <%= select("software", "id", 
+      Software.all.collect {|t| [ t.name, t.id ] }, 
+          {:selected => @softwares},{:multiple => true } ) %>
+  </div>
+  <div class="span3">
+  Type:<br />
+  <%= select("type", "id", 
+      SoundType.where("sound_type_id is null").collect {|t| [t.name, t.id] }, 
+          {:selected => @sound_file_types}, { :multiple => true } ) %>
+  </div>
+</div>
+<div class="row">
+	<div class="span3">
+	  Sub Type:<br />
+	  <%= select("type", "id", 
+	       [["None", 0]], { :selected => @sound_file_types },
+	          {:multiple => true, :id => "sub_type"} ) %>
+	</div>
+  	<div class="span3">
+  		Mode:<br />
+  	<%= select("mode", "id", 
+      Mode.all.collect { |t| [t.name, t.id ] }, 
+          {:selected => @modes},{:multiple => true } ) %>
+  	</div>
+	<div class="span3">
+		<div>
+		    <%= f.label :preview %><br />
+		    <%= f.file_field :preview %>
+		</div>
+	</div>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>

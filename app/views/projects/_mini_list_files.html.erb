@@ -10,36 +10,34 @@
   %>
   <% if part != sound_file.track_part %>
 	<% part = sound_file.track_part %>
-	<h4><%= sound_file.track_part %></h4>
+	<h4 style="line-height:0px;"><%= sound_file.track_part %></h4>
   <% end %>
-  
-  
   <div>
 	<div style="float:left;">
 	<% if sound_file.preview? %>
-	
-		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', '<%= wave_url %>','<%= sound_file.name %>');">
+		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', 
+			'<%= wave_url %>','<%= sound_file.name %>');return false;">
 			<i  class="icon-play"></i></a>
-	
 	<% elsif sound_file.audio != nil %>
-	
-		<a href="#" onclick="playFile('<%= sound_file.file.url%>', '<%= wave_url %>', '<%= sound_file.name %>');">
+		<a href="#" onclick="playFile('<%= sound_file.file.url%>', 
+			'<%= wave_url %>', '<%= sound_file.name %>');return false;">
 			<i  class="icon-play"></i></a>
 	<% else %>
-	<i class=" icon-upload"></i>
+		<i class=" icon-upload"></i>
 	<% end %>
 	</div>
 	<div style="float:left;margin-left:10px;">
-    <b><%= sound_file.name %></b>
+    	<b><%= link_to sound_file.name, 
+				sound_file_sound_comments_path(sound_file, :project => @project.id.to_s) %></b>
     </div>
-    <div style="clear:both;">
-		Created By:
-		<%= sound_file.created_by %>
+    <div style="float:right;">
+		Created by: <%= link_to sound_file.created_by, '/#{sound_file.created_by}' %>
 	</div>
+	<div style="clear:both;float:right;">
 	<%= sound_file.file_type %>
 		<% if SoundFileBookmark.find(:first, :conditions => {:luser_id => current_user.luser.id, 
 			:sound_file_id => sound_file.id }) != nil%>
-		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);" title="bookmark" 
+		<a href="#" id="sf_<%= sound_file.id.to_s %>" onclick="bookmark(<%= sound_file.id.to_s %>);return false;" title="bookmark" 
 			style="display:none;">
 			<i class="icon-bookmark"></i>
 		</a>
@@ -56,44 +54,45 @@
 		</a>
 		<% end %>
 		<%= link_to '', sound_file_sound_comments_path(sound_file, :project => @project.id.to_s), :class => 'icon-comment' %>
+		(<%= sound_file.sound_comments_count.to_s %>)
 		<%= link_to '', '', method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove-sign' %>
+	 </div>
   </div>
-  <br />
-<% end %>
-	
+  <br style="clear:both;"/>
+<% end %>	
 </div>
 <script type="text/javascript">
-	function bookmark(sound_file_id) {
-		$.ajax({
-			type: 'POST',
-			url: '<%= sound_file_bookmarks_path %>',
-	        data: {
-			  _method : 'POST',
-			  sound_file_id : sound_file_id,
-			  username : '<%= current_user.luser.name %>'
-	        },
-			success: function(data) {
-				$('#sf_' + sound_file_id ).hide();
-				$('#sfb_' + sound_file_id).show('slow');
-			},
-	        dataType: 'json'
-	      });
-	}
+(function bookmark(sound_file_id) {
+	$.ajax({
+		type: 'POST',
+		url: '<%= sound_file_bookmarks_path %>',
+      	data: {
+  			_method : 'POST',
+  			sound_file_id : sound_file_id,
+  			username : '<%= current_user.luser.name %>'
+      	},
+		success: function(data) {
+			$('#sf_' + sound_file_id ).hide();
+			$('#sfb_' + sound_file_id).show('slow');
+		},
+      	dataType: 'json'
+    });
+})
 	
- 	function bookmarked(sound_file_id) {
-		$.ajax({
-			type: 'POST',
-			url: '<%= sound_file_bookmarks_path %>',
-	        data: {
-				_method : 'POST',
-		    	sound_file_id : sound_file_id,
-				username : '<%= current_user.luser.name %>'
-	        },
-			success: function(data) {
-				$('#sf_' + sound_file_id ).show('slow');
-				$('#sfb_' + sound_file_id).hide();
-			},
-	        dataType: 'json'
-	      });
-	};
+(function bookmarked(sound_file_id) {
+	$.ajax({
+		type: 'POST',
+		url: '<%= sound_file_bookmarks_path %>',
+	    data: {
+			_method : 'POST',
+		    sound_file_id : sound_file_id,
+			username : '<%= current_user.luser.name %>'
+	    },
+		success: function(data) {
+			$('#sf_' + sound_file_id ).show('slow');
+			$('#sfb_' + sound_file_id).hide();
+		},
+	    dataType: 'json'
+	 });
+})
 </script>

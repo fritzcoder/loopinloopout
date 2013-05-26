@@ -28,7 +28,7 @@
 			<% if @user_name != nil %>
 			<div class="span2">
 				<%= yield(:profile) %>
-				
+				<%= yield(:stuff) %>
 				<ul class="nav nav-tabs nav-stacked" style="background-color:#838B8B">
 			    	<li>
 						<a href="/<%= @user_name %>/projects" style="color: #000" class='active'>
@@ -41,8 +41,6 @@
 						</a>
 					</li>
 			    </ul>
-				<%= yield(:stuff) %>
-				
 			</div>
 			<% end %>
 			<% if @user_name != nil %>
