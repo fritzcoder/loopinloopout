@@ -36,9 +36,9 @@
 		<div id="upload_sound" style="display:none">
 			<%= render :partial => 'upload_file', :locals => { :type => "SoundFile" } %>
 		</div>
-		<div style="border: 1px solid black;padding:5px;">
+		<div style="border:1px solid black;padding:5px;">
 			<%if @sound_files.empty? %>
-			<h4>Select from banks or upload sounds and loops</h4>
+			<h4>Select from banks or upload</h4>
 			<% else %>
 			<%= render :partial => "mini_list_files", :locals => { :sound_files => @sound_files, 
 				:user => @user_name, :player_size => "small"} %>

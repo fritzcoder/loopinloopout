@@ -1,6 +1,18 @@
 class SoundFilesController < ApplicationController
 before_filter :authenticate_user!
 
+  def toggle_publish
+    sound_file = SoundFile.find(params[:id])
+    
+    if sound_file.publish == true
+      sound_file.publish = false
+    else
+      sound_file.publish = true
+    end
+    
+    sound_file.save
+  end
+  
   def update_listen_count
     sound_file = SoundFile.find(params[:id])
     sound_file.listen_count = sound_file.listen_count + 1

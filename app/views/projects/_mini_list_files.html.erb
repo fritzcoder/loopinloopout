@@ -16,11 +16,11 @@
 	<div style="float:left;">
 	<% if sound_file.preview? %>
 		<a href="#" onclick="playFile('<%= sound_file.preview.url %>', 
-			'<%= wave_url %>','<%= sound_file.name %>');return false;">
+			'<%= wave_url %>','<%= sound_file.name %>',<%= sound_file.id %>);return false;">
 			<i  class="icon-play"></i></a>
 	<% elsif sound_file.audio != nil %>
 		<a href="#" onclick="playFile('<%= sound_file.file.url%>', 
-			'<%= wave_url %>', '<%= sound_file.name %>');return false;">
+			'<%= wave_url %>', '<%= sound_file.name %>',<%= sound_file.id %>);return false;">
 			<i  class="icon-play"></i></a>
 	<% else %>
 		<i class=" icon-upload"></i>
@@ -29,6 +29,13 @@
 	<div style="float:left;margin-left:10px;">
     	<b><%= link_to sound_file.name, 
 				sound_file_sound_comments_path(sound_file, :project => @project.id.to_s) %></b>
+		<% if sound_file.publish %>
+				<a href="#" onclick="toggle_publish(<%= sound_file.id %>);return false;">
+					<i class="icon-certificate icon-white"></i></a>
+		<% else %>
+			<a href="#" onclick="toggle_publish(<%= sound_file.id %>);return false;">
+				<i class="icon-certificate"></i></a>
+		<% end %>
     </div>
     <div style="float:right;">
 		Created by: <%= link_to sound_file.created_by, '/#{sound_file.created_by}' %>
@@ -62,7 +69,7 @@
 <% end %>	
 </div>
 <script type="text/javascript">
-(function bookmark(sound_file_id) {
+function bookmark(sound_file_id) {
 	$.ajax({
 		type: 'POST',
 		url: '<%= sound_file_bookmarks_path %>',
@@ -77,9 +84,9 @@
 		},
       	dataType: 'json'
     });
-})
+}
 	
-(function bookmarked(sound_file_id) {
+function bookmarked(sound_file_id) {
 	$.ajax({
 		type: 'POST',
 		url: '<%= sound_file_bookmarks_path %>',
@@ -94,5 +101,16 @@
 		},
 	    dataType: 'json'
 	 });
-})
+}
+function toggle_publish(sound_file_id){
+	$.ajax({
+		type: 'POST',
+        url: "<%= toggle_publish_path %>",
+        data: {
+		 _method : 'POST',
+		  id : sound_file_id
+        },
+        dataType: "script"
+      });
+}
 </script>

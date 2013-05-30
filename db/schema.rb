@@ -281,12 +281,13 @@ ActiveRecord::Schema.define(:version => 20130409074012) do
     t.integer  "sound_file_bookmarks_count", :default => 0
     t.integer  "sound_comments_count",       :default => 0
     t.integer  "votes_count",                :default => 0
+    t.boolean  "publish",                    :default => false
     t.string   "type"
     t.string   "track_part"
     t.boolean  "idea"
     t.string   "created_by"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "sound_types", :force => true do |t|
