@@ -1,18 +1,21 @@
-<h1> 
-    <%= @project.name %> 
-	<span class="label label-info"><%= @project.type %></span>
-	<% if @project.access == "public" %>
-	<span class="label label-success"><%= @project.access %></span>
-	<% else %>
-	<span class="label label-important"><%= @project.access %></span>
-	<% end %>
-</h1>
-<div>
+<h4><%= @project.name %></h4>
+  <p>
+	<%= @project.description %>
+  </p>
+  <div>
+  	 <span class="label label-info"><%= @project.type %></span>
+	  <% if @project.access == "public" %>
+		<span class="label label-success"><%= @project.access %></span>
+	  <% else %>
+		<span class="label label-important"><%= @project.access %></span>
+	  <% end %>
+  </div>
+  Genre:
+  <div>
 	<% @project.genres.each do |genre|%>
 	<span class="label label-inverse"><%= genre.name %></span>
 	<% end %>
-</div>
-<p><%= @project.description %></p>
+  </div>
 <% subscription = nil %>
 <% if @user_name != current_user.luser.name %>
 	<% if subscription != nil %>

@@ -1,32 +1,28 @@
 <% content_for :profile do %>
-  <%= render :partial => "layouts/profile", :locals => { :user => @user_name } %>
-<br />
+  	<%= render :partial => "project_header" %>
 <% end %>
-
 <% content_for :stuff do %>
   Collaborating with:
   <div>
 	<%= render :partial => "collaborating_with" %>
   </div>
-<br />
+  <br />
 <% end %>
-
 <div style="width:760px;">
 	Mix-Downs:<i id="usong" class="icon-upload" style="float:right;"></i>
 	<div id="upload_song" style="display:none">
-		<%= render :partial => 'upload_file', :locals => { :type => "Song" } %>
+		<%= render :partial => 'upload_mixdown_file', :locals => { :type => "Song" } %>
 		
 	</div>
 	<div style="border: 1px solid black;padding: 5px;">
 		<%if @song_files.empty? %>
-		<h3>No Songs uploaded</h3> 
+		<h3>No mixdowns uploaded</h3> 
 		<% else %>
-		<%= render :partial => "mini_list_files", :locals => { :sound_files => @song_files, 
+		<%= render :partial => "mixdown", :locals => { :sound_files => @song_files, 
 			:user => @user_name, :player_size => "small"} %>
 		<% end %>
 	</div>
 </div>
-<br />
 <div style="width:760px;">
 <div style="width:760px;">
 	<div style="float:left;width:370px;">
@@ -61,7 +57,6 @@
 			
 		</div>
 	</div>
-
 	<br style="clear:both;" />
 </div>
 </div>
